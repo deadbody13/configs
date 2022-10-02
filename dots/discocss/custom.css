@@ -1,0 +1,39 @@
+:root {
+	--font-primary: "Comic Mono";
+	--font-display: "DeadSevka Extrabold Extended";
+	--font-headline: "DeadSevka Extended";
+}
+
+.theme-dark {
+	--background-primary: #191724;
+	--background-secondary: #2a2738;
+	--background-tertiary: #191724;
+}
+
+.scrollableContainer-15eg7h {
+	font-family: "Deadsevka Extrabold Extended";
+	background-color: black;
+}
+
+.textArea-2CLwUE {
+	color: black;
+}
+.cozyMessage-1DWF9U.groupStart-3Mlgv1 {
+	/* size */
+	/* margin-left:  10px; */
+	/* margin-right: 10px; */
+	/* distance between message groups */
+	margin-top:    20px;
+	margin-bottom: 5px;
+	/* padding */
+	padding-top: 		10px;
+	padding-bottom: 0px;
+	/* border */
+	border-top: 1px #5a455e;
+	border-left: 0px #191724;
+	border-right: 0px #191724;
+	border-bottom: 0px #191724;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 10px;
+}

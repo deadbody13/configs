@@ -1,0 +1,328 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+textColor = #e5e5e0
+
+gruvBlackDark = #0f1112
+gruvBlackLight = #928374
+gruvRedDark = #820b07
+gruvRedLight = #802e2b
+gruvGreenDark = #98971a
+gruvGreenLight = #b8bb26
+gruvYellowDark = #9c6f17
+gruvYellowLight = #fabd2f
+gruvBlueDark = #458588
+gruvBlueLight = #83a598
+gruvPurpleDark = #b16286
+gruvPurpleLight = #d3869b
+gruvAquaDark = #689d6a
+gruvAquaLight = #8ec07c
+gruvGrayDark = #a89984
+gruvGrayLight = #ebdbb2
+gruvOrangeDark = #964209
+gruvOrangeLight = #915329
+
+background = ${colors.gruvBlackDark}
+foreground = ${colors.gruvBlackDark}
+alert = #bd2c40
+
+[bar/mybar1]
+enable-ipc = true
+monitor = HDMI-0
+width = 99%
+height = 18
+offset-x = 0.5%
+offset-y = 5
+radius = 0
+fixed-center = true
+# allows free movement of bar, ie. offset-x and offset-y
+override-redirect = true
+# pushes polybar behind all applications, including videos in fullscreen
+wm-restack = i3
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+border-size = 1
+border-color = ${colors.gruvRedDark}
+
+line-size = 3
+line-color = #f00
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 2
+module-margin-right = 0
+
+font-0 = JuliaMono:style=Regular:pixelsize=8:antialias=true;2
+font-1 = MesloLGS NF:style=Regular:pixelsize=10:antialias=true;2
+font-2 = MesloLGS NF:style=Regular:pixelsize=10:antialias=true;2
+
+modules-left = time date
+modules-center = xwindow
+modules-right = i3
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/mybar2]
+enable-ipc = true
+label-visible = true
+monitor = DVI-D-0
+width = 98.5%
+height = 18
+offset-x = 0.75%
+offset-y = 5
+radius = 0
+fixed-center = true
+override-redirect = true
+wm-restack = i3
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 1
+border-color = ${colors.gruvRedDark}
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = JuliaMono:style=Regular:pixelsize=8:antialias=true;2
+font-1 = MesloLGS NF:style=Regular:pixelsize=10:antialias=true;2
+font-2 = MesloLGS NF:style=Regular:pixelsize=10:antialias=true;2
+
+modules-left = pulseaudio cpu memory
+modules-center = xwindow
+modules-right = filesystem i3 date time
+
+tray-position = right
+tray-padding = 0
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+label-empty = Empty
+label-maxlen = 50
+label-foreground = ${colors.gruvAquaLight}
+label-font = 1
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted-foreground = ${colors.gruvBlackDark}
+label-mounted-background = ${colors.gruvYellowDark}
+label-foreground = ${colors.gruvBlackDark}
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.gruvBlackDark}
+label-mounted-padding-left = 1
+label-mounted-padding-right = 1
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.foreground}
+
+label-focused = %index%
+label-focused-foreground = ${colors.gruvBlackDark}
+label-focused-background = ${colors.gruvAquaLight}
+label-focused-padding = 2
+
+label-unfocused-foreground = ${colors.gruvBlackDark}
+label-unfocused-background = ${colors.gruvRedLight}
+label-unfocused = %index%
+label-unfocused-padding = 2
+
+label-visible = %index%
+label-visible-foreground = ${colors.gruvBlackDark}
+label-visible-background = ${colors.gruvAquaLight}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #fff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " CPU: "
+format-prefix-foreground = ${colors.gruvBlackDark}
+label = %percentage:2%%
+format-background = ${colors.gruvYellowDark}
+format-foreground = ${colors.gruvBlackDark}
+label-padding-right = 1
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " RAM:  "
+format-prefix-foreground = ${colors.gruvBlackDark}
+label = %percentage_used%%
+label-foreground = ${colors.gruvBlackDark}
+format-background = ${colors.gruvBlueDark}
+label-padding-right = 1
+
+[module/wlan]
+type = internal/network
+interface = net1
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid%
+
+format-disconnected = "Disconnected"
+;format-disconnected = <label-disconnected>
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/eth]
+type = internal/network
+interface = enp0s3
+interval = 3.0
+
+format-connected-prefix = " "
+
+label-connected = "IP: %local_ip%"
+
+format-disconnected = "disconnected"
+;format-disconnected = <label-disconnected>
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = "// %m.%d.%Y"
+date-alt = "DATE/TIME: %m.%d.%Y ::"
+
+time = "// %H:%M"
+time-alt = %H:%M:%S
+
+format-prefix = 
+label-background = ${colors.gruvOrangeLight}
+label-foreground = ${colors.gruvBlackDark}
+label-padding-left = 1
+label-padding-right = 1
+
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume><bar-volume>
+label-volume = VOL %percentage%%
+label-volume-foreground = ${colors.textColor}
+label-volume-background = ${colors.gruvBlackDark}
+# label-volume-padding-left = 1
+# label-volume-padding-right = 1
+label-volume-padding = 2
+
+label-muted = muted
+label-muted-foreground = ${colors.gruvAquaLight}
+label-muted-padding = 2
+
+bar-volume-width = 7
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = -
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.gruvBlackDark}
+bar-volume-empty-background = ${colors.gruvRedDark}
+bar-volume-fill-background = ${colors.gruvRedLight}
+bar-volume-fill-foreground = ${colors.gruvBlacklight}
+bar-volume-indicator-background = ${colors.gruvGreenDark}
+bar-volume-indicator-foreground = ${colors.gruvGreenLight}
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+[module/info-softwarecounter]
+type = custom/script
+exec = ~/.config/polybar/scripts/info-softwarecounter.py 
+interval = 1

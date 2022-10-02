@@ -1,0 +1,53 @@
+[section/base]
+include-directory = ~/.config/polybar/modules
+
+[colors]
+transparent = #00000000
+foreground = #0c1a22
+background = #fdf6e3
+border = #5c6a72
+
+color1 = #a8899c
+color2 = #ff4971
+color3 = #8897f4
+
+[variables]
+padding = 1
+module_spacing = 1
+
+[settings]
+format-padding = ${variables.padding}
+
+[global/wm]
+margin-bottom = -5
+
+[bar/default]
+cursor-click = pointer
+fixed-center = false
+wm-restack = i3
+override-redirect = true
+
+font-0 = Comic Mono:size=10;2
+font-1 = MaterialDesignIcons:size=12;1
+font-2 = MaterialDesignIcons:size=9;3
+
+height = 25
+width = 25%
+offset-x = 37.5%
+offset-y = 7px 
+border-size = 3
+module-margin = ${variables.module_spacing}
+
+border-color = ${colors.border}
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+modules-left = i3
+modules-center = date
+modules-right = battery volume
+
+[module/filesystem-tower]
+inherit = module/filesystem
+
+mount-1 = /mnt/raid
+; vim:ft=dosini
