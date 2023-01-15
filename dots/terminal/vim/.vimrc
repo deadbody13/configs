@@ -34,8 +34,9 @@ call plug#end()
 " |_|\_\___|\__, | |_|  |_|\__,_| .__/| .__/|_|_| |_|\__, |___/
 "           |___/               |_|   |_|            |___/
 inoremap  kj    <Esc>`^
-inoremap  lkj   <Esc>`^:w<CR>
+" inoremap  lkj   <Esc>`^:w<CR>
 nmap      <F9>  :! bash <CR>
+nmap    <C-o>   :Explore<CR>
 " ====================================
 " PROGRAMMING
 " ====================================
@@ -58,6 +59,19 @@ nmap <C-h> wincmd h
 nmap <C-k> wincmd k
 nmap <C-l> wincmd l
 nmap <C-j> wincmd j
+" ====================================
+" Clipboard
+" ====================================
+" nmap <C-v> "*p"
+" ====================================
+" Line Shifting
+" ====================================
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 "  __  __ _
 " |  \/  (_)___  ___
