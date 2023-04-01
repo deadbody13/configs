@@ -1,0 +1,30 @@
+! Set the default font and size
+URxvt.font: xft:DejaVu Sans Mono:size=12
+
+! Set the terminal background color
+URxvt.background: #f5deb3
+
+! Set the terminal text color
+URxvt.foreground: #000000
+
+! Set the color of the cursor
+URxvt.cursorColor: #000000
+
+! Set the color of the scrollbar
+URxvt.scrollBar: true
+URxvt.scrollBar_right: true
+URxvt.scrollstyle: plain
+URxvt.scrollTtyOutput: false
+URxvt.scrollTtyKeypress: true
+URxvt.scrollColor: #000000
+URxvt.scrollstyle: plain
+
+! Add a border around the terminal window
+URxvt.borderLess: false
+URxvt.borderWidth: 2
+URxvt.borderColor: #000000
+
+! Add a notebook-like paper background
+! URxvt*backgroundPixmap: /path/to/notebook.png
+! URxvt*skipBuiltinGlyphs: true
+

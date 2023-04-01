@@ -1,0 +1,172 @@
+set $mod Mod1
+
+###########
+# Gruvbox #
+###########
+set $bg #282828
+set $fg #ebdbb2
+set $acc #83a598
+set $com #d79921
+
+#########
+# Audio #
+#########
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# Media player controls
+bindsym XF86AudioPlay exec --no-startup-id playerctl play
+bindsym XF86AudioStop exec --no-startup-id playerctl pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+floating_modifier $mod
+bindsym $mod+Shift+q kill
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+# move focused window
+bindsym $mod+Shift+h move left 250 px
+bindsym $mod+Shift+j move down 250 px
+bindsym $mod+Shift+k move up 250 px
+bindsym $mod+Shift+l move right 250 px
+
+# split in horizontal orientation
+bindsym $mod+c split h
+# split in vertical orientation
+bindsym $mod+v split v
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+# focus the parent container
+bindsym $mod+a focus parent
+
+##############
+# Workspaces #
+##############
+set $ws1        "1"
+set $ws2        "2"
+set $ws3        "3"
+set $ws4        "4"
+set $ws5        "5"
+set $ws6        "6"
+set $ws7        "7"
+set $ws8        "8"
+set $ws9        "9"
+set $ws10       "10"
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1  ; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2  ; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3  ; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4  ; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5  ; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6  ; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7  ; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8  ; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9  ; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10 ; workspace $ws10
+
+# for_window [class="^.*"] border pixel 1
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+mode "resize" {
+        bindsym h resize shrink width 150 px
+        bindsym j resize grow height 150 px
+        bindsym k resize shrink height 150 px
+        bindsym l resize grow width 150 px
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#######
+# Bar #
+#######
+# Configure the i3 bar
+bar {
+    status_command i3blocks
+    colors {
+        background $bg
+        statusline $fg
+        focused_workspace $fg $acc $bg
+        inactive_workspace $fg $bg $bg
+        urgent_workspace $fg $com $bg
+    }
+}
+# exec_always /home/sven/.config/polybar/launch.sh
+
+##########
+# Colors #
+##########
+# Set the i3 border and background color scheme
+client.focused           #fb4934 #282828 #fb4934 #fb4934
+client.focused_inactive  #282828 #282828 #bdae93 #282828
+client.unfocused         #282828 #282828 #bdae93 #282828
+client.urgent            #fb4934 #282828 #fb4934 #fb4934
+
+################
+# Applications #
+################
+# start a terminal
+bindsym $mod+Return exec kitty
+# d-menu / rofi
+bindsym $mod+d exec --no-startup-id "rofi -show combi"
+# file manager
+bindsym mod4+e exec pcmanfm
+# screenshot utilities
+bindsym Print exec flameshot gui
+bindsym Shift+Print exec peek
+bindsym mod4+1 exec google-chrome
+
+####################
+# Startup Programs #
+####################
+# notifications
+exec_always --no-startup-id dunst
+# compositor
+exec_always --no-startup-id picom --config /home/sven/.config/picom/picom.conf
+# wallpaper
+exec_always --no-startup-id feh --bg-fill /home/sven/Pictures/Wallpapers/pokemon/pokemon-3gen.png
+
+####################
+# Power Management #
+####################
+exec_always --no-startup-id xfce4-power-manager 
+bindsym Ctrl+Shift+Escape exec --no-startup-id systemctl suspend
+bindsym Ctrl+$mod+Delete exec --no-startup-id xterm -e /home/sven/.config/i3/logoutSequence.sh
+bindsym Ctrl+$mod+Shift+Delete exec --no-startup-id xterm -e /home/sven/.config/i3/shutdownSequence.sh
+
+# font
+font pango:monofur Nerd Font Mono 8
+
+########
+# Gaps #
+########
+
