@@ -1,12 +1,9 @@
+#############
+# Variables #
+#############
 set $mod Mod1
-
-###########
-# Gruvbox #
-###########
-set $bg #282828
-set $fg #ebdbb2
-set $acc #83a598
-set $com #d79921
+set $TERM urxvt
+set $FILE_MANAGER pcmanfm
 
 #########
 # Audio #
@@ -16,41 +13,46 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-# Media player controls
-bindsym XF86AudioPlay exec --no-startup-id playerctl play
-bindsym XF86AudioStop exec --no-startup-id playerctl pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
+############
+# Movement #
+############
 floating_modifier $mod
 bindsym $mod+Shift+q kill
-# change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-# move focused window
 bindsym $mod+Shift+h move left 250 px
 bindsym $mod+Shift+j move down 250 px
 bindsym $mod+Shift+k move up 250 px
 bindsym $mod+Shift+l move right 250 px
 
-# split in horizontal orientation
+#########
+# Modes #
+#########
 bindsym $mod+c split h
-# split in vertical orientation
 bindsym $mod+v split v
-# enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-# change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-# toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
-# change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-# focus the parent container
 bindsym $mod+a focus parent
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+mode "resize" {
+        bindsym h resize shrink width 150 px
+        bindsym j resize grow height 150 px
+        bindsym k resize shrink height 150 px
+        bindsym l resize grow width 150 px
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
 
 ##############
 # Workspaces #
@@ -65,7 +67,6 @@ set $ws7        "7"
 set $ws8        "8"
 set $ws9        "9"
 set $ws10       "10"
-# switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -76,7 +77,6 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
-# move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1  ; workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2  ; workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3  ; workspace $ws3
@@ -88,61 +88,40 @@ bindsym $mod+Shift+8 move container to workspace $ws8  ; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9  ; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10 ; workspace $ws10
 
-# for_window [class="^.*"] border pixel 1
-
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-mode "resize" {
-        bindsym h resize shrink width 150 px
-        bindsym j resize grow height 150 px
-        bindsym k resize shrink height 150 px
-        bindsym l resize grow width 150 px
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-bindsym $mod+r mode "resize"
-
 #######
 # Bar #
 #######
-# Configure the i3 bar
-bar {
-    status_command i3blocks
-    colors {
-        background $bg
-        statusline $fg
-        focused_workspace $fg $acc $bg
-        inactive_workspace $fg $bg $bg
-        urgent_workspace $fg $com $bg
-    }
-}
-# exec_always /home/sven/.config/polybar/launch.sh
+exec_always /home/sven/.config/polybar/launch.sh
 
 ##########
 # Colors #
 ##########
-# Set the i3 border and background color scheme
-client.focused           #fb4934 #282828 #fb4934 #fb4934
-client.focused_inactive  #282828 #282828 #bdae93 #282828
-client.unfocused         #282828 #282828 #bdae93 #282828
-client.urgent            #fb4934 #282828 #fb4934 #fb4934
+# Gruvbox Dark colorscheme
+set $gruvbox_bg        #282828
+set $gruvbox_fg        #ebdbb2
+set $gruvbox_red       #cc241d
+set $gruvbox_green     #98971a
+set $gruvbox_yellow    #d79921
+set $gruvbox_blue      #458588
+set $gruvbox_purple    #b16286
+set $gruvbox_aqua      #689d6a
+set $gruvbox_gray      #a89984
+client.focused          $gruvbox_bg $gruvbox_fg $gruvbox_bg $gruvbox_blue $gruvbox_bg
+client.focused_inactive $gruvbox_bg $gruvbox_gray $gruvbox_bg $gruvbox_gray $gruvbox_bg
+client.unfocused        $gruvbox_bg $gruvbox_gray $gruvbox_bg $gruvbox_gray $gruvbox_bg
+client.urgent           $gruvbox_bg $gruvbox_red $gruvbox_bg $gruvbox_red $gruvbox_bg
+client.placeholder      $gruvbox_bg $gruvbox_aqua $gruvbox_bg $gruvbox_fg $gruvbox_bg
 
 ################
 # Applications #
 ################
-# start a terminal
-bindsym $mod+Return exec kitty
-# d-menu / rofi
+bindsym $mod+Return exec $TERM
 bindsym $mod+d exec --no-startup-id "rofi -show combi"
-# file manager
-bindsym mod4+e exec pcmanfm
-# screenshot utilities
 bindsym Print exec flameshot gui
 bindsym Shift+Print exec peek
+bindsym mod4+e exec $FILE_MANAGER
+# bindsym mod4+l exec i3lock -i /home/sven/Pictures/Wallpapers/pokemon/pokemon-3gen.png
+bindsym mod4+l exec i3lock -i /home/sven/.config/i3/lockscreen.png
 bindsym mod4+1 exec google-chrome
 
 ####################
@@ -150,23 +129,26 @@ bindsym mod4+1 exec google-chrome
 ####################
 # notifications
 exec_always --no-startup-id dunst
-# compositor
 exec_always --no-startup-id picom --config /home/sven/.config/picom/picom.conf
-# wallpaper
-exec_always --no-startup-id feh --bg-fill /home/sven/Pictures/Wallpapers/pokemon/pokemon-3gen.png
+exec_always --no-startup-id feh --bg-fill /home/sven/Pictures/Wallpapers/tea/tea.png
 
 ####################
 # Power Management #
 ####################
-exec_always --no-startup-id xfce4-power-manager 
+exec xset s off
+exec xset -dpms
+exec light -s sysfs/leds/tpacpi::kbd_backlight -S 50
 bindsym Ctrl+Shift+Escape exec --no-startup-id systemctl suspend
 bindsym Ctrl+$mod+Delete exec --no-startup-id xterm -e /home/sven/.config/i3/logoutSequence.sh
 bindsym Ctrl+$mod+Shift+Delete exec --no-startup-id xterm -e /home/sven/.config/i3/shutdownSequence.sh
 
-# font
-font pango:monofur Nerd Font Mono 8
+########
+# Misc #
+########
+exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Button Mapping Enabled" 1, 0
 
-########
-# Gaps #
-########
+font pango:Anonymous Pro 11
+gaps inner 15
 

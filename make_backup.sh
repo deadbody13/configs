@@ -8,6 +8,7 @@ DIR_LIST=("
 	$CONFIG/fish
 	$CONFIG/i3
 	$CONFIG/i3status
+	$CONFIG/i3blocks
 	$CONFIG/kitty
 	$CONFIG/picom
 	$CONFIG/polybar
