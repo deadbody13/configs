@@ -1,33 +1,33 @@
-! urxvt config for gruvbox light theme
-!
 URxvt.font: xft:Anonymous Pro:size=12:antialias=true
 URxvt.letterSpace: 1
 URxvt*allow_bold: true
-*borderColor: #fbf1c7
-*background: #fbf1c7
-*foreground: #3c3836
-*color0:  #fdf4c1
-*color8:  #928374
-*color1:  #cc241d
-*color9:  #9d0006
-*color2:  #98971a
-*color10: #79740e
-*color3:  #d79921
-*color11: #b57614
-*color4:  #458588
-*color12: #076678
-*color5:  #b16286
-*color13: #8f3f71
-*color6:  #689d6a
-*color14: #427b58
-*color7:  #7c6f64
-*color15: #3c3836
+URxvt*background: #382b22
+URxvt*foreground: #c09e5d
+URxvt*cursorColor: #c09e5d
+URxvt*color0: #382b22
+URxvt*color1: #ff5555
+URxvt*color2: #c09e5d
+URxvt*color3: #ff9966
+URxvt*color4: #9e9e9e
+URxvt*color5: #c09e5d
+URxvt*color6: #b4b4b4
+URxvt*color7: #c09e5d
+URxvt*color8: #543d2a
+URxvt*color9: #ff6b6b
+URxvt*color10: #ffb347
+URxvt*color11: #ffdab9
+URxvt*color12: #bdbdbd
+URxvt*color13: #c09e5d
+URxvt*color14: #d3d3d3
+URxvt*color15: #c09e5d
 
 ! keeps command prompt from appearing in the center of the screen
 URxvt.geometry: 400x400
 URxvt.internalBorder: 15
 URxvt*scrollBar: false
 URxvt*saveLines: 10000
-
+*bellIsUrgent: False
+! remap copy/paste
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.perl-ext:-confirm-paste

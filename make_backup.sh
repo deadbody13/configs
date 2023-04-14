@@ -7,9 +7,10 @@ DIR_LIST=("
 	$CONFIG/dunst
 	$CONFIG/fish
 	$CONFIG/i3
-	$CONFIG/i3status
 	$CONFIG/i3blocks
+	$CONFIG/i3status
 	$CONFIG/kitty
+	$CONFIG/ntfd
 	$CONFIG/picom
 	$CONFIG/polybar
 	$CONFIG/rofi

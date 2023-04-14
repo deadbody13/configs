@@ -3,7 +3,7 @@
 #############
 set $mod Mod1
 set $TERM urxvt
-set $FILE_MANAGER pcmanfm
+set $FILE_MANAGER dolphin
 
 #########
 # Audio #
@@ -91,6 +91,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10 ; workspace $ws10
 #######
 # Bar #
 #######
+exec_always --no-startup-id /home/sven/.config/polybar/scripts/ntfd-x86_64-unknown-linux-musl
 exec_always /home/sven/.config/polybar/launch.sh
 
 ##########
@@ -120,8 +121,7 @@ bindsym $mod+d exec --no-startup-id "rofi -show combi"
 bindsym Print exec flameshot gui
 bindsym Shift+Print exec peek
 bindsym mod4+e exec $FILE_MANAGER
-# bindsym mod4+l exec i3lock -i /home/sven/Pictures/Wallpapers/pokemon/pokemon-3gen.png
-bindsym mod4+l exec i3lock -i /home/sven/.config/i3/lockscreen.png
+bindsym mod4+l exec --no-startup-id i3lock -i /home/sven/.config/i3/lockscreen_2.png
 bindsym mod4+1 exec google-chrome
 
 ####################

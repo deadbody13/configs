@@ -3,14 +3,12 @@ font = Monospace 9
 foreground = '#ebdbb2'
 background = '#282828'
 timeout = 5000
-alignment = center
+alignment = left
 stack_duplicates = true
 max_icon_size = 32
-
-[geometry]
-position = "top_right"
-size = "300x50"
-padding = 10
+width = 300
+height = 40
+offset = 12x32
 
 [urgency_low]
 background = "#282828"
@@ -20,7 +18,7 @@ timeout = 5
 [urgency_normal]
 background = "#282828"
 foreground = "#ebdbb2"
-timeout = 5000
+timeout = 5
 
 [urgency_critical]
 background = "#cc241d"
