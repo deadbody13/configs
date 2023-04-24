@@ -1,7 +1,7 @@
 # OpenWeatherMap configuration
 [openweathermap]
 enabled = true
-api_key = "file:~/keys/openweather_apikey"
+api_key = "file:/home/sven/keys/openweather_apikey"
 city_id = "4229476"
 notification_timeout = 10 # 10 seconds
 notification_body = "Expected within the next 3 hours"
@@ -17,7 +17,7 @@ sync_frequency = 600 # 10 minutes
 # - forecast_kelvin
 # - forecast_fahrenheit
 # - forecast_icon
-display = "{{ temp_icon }} {{ temp_fahrenheit }}°F {{ trend }}"
+display = "{{ temp_icon }} {{ temp_fahrenheit }}°F {{ trend }} {{forecast_icon}} {{forecast_fahrenheit}}"
 
 # GitHub configuration
 [github]

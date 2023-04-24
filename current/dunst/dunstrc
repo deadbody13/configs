@@ -6,8 +6,8 @@ timeout = 5000
 alignment = left
 stack_duplicates = true
 max_icon_size = 32
-width = 300
-height = 40
+# width = 300
+# height = 40
 offset = 12x32
 
 [urgency_low]

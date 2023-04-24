@@ -87,6 +87,7 @@ set noshowmode
 set hlsearch
 set incsearch
 set completeopt-=preview
+set belloff=all
 " html autocomplete
 let g:closetag_filenames = '*.html'
 let g:closetag_filetypes = '*.html'
