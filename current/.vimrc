@@ -88,6 +88,7 @@ set hlsearch
 set incsearch
 set completeopt-=preview
 set belloff=all
+nnoremap <F5>   :! deadd-reload.sh <CR><CR>
 " html autocomplete
 let g:closetag_filenames = '*.html'
 let g:closetag_filetypes = '*.html'
@@ -102,31 +103,3 @@ let g:closetag_close_shortcut = '<leader>>'
 let g:lightline = {
 												\'colorscheme': 'PaperColor'
 												\}
-
-function! DeleteNthArg(n)
-    let lnum = line('.')
-    let [_, col] = searchpair('(', '', ')', 'nbW')
-    let [lnum, _] = searchpair('\<function\>', '', '\<\>\s*\%(\_.*\)\@<=(', ')', 'bnW', '', lnum)
-    if lnum == 0
-        throw "Could not find function definition."
-    endif
-    let line = getline(lnum)
-    let [funcname, args] = matchstr(line, '\<function\>\s\+\(\w\+\)\s*(\s*\(\(\%(\_.*\)\)*\)\s*)')
-    let [startcol, endcol] = match(line, '\<function\>\s\+\(\w\+\)\s*(\s*\(\%(\_.*\)*\)\s*)')
-    if col < startcol || col >= endcol
-        throw "Cursor is not on or between the parentheses of a function definition."
-    endif
-    execute "function " . funcname . "(" . args . ")"
-    let arglist = []
-    let i = 0
-    for arg in split(args, ',')
-        if i != n
-            let arglist += [arg]
-        endif
-        let i += 1
-    endfor
-    let arglist = join(arglist, ',')
-    execute "return " . funcname . "(" . arglist . ")"
-    execute "endfunction"
-endfunction
-

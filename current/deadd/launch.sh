@@ -2,4 +2,4 @@
 
 killall deadd-notification-center
 
-~/bin/deadd-notification-center &
+deadd-notification-center &

@@ -22,10 +22,12 @@ DIR_LIST=("
 	$HOME/bin
 ")
 
-for x in $DIR_LIST
-do
-	if [[ -e $x ]]
-	then
-		cp -r $x current
-	fi
-done
+rsync --delete -aruv $DIR_LIST current
+
+# for x in $DIR_LIST
+# do
+# 	if [[ -e $x ]]
+# 	then
+# 		cp -r $x current
+# 	fi
+# done

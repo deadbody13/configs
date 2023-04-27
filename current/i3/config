@@ -122,7 +122,12 @@ bindsym Print exec flameshot gui
 bindsym Shift+Print exec peek
 bindsym mod4+e exec $FILE_MANAGER
 bindsym mod4+l exec --no-startup-id i3lock -i /home/sven/.config/i3/lockscreen_2.png
+
+###########
+# Taskbar #
+###########
 bindsym mod4+1 exec google-chrome
+bindsym mod4+2 exec flatpak run com.spotify.Client
 
 ####################
 # Startup Programs #
@@ -149,6 +154,7 @@ bindsym Ctrl+$mod+Shift+Delete  exec --no-startup-id    $TERM -e /home/sven/.con
 exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
 exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Button Mapping Enabled" 1, 0
+bindsym $mod+Shift+n exec /home/sven/bin/deadd-noti-toggle.sh
 
 font pango:Anonymous Pro 11
 smart_gaps on
