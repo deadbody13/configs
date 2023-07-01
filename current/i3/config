@@ -4,6 +4,7 @@
 set $mod Mod1
 set $TERM kitty
 set $FILE_MANAGER dolphin
+set $BROWSER firefox
 
 #########
 # Audio #
@@ -126,7 +127,7 @@ bindsym mod4+l exec --no-startup-id i3lock -i /home/sven/.config/i3/lockscreen_2
 ###########
 # Taskbar #
 ###########
-bindsym mod4+1 exec google-chrome
+bindsym mod4+1 exec $BROWSER
 bindsym mod4+2 exec flatpak run com.spotify.Client
 
 ####################

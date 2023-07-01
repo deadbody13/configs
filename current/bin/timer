@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+# ARGUMENT=$1
+# DUR=`echo $ARGUMENT | cut -d ":" -f 1`
+# MESSAGE=`echo $ARGUMENT | cut -d ":" -f 2`
+
+DUR=$1
+MESSAGE=$2
+
+sleep $DUR
+notify-send $MESSAGE

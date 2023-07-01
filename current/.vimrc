@@ -88,18 +88,9 @@ set hlsearch
 set incsearch
 set completeopt-=preview
 set belloff=all
+set term=kitty
 nnoremap <F5>   :! deadd-reload.sh <CR><CR>
 " html autocomplete
-let g:closetag_filenames = '*.html'
-let g:closetag_filetypes = '*.html'
-let g:closetag_emptyTags_caseSensitive = 1
-let g:closetag_regions = {
-  \ 'typescript.tsx': 'jsxRegion, tsxRegion',
-  \ 'javascript.jsx': 'jsxRegion',
-  \ }
-let g:closetag_shortcut = '>'
-let g:closetag_close_shortcut = '<leader>>'
-
 let g:lightline = {
 												\'colorscheme': 'PaperColor'
 												\}
