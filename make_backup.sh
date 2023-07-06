@@ -24,11 +24,3 @@ DIR_LIST=("
 ")
 
 rsync --delete -aruv $DIR_LIST current
-
-# for x in $DIR_LIST
-# do
-# 	if [[ -e $x ]]
-# 	then
-# 		cp -r $x current
-# 	fi
-# done
