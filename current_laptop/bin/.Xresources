@@ -1,0 +1,59 @@
+! URxvt.font: xft:desertedttf:size=12:antialias=true
+URxvt.font: xft:desertedttf:size=12:antialias=true
+URxvt.letterSpace: 0.5
+URxvt*allow_bold: true
+
+! gruvbox light
+URxvt*borderColor: #fbf1c7
+URxvt*background: #fbf1c7
+URxvt*foreground: #3c3836
+URxvt*color0:  #fdf4c1
+URxvt*color8:  #928374
+URxvt*color1:  #cc241d
+URxvt*color9:  #9d0006
+URxvt*color2:  #98971a
+URxvt*color10: #79740e
+URxvt*color3:  #d79921
+URxvt*color11: #b57614
+URxvt*color4:  #458588
+URxvt*color12: #076678
+URxvt*color5:  #b16286
+URxvt*color13: #8f3f71
+URxvt*color6:  #689d6a
+URxvt*color14: #427b58
+URxvt*color7:  #7c6f64
+URxvt*color15: #3c3836
+
+! ChatGPT
+! URxvt*background: #382b22
+! URxvt*foreground: #c09e5d
+! URxvt*cursorColor: #c09e5d
+! URxvt*color0: #382b22
+! URxvt*color1: #ff5555
+! URxvt*color2: #c09e5d
+! URxvt*color3: #ff9966
+! URxvt*color4: #9e9e9e
+! URxvt*color5: #c09e5d
+! URxvt*color6: #b4b4b4
+! URxvt*color7: #c09e5d
+! URxvt*color8: #543d2a
+! URxvt*color9: #ff6b6b
+! URxvt*color10: #ffb347
+! URxvt*color11: #ffdab9
+! URxvt*color12: #bdbdbd
+! URxvt*color13: #c09e5d
+! URxvt*color14: #d3d3d3
+! URxvt*color15: #c09e5d
+
+! keeps command prompt from appearing in the center of the screen
+! URxvt.geometry: 400x400
+URxvt.geometry: 80x-1
+URxvt.internalBorder: 15
+URxvt*scrollBar: false
+URxvt*saveLines: 10000
+*bellIsUrgent: false
+*bellSuppress: true
+! remap copy/paste
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.perl-ext:-confirm-paste

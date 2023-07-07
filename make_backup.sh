@@ -23,4 +23,4 @@ DIR_LIST=("
 	$HOME/bin
 ")
 
-rsync --delete -aruv $DIR_LIST current
+rsync --delete -aruv $DIR_LIST current_$COMPUTER
