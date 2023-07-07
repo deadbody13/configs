@@ -23,4 +23,11 @@ DIR_LIST=("
 	$HOME/bin
 ")
 
-rsync --delete -aruv $DIR_LIST current_$COMPUTER
+if [[ $COMPUTER ]]
+then
+	rsync --delete -aruv $DIR_LIST current_$COMPUTER
+else
+	echo 'set $COMPUTER first'
+	exit
+fi
+
