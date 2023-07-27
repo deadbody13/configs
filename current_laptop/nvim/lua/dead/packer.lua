@@ -45,6 +45,8 @@ return require('packer').startup(function(use)
 			'nvim-tree/nvim-web-devicons', -- optional
 		},
 	}
-	-- use 'andweeb/presence.nvim'
+
+	use 'nvim-lua/plenary.nvim'
+	use 'ThePrimeagen/harpoon'
 
 end)

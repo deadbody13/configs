@@ -1,8 +1,0 @@
-configuration {
-	modi: "window,drun,ssh,combi";
-	font: "zekton 10";
-	combi-modi: "window,drun,ssh";
-	monitor: "-1";
-}
-//@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
-@theme "/usr/share/rofi/themes/arthur.rasi"

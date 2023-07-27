@@ -1,7 +1,0 @@
-
-configuration {
-  modi: "window,drun,ssh,combi";
-  theme: "gruvbox-dark-hard";
-  font: "monofur";
-  combi-modi: "window,drun,ssh";
-}

@@ -17,6 +17,8 @@ DIR_LIST=("
 	$CONFIG/rofi
 	$CONFIG/sway
 	$HOME/.Xresources
+	$HOME/.zshrc
+	$HOME/.zshenv
 	$HOME/.fonts
 	$HOME/.themes
 	$HOME/.vimrc

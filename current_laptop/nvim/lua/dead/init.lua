@@ -1,3 +1,3 @@
 require("dead.remap")
-require("dead.misc")
+require ("dead.set")
 require("dead.packer")
