@@ -1,5 +1,0 @@
-[module/memory]
-type = internal/memory
-
-format-prefix = 󰍛
-format-prefix-padding-right = ${variables.padding}
