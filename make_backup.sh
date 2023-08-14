@@ -28,7 +28,7 @@ DIR_LIST=("
 
 if [[ $COMPUTER ]]
 then
-	rsync --delete -aruv $DIR_LIST current_$COMPUTER
+	rsync -aruv $DIR_LIST current_$COMPUTER
 else
 	echo 'set $COMPUTER first'
 	exit
