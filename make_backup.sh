@@ -11,7 +11,6 @@ DIR_LIST=("
 	$CONFIG/i3status
 	$CONFIG/kitty
 	$CONFIG/ntfd
-	$CONFIG/nvim
 	$CONFIG/picom
 	$CONFIG/polybar
 	$CONFIG/rofi
