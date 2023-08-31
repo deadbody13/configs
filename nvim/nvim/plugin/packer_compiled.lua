@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/sven/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["barbar.nvim"] = {
+    loaded = true,
+    path = "/home/sven/.local/share/nvim/site/pack/packer/start/barbar.nvim",
+    url = "https://github.com/romgrk/barbar.nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/sven/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -89,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/sven/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/sven/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/home/sven/.local/share/nvim/site/pack/packer/start/harpoon",
@@ -98,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sven/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/sven/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
