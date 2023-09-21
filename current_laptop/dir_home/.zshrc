@@ -4,7 +4,8 @@ RED="%{$fg[red]%}"
 BLUE="%{$fg[blue]%}"
 GREEN="%{$fg[green]%}"
 RESET="%{$reset_color%}"
-export PS1="[$GREEN%n$RESET@%m$BLUE:%1d$RESET]$ "
+# export PS1="[$GREEN%n$RESET@%m$BLUE:%1d$RESET]$ "
+export PS1="%2d: "
 
 HISTFILE=~/.histfile
 HISTSIZE=1000

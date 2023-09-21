@@ -32,6 +32,10 @@ for x in $BACKUP_DIR/dir_home/*
 do
 	cp -r $x $HOME
 done
+for x in $BAKCUP_DIR/dir_home/.*
+do
+	cp -r $x $HOME
+done
 
 for x in $BACKUP_DIR/dir_config/*
 do
