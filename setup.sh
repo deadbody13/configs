@@ -26,6 +26,7 @@ DIR_LIST_CONFIG=("
 	polybar
 	rofi
 	sway
+	.starship.toml
 	")
 
 for x in $BACKUP_DIR/dir_home/*

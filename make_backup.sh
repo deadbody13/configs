@@ -23,6 +23,7 @@ DIR_LIST_CONFIG=("
 	$CONFIG/picom
 	$CONFIG/polybar
 	$CONFIG/rofi
+	$CONFIG/starship.toml
 	$CONFIG/sway
 ")
 
