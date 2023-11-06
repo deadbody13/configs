@@ -15,4 +15,4 @@ fi
 alias vim="nvim"
 alias vid="neovide"
 
-echo "$USER@$HOSTNAME"
+eval "$(starship init zsh)"

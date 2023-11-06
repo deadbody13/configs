@@ -20,3 +20,5 @@ compinit
 # End of lines added by compinstall
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+eval "$(starship init zsh)"
