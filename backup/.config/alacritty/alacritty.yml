@@ -1,0 +1,10 @@
+font:
+  normal: 
+    family: Monaspace Xenon
+  bold:
+    family: Monaspace Radon Bold
+  italic:
+    family: Monaspace Radon Italic
+  bold_italic:
+    family: Monaspace Xenon Bold Italic
+  size: 10.0
