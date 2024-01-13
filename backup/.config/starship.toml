@@ -18,9 +18,8 @@ add_newline = true
 # standalone format to get os glyph on ps1 line,
 # prompt character below
 format = """
-$os$directory$git_branch$git_status$git_commit$python$cmd_duration
-$character
-"""
+🌸$os$directory$git_branch$git_status$git_commit$python$cmd_duration
+$character"""
 
 # Replace the "❯"
 [character]
