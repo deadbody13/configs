@@ -1,0 +1,199 @@
+#############
+# Variables #
+#############
+set $mod Mod1
+set $TERM kitty
+set $FILE_MANAGER dolphin
+set $BROWSER vivaldi
+
+#########
+# Audio #
+#########
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle 
+
+############
+# Movement #
+############
+floating_modifier $mod
+bindsym $mod+Shift+q kill
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Shift+h move left 250 px
+bindsym $mod+Shift+j move down 250 px
+bindsym $mod+Shift+k move up 250 px
+bindsym $mod+Shift+l move right 250 px
+
+#########
+# Modes #
+#########
+bindsym $mod+c split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+e exit
+mode "resize" {
+        bindsym h resize shrink width 150 px
+        bindsym j resize grow height 150 px
+        bindsym k resize shrink height 150 px
+        bindsym l resize grow width 150 px
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+##############
+# Workspaces #
+##############
+set $ws1        "1"
+set $ws2        "2"
+set $ws3        "3"
+set $ws4        "4"
+set $ws5        "5"
+set $ws6        "6"
+set $ws7        "7"
+set $ws8        "8"
+set $ws9        "9"
+set $ws10       "10"
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1  ; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2  ; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3  ; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4  ; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5  ; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6  ; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7  ; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8  ; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9  ; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10 ; workspace $ws10
+
+#######
+# Bar #
+#######
+bar {
+    position bottom
+	mode dock
+	gaps 3
+    # Keep in mind that the current directory of this config file is $HOME
+    status_command while ~/.config/sway/status.sh; do sleep 1; done
+
+    colors {
+		statusline #e5e5e0
+		background #000000
+    }
+    font Geist Mono 10
+}
+
+##########
+# Colors #
+##########
+# set primary Rosé Pine Dawn colorscheme colors
+set $base           #faf4ed
+set $surface        #fffaf3
+set $overlay        #f2e9e1
+set $muted          #9893a5
+set $subtle         #797593
+set $text           #575279
+set $love           #b4637a
+set $gold           #ea9d34
+set $rose           #d7827e
+set $pine           #286983
+set $foam           #56949f
+set $iris           #907aa9
+set $highlightlow   #f4ede8
+set $highlightmed   #dfdad9
+set $highlighthigh  #cecacd
+
+# Teming border and Windows --------------
+# target                 title     bg    text   indicator  border
+client.focused           $rose     $base $text  $rose      $rose
+client.focused_inactive  $text     $base $text  $subtle    $surface
+client.unfocused         $text     $base $text  $overlay   $overlay
+client.urgent            $text     $base $text  $love      $love
+client.placeholder       $base     $base $text  $overlay   $overlay
+client.background        $base
+
+################
+# Theme and FX #
+################
+output eDP-1 bg ~/Pictures/Wallpapers/Cherry_Blossoms/cherry-blossoms_1.png fill
+blur enable
+shadows enable
+corner_radius 15
+default_dim_inactive 0
+
+
+################
+# Applications #
+################
+set $scripts ~/.config/sway/scripts
+# screenshots
+bindsym Shift+Print exec $scripts/sway-screenshot -m output
+bindsym Print exec $scripts/sway-screenshot -m region
+bindsym mod4+Print exec $scripts/sway-screenshot -m window
+
+# other
+bindsym $mod+Return exec $TERM
+bindsym $mod+d exec --no-startup-id "rofi -show combi"
+bindsym mod4+e exec $FILE_MANAGER
+bindsym mod4+l exec --no-startup-id i3lock -i /home/sven/.config/i3/lockscreen_2.png
+
+###########
+# Taskbar #
+###########
+bindsym mod4+1 exec $BROWSER
+bindsym mod4+2 exec flatpak run com.spotify.Client
+
+####################
+# Startup Programs #
+####################
+# notifications
+# exec_always --no-startup-id dunst
+exec_always --no-startup-id swaync
+bindsym $mod+Shift+n exec swaync-client -t
+
+####################
+# Power Management #
+####################
+exec xset s off
+exec xset -dpms
+exec light -s sysfs/leds/tpacpi::kbd_backlight -S 50
+bindsym Ctrl+Shift+Escape       exec --no-startup-id    systemctl suspend
+bindsym Ctrl+$mod+Delete        exec --no-startup-id    $TERM -e /home/sven/.config/sway/logoutSequence.sh
+bindsym Ctrl+$mod+Shift+Delete  exec --no-startup-id    $TERM -e /home/sven/.config/sway/shutdownSequence.sh
+
+##########
+# Inputs #
+##########
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+	tap enabled
+	natural_scroll enabled
+}
+
+########
+# Misc #
+########
+font pango:Anonymous Pro 11
+smart_gaps off
+gaps inner 5
+
