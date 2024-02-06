@@ -92,6 +92,11 @@ bindsym $mod+Shift+0 move container to workspace $ws10 ; workspace $ws10
 # Window Rules #
 ################
 # for_window [class="Vivaldi-stable"] opacity 0.8
+for_window [app_id="Nautilus"] floating enable
+for_window [app_id="thunar"] floating enable
+for_window [class="thunar"] floating enable
+for_window [app_id="xdg-desktop-portal-gtk"] floating enable
+for_window [app_id="xdg-desktop-portal-gtk"] resize set 1000 500
 
 
 ##########
@@ -146,6 +151,7 @@ exec waybar
 ########
 # Gaps #
 ########
+gaps outer 0
 gaps inner 25
 
 ################
@@ -199,3 +205,8 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 	tap enabled
 	natural_scroll enabled
 }
+
+########
+# Misc #
+########
+exec "systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY"
