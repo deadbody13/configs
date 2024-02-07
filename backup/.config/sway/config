@@ -94,7 +94,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10 ; workspace $ws10
 # for_window [class="Vivaldi-stable"] opacity 0.8
 for_window [app_id="Nautilus"] floating enable
 for_window [app_id="thunar"] floating enable
-for_window [class="thunar"] floating enable
+# browser save window
 for_window [app_id="xdg-desktop-portal-gtk"] floating enable
 for_window [app_id="xdg-desktop-portal-gtk"] resize set 1000 500
 
@@ -131,7 +131,7 @@ client.background        $base
 #######
 # Bar #
 #######
-exec waybar
+exec_always pkill waybar ; waybar
 # bar {
 #     position bottom
 # 	mode dock
@@ -151,8 +151,24 @@ exec waybar
 ########
 # Gaps #
 ########
-gaps outer 0
-gaps inner 25
+smart_gaps off
+gaps outer 5
+gaps inner 20
+set $base           #faf4ed
+set $surface        #fffaf3
+set $overlay        #f2e9e1
+set $muted          #9893a5
+set $subtle         #797593
+set $text           #575279
+set $love           #b4637a
+set $gold           #ea9d34
+set $rose           #d7827e
+set $pine           #286983
+set $foam           #56949f
+set $iris           #907aa9
+set $highlightlow   #f4ede8
+set $highlightmed   #dfdad9
+set $highlighthigh  #cecacd
 
 ################
 # Theme and FX #
@@ -160,7 +176,11 @@ gaps inner 25
 output eDP-1 bg ~/Pictures/Wallpapers/Cherry_Blossoms/cherry-blossoms_1.png fill
 blur enable
 shadows enable
-corner_radius 15
+shadow_color $rose
+shadow_inactive_color $highlighthigh
+shadow_blur_radius 7
+shadow_offset 10 10
+corner_radius 10
 
 
 ################
