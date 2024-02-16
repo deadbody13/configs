@@ -41,7 +41,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
-# bindsym $mod+a focus parent
+bindsym $mod+a focus parent
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+e exit
 mode "resize" {
@@ -123,13 +123,13 @@ set $highlightmed   #dfdad9
 set $highlighthigh  #cecacd
 
 # Teming border and Windows --------------
-# target                 title		bg			text		indicator	border
-client.focused           $rose     	$rose		$base		$text		$rose
-client.focused_inactive  $base	   	$surface	$base		$surface	$surface
-client.unfocused         $text     	$text		$base		$rose		$text
-client.urgent            $text     	$base 		$text 		$love		$love
-client.placeholder       $base		$base 		$text 		$overlay   	$overlay
-client.background        $text
+# target                 title     bg    text   indicator  border
+client.focused           $rose     $base $rose  $rose      $rose
+client.focused_inactive  $surface  $base $surface  $subtle    $surface
+client.unfocused         $text     $base $text  $overlay   $overlay
+client.urgent            $text     $base $text  $love      $love
+client.placeholder       $base     $base $text  $overlay   $overlay
+client.background        $base
 
 #######
 # Bar #
@@ -150,17 +150,17 @@ gaps inner 20
 output eDP-1 bg ~/Pictures/Wallpapers/pokemon/pidgeot_with-pokeball.jpg fill
 default_border normal 3
 for_window [class="^.*"] border 5
-shadows_on_csd disable
+shadows_on_csd enable
 blur enable
 blur_xray disable
 blur_passes 5
 blur_radius 5
 shadows enable
 shadow_color $rose
-shadow_inactive_color $text
-shadow_blur_radius 5
+shadow_inactive_color $highlighthigh
+shadow_blur_radius 7
 shadow_offset 10 10
-corner_radius 5
+corner_radius 15
 default_dim_inactive 0.3
 dim_inactive_colors.unfocused #999999
 
@@ -204,8 +204,8 @@ exec --no-startup-id flatpak run com.spotify.Client
 # Power Management #
 ####################
 bindsym Ctrl+Shift+Escape       exec --no-startup-id    systemctl suspend
-bindsym Ctrl+$mod+Delete        exec --no-startup-id    $TERM -e $scripts/logoutSequence.sh
-bindsym Ctrl+$mod+Shift+Delete  exec --no-startup-id    $TERM -e $scripts/shutdownSequence.sh
+bindsym Ctrl+$mod+Delete        exec --no-startup-id    $TERM -e /home/sven/.config/sway/logoutSequence.sh
+bindsym Ctrl+$mod+Shift+Delete  exec --no-startup-id    $TERM -e /home/sven/.config/sway/shutdownSequence.sh
 
 ##########
 # Inputs #
@@ -224,4 +224,4 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec ~/.config/sway/lid_open_script.sh
+
