@@ -16,8 +16,9 @@
 	--other_color1: #332e56;
 	--other_color2: #4b4757;
 	--other_color3: #33313c;
-	--color-fg: #000000;
-	--color-bg: #ffffff;
+	--color-fg: #575279;
+	--color-bg: #faf4ed;
+	--color-bg-secondary: #d7827e;
 }
 @font-face {
 	font-family: "Jost Light";
@@ -45,6 +46,7 @@
 body {
 	background-color: var(--color-bg);
 	font-family: "EB Garamond";
+	color: var(--color-fg);
 }
 h1 {
 	color: var(--color-fg);
@@ -57,13 +59,13 @@ h2 {
 }
 a:link,a:visited {
 	text-decoration: none;
-	color: black;
+	color: var(--color-fg);
 }
 a:hover {
 	color: #999999;
 }
 .group-list {
-	border: 2px solid black;
+	border: 2px solid var(--color-bg-secondary);
 	border-radius: 15px;
 	padding: 10px;
 	margin-bottom: 15px;
