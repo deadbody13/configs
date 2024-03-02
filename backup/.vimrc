@@ -7,24 +7,7 @@
 set nocompatible
 filetype off
 " ====================================
-" VUNDLE
-" ====================================
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'itchyny/lightline.vim'
-Plugin 'alvan/vim-closetag'
-call vundle#end()
-" ====================================
 filetype plugin indent on
-" ====================================
-" VIM-PLUG
-" ====================================
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/goyo.vim'
-call plug#end()
 " ====================================
 
 "  _  __            __  __                   _
@@ -33,10 +16,9 @@ call plug#end()
 " | . \  __/ |_| | | |  | | (_| | |_) | |_) | | | | | (_| \__ \
 " |_|\_\___|\__, | |_|  |_|\__,_| .__/| .__/|_|_| |_|\__, |___/
 "           |___/               |_|   |_|            |___/
-inoremap  kj    <Esc>`^
-" inoremap  lkj   <Esc>`^:w<CR>
-nmap      <F9>  :! bash <CR>
-nmap    <C-o>   :Explore<CR>
+inoremap	kj		<Esc>`^
+nmap		<F9>	:! bash <CR>
+nmap		<C-o>	:Explore<CR>
 " ====================================
 " PROGRAMMING
 " ====================================
@@ -89,8 +71,3 @@ set incsearch
 set completeopt-=preview
 set belloff=all
 set term=kitty
-nnoremap <F5>   :! deadd-reload.sh <CR><CR>
-" html autocomplete
-let g:lightline = {
-												\'colorscheme': 'PaperColor'
-												\}
