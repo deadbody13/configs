@@ -6,19 +6,7 @@ set $TERM kitty
 set $FILE_MANAGER kitty command ranger
 set $BROWSER vivaldi
 set $EMAIL thunderbird-wayland
-set $scripts ~/.config/sway/scripts
-set $LAUNCHER tofi-drun | xargs swaymsg exec --
-# set $LAUNCHER rofi -show combi
-
-################
-# Applications #
-################
-bindsym $mod+Return exec $TERM
-bindsym $mod+d exec --no-startup-id $LAUNCHER
-bindsym mod4+e exec $FILE_MANAGER
-bindsym mod4+l exec --no-startup-id swaylock
-bindsym $mod+Shift+n exec swaync-client -t
-
+font pango:Geist Mono 10
 
 #########
 # Audio #
@@ -53,7 +41,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
-# bindsym $mod+a focus parent
+bindsym $mod+a focus parent
 bindsym $mod+Shift+r reload
 bindsym $mod+Shift+e exit
 mode "resize" {
@@ -70,8 +58,6 @@ bindsym $mod+r mode "resize"
 ##############
 # Workspaces #
 ##############
-bindsym mod4+period workspace next
-bindsym mod4+comma workspace prev
 set $ws1        "1"
 set $ws2        "2"
 set $ws3        "3"
@@ -137,13 +123,13 @@ set $highlightmed   #dfdad9
 set $highlighthigh  #cecacd
 
 # Teming border and Windows --------------
-# target                 title		bg			text		indicator	border
-client.focused           $text     	$text		$base		$text		$text
-client.focused_inactive  $base	   	$surface	$base		$surface	$surface
-client.unfocused         $highlighthigh     	$highlighthigh		$text		$rose		$highlighthigh
-client.urgent            $text     	$base 		$text 		$love		$love
-client.placeholder       $base		$base 		$text 		$overlay   	$overlay
-client.background        $text
+# target                 title     bg    text   indicator  border
+client.focused           $rose     $base $rose  $rose      $rose
+client.focused_inactive  $surface  $base $surface  $subtle    $surface
+client.unfocused         $text     $base $text  $overlay   $overlay
+client.urgent            $text     $base $text  $love      $love
+client.placeholder       $base     $base $text  $overlay   $overlay
+client.background        $base
 
 #######
 # Bar #
@@ -164,32 +150,37 @@ gaps inner 20
 output eDP-1 bg ~/Pictures/Wallpapers/pokemon/pidgeot_with-pokeball.jpg fill
 default_border normal 3
 for_window [class="^.*"] border 5
-shadows_on_csd disable
+shadows_on_csd enable
 blur enable
 blur_xray disable
 blur_passes 5
 blur_radius 5
 shadows enable
-shadow_color $text
-shadow_inactive_color $muted
-shadow_blur_radius 5
+shadow_color $rose
+shadow_inactive_color $highlighthigh
+shadow_blur_radius 7
 shadow_offset 10 10
-corner_radius 5
+corner_radius 15
 default_dim_inactive 0.3
 dim_inactive_colors.unfocused #999999
-titlebar_separator disable
-# animation_duration 0.5
 
 
-###############
-# Screenshots #
-###############
+################
+# Applications #
+################
+set $scripts ~/.config/sway/scripts
+# screenshots
 bindsym Shift+Print		exec $scripts/sway-screenshot -m output
-# bindsym Print			exec $scripts/sway-screenshot -m region
+bindsym Print			exec $scripts/sway-screenshot -m region
 bindsym mod4+Print		exec $scripts/sway-screenshot -m window
-# bindsym Shift+Print		exec flameshot screen
-bindsym Print			exec flameshot gui
-# bindsym mod4+Print		exec $scripts/sway-screenshot -m window
+# for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+
+
+# other
+bindsym $mod+Return exec $TERM
+bindsym $mod+d exec --no-startup-id "rofi -show combi"
+bindsym mod4+e exec $FILE_MANAGER
+bindsym mod4+l exec --no-startup-id swaylock
 
 ###########
 # Taskbar #
@@ -202,20 +193,19 @@ bindsym mod4+4 exec flatpak run com.spotify.Client
 ####################
 # Startup Programs #
 ####################
+# notifications
 exec --no-startup-id swaync
+bindsym $mod+Shift+n exec swaync-client -t
 exec --no-startup-id $EMAIL
 # exec --no-startup-id flatpak run com.discordapp.Discord
 exec --no-startup-id flatpak run com.spotify.Client
-exec --no-startup-id flameshot
-exec --no-startup-id blueman-tray
-# exec --no-startup-id nm-applet
 
 ####################
 # Power Management #
 ####################
 bindsym Ctrl+Shift+Escape       exec --no-startup-id    systemctl suspend
-bindsym Ctrl+$mod+Delete        exec --no-startup-id    $TERM -e $scripts/logoutSequence.sh
-bindsym Ctrl+$mod+Shift+Delete  exec --no-startup-id    $TERM -e $scripts/shutdownSequence.sh
+bindsym Ctrl+$mod+Delete        exec --no-startup-id    $TERM -e /home/sven/.config/sway/logoutSequence.sh
+bindsym Ctrl+$mod+Shift+Delete  exec --no-startup-id    $TERM -e /home/sven/.config/sway/shutdownSequence.sh
 
 ##########
 # Inputs #
@@ -224,13 +214,14 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 	tap enabled
 	natural_scroll enabled
 }
+# input "0:5:Lid_Switch" {
+# }
 
 ########
 # Misc #
 ########
 # exec "systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY"
-font pango:FantasqueSansM Nerd Font 10
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec $scripts/lid_open_script.sh
+

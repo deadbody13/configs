@@ -1,6 +1,4 @@
-font_family      FantasqueSansM Nerd Font
-# font_family      Xanh Mono
-# font_family      Simsun
+font_family      Snap-it mono-1.6
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
@@ -47,6 +45,6 @@ map alt+shift+l move_window right
 enabled_layouts grid 
 
 # BEGIN_KITTY_THEME
-# Rosé Pine Dawn
+# GitHub Light High Contrast
 include current-theme.conf
 # END_KITTY_THEME
