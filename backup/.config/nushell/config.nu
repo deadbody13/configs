@@ -760,6 +760,8 @@ $env.config = {
         }
     ]
 }
+$env.PATH = ($env.PATH | split row (char esep) | append "~/bin" | append "~.local/bin")
+
 alias vim = nvim
 use ~/.cache/starship/init.nu
 

@@ -49,3 +49,40 @@ exit
 ls
 $nu.config-path
 cd
+cp -r .config/nushell/ ~/configs/backup/.config/
+cd
+cd configs/
+git add .
+git commit -m "added nushell config"
+git push
+cd
+cd bin
+ls
+cp kitty-update ~/configs/backup/bin/
+cd
+cd configs/
+git add .
+git commit -m "added kitty-update script"
+git push
+cd
+chsh
+update
+$nu.config-path
+vim $nu.config-path
+vim .config/nushell/config.nu
+cd .config/nushell/
+ls
+vim config.nu
+which vim
+nvim config.nu
+gedit config.nu
+kate config.nu
+vim
+/bin/vim
+nvim
+$env
+$env.PATH
+cd .local
+ls
+echo $env.PATH
+/bin/vim ~/.config/nushell/config.nu
