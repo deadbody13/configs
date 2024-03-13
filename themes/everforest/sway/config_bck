@@ -1,0 +1,227 @@
+#############
+# Variables #
+#############
+set $mod Mod1
+set $TERM kitty
+set $FILE_MANAGER kitty command ranger
+set $BROWSER vivaldi
+set $EMAIL thunderbird-wayland
+font pango:Geist Mono 10
+
+#########
+# Audio #
+#########
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle 
+
+############
+# Movement #
+############
+floating_modifier $mod
+bindsym $mod+Shift+q kill
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Shift+h move left 250 px
+bindsym $mod+Shift+j move down 250 px
+bindsym $mod+Shift+k move up 250 px
+bindsym $mod+Shift+l move right 250 px
+
+#########
+# Modes #
+#########
+bindsym $mod+c split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+e exit
+mode "resize" {
+        bindsym h resize shrink width 150 px
+        bindsym j resize grow height 150 px
+        bindsym k resize shrink height 150 px
+        bindsym l resize grow width 150 px
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+##############
+# Workspaces #
+##############
+set $ws1        "1"
+set $ws2        "2"
+set $ws3        "3"
+set $ws4        "4"
+set $ws5        "5"
+set $ws6        "6"
+set $ws7        "7"
+set $ws8        "8"
+set $ws9        "9"
+set $ws10       "10"
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1  ; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2  ; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3  ; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4  ; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5  ; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6  ; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7  ; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8  ; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9  ; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10 ; workspace $ws10
+
+################
+# Window Rules #
+################
+for_window [app_id="thunar"] floating enable
+# browser save window
+for_window [app_id="xdg-desktop-portal-gtk"] floating enable
+for_window [app_id="xdg-desktop-portal-gtk"] resize set 1000 500
+for_window [workspace="2"] tabbed enabled
+assign [instance="Mail"] 2
+assign [app_id="thunderbird"] 2
+assign [instance="discord"] 2
+assign [instance="spotify"] 3
+
+##########
+# Colors #
+##########
+# set primary Rosé Pine Dawn colorscheme colors
+set $base           #faf4ed
+set $surface        #fffaf3
+set $overlay        #f2e9e1
+set $muted          #9893a5
+set $subtle         #797593
+set $text           #575279
+set $love           #b4637a
+set $gold           #ea9d34
+set $rose           #d7827e
+set $pine           #286983
+set $foam           #56949f
+set $iris           #907aa9
+set $highlightlow   #f4ede8
+set $highlightmed   #dfdad9
+set $highlighthigh  #cecacd
+
+# Teming border and Windows --------------
+# target                 title     bg    text   indicator  border
+client.focused           $rose     $base $rose  $rose      $rose
+client.focused_inactive  $surface  $base $surface  $subtle    $surface
+client.unfocused         $text     $base $text  $overlay   $overlay
+client.urgent            $text     $base $text  $love      $love
+client.placeholder       $base     $base $text  $overlay   $overlay
+client.background        $base
+
+#######
+# Bar #
+#######
+# exec_always pkill waybar ; waybar
+exec waybar
+
+########
+# Gaps #
+########
+smart_gaps off
+gaps outer 5
+gaps inner 20
+
+################
+# Theme and FX #
+################
+output eDP-1 bg ~/Pictures/Wallpapers/pokemon/pidgeot_with-pokeball.jpg fill
+default_border normal 3
+for_window [class="^.*"] border 5
+shadows_on_csd enable
+blur enable
+blur_xray disable
+blur_passes 5
+blur_radius 5
+shadows enable
+shadow_color $rose
+shadow_inactive_color $highlighthigh
+shadow_blur_radius 7
+shadow_offset 10 10
+corner_radius 15
+default_dim_inactive 0.3
+dim_inactive_colors.unfocused #999999
+
+
+################
+# Applications #
+################
+set $scripts ~/.config/sway/scripts
+# screenshots
+bindsym Shift+Print		exec $scripts/sway-screenshot -m output
+bindsym Print			exec $scripts/sway-screenshot -m region
+bindsym mod4+Print		exec $scripts/sway-screenshot -m window
+# for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+
+
+# other
+bindsym $mod+Return exec $TERM
+bindsym $mod+d exec --no-startup-id "rofi -show combi"
+bindsym mod4+e exec $FILE_MANAGER
+bindsym mod4+l exec --no-startup-id swaylock
+
+###########
+# Taskbar #
+###########
+bindsym mod4+1 exec $BROWSER
+bindsym mod4+2 exec $EMAIL
+bindsym mod4+3 exec flatpak run com.discordapp.Discord
+bindsym mod4+4 exec flatpak run com.spotify.Client
+
+####################
+# Startup Programs #
+####################
+# notifications
+exec --no-startup-id swaync
+bindsym $mod+Shift+n exec swaync-client -t
+exec --no-startup-id $EMAIL
+# exec --no-startup-id flatpak run com.discordapp.Discord
+exec --no-startup-id flatpak run com.spotify.Client
+
+####################
+# Power Management #
+####################
+bindsym Ctrl+Shift+Escape       exec --no-startup-id    systemctl suspend
+bindsym Ctrl+$mod+Delete        exec --no-startup-id    $TERM -e /home/sven/.config/sway/logoutSequence.sh
+bindsym Ctrl+$mod+Shift+Delete  exec --no-startup-id    $TERM -e /home/sven/.config/sway/shutdownSequence.sh
+
+##########
+# Inputs #
+##########
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+	tap enabled
+	natural_scroll enabled
+}
+# input "0:5:Lid_Switch" {
+# }
+
+########
+# Misc #
+########
+# exec "systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY"
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+

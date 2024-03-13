@@ -1,0 +1,23 @@
+/*
+* Flavour: Rosé Pine Dawn
+* Maintainer: DankChoir
+*/
+
+@define-color base            #faf4ed;
+@define-color surface         #fffaf3;
+@define-color overlay         #eeeeee;
+
+@define-color muted           #9893a5;
+@define-color subtle          #797593;
+@define-color text            #999999;
+
+@define-color love            #000000;
+@define-color gold            #444444;
+@define-color rose            #888888;
+@define-color pine            #aaaaaa;
+@define-color foam            #cccccc;
+@define-color iris            #eeeeee;
+
+@define-color highlightLow    #f4ede8;
+@define-color highlightMed    #dfdad9;
+@define-color highlightHigh   #cecacd;
