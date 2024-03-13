@@ -1,0 +1,51 @@
+ls
+cd Pictures/
+ls
+rm 2024*
+ls
+cd ..
+ls
+cd Pictures/Screenshots/
+ls
+rm *
+exit
+ls
+git add .
+git commit -m "added potatoes benedict recipe and image"
+exit
+update
+$env.PATH
+cd bin
+ls
+ls -l
+cd
+update
+which update
+cd bin
+./update
+cd
+vim .config/nushell/config.nu
+cd
+vim
+ls
+vim
+^update
+echo -e "hello"
+alias echo = ^echo
+echo -e "hello"
+$env.config
+cd .config/nushell/
+ls
+cd
+nu
+nu
+vim .config/nushell/config.nu
+ls
+cd
+mkdir ~/.cache/starship<\n>starship init nu | save -f ~/.cache/starship/init.nu<\n> 
+$nu.config-path
+vim $nu.config-path
+exit
+ls
+$nu.config-path
+cd
