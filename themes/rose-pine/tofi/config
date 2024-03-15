@@ -1,0 +1,25 @@
+font = "Geist Mono"
+font-size = 12
+
+outline-width = 0
+border-width = 0
+padding-left = 4%
+padding-top = 2%
+padding-right = 0
+padding-bottom = 0
+
+text-color = #575279
+background-color = #faf4ed
+selection-color = #fffaf3
+selection-background = #575279
+border-color = #286983
+border-width = 5
+
+width =  33%
+height = 33%
+padding-top = 25
+padding-bottom = 25
+padding-left = 25
+padding-right =	25
+
+hide-cursor = true
