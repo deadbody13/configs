@@ -1,4 +1,6 @@
-font_family      Snap-it mono-1.6
+font_family      FantasqueSansM Nerd Font
+# font_family      Xanh Mono
+# font_family      Simsun
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
@@ -45,6 +47,6 @@ map alt+shift+l move_window right
 enabled_layouts grid 
 
 # BEGIN_KITTY_THEME
-# GitHub Light High Contrast
+# Everforest Dark Hard
 include current-theme.conf
 # END_KITTY_THEME

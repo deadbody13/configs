@@ -3,8 +3,8 @@
 #############
 set $mod Mod1
 set $TERM kitty
-set $FILE_MANAGER kitty command ranger
-set $BROWSER vivaldi
+set $FILE_MANAGER thunar
+set $BROWSER firefox
 set $EMAIL thunderbird-wayland
 set $scripts ~/.config/sway/scripts
 set $LAUNCHER tofi-drun | xargs swaymsg exec --
@@ -119,31 +119,42 @@ assign [instance="spotify"] 3
 ##########
 # Colors #
 ##########
-# set primary Rosé Pine Dawn colorscheme colors
-set $base           #faf4ed
-set $surface        #fffaf3
-set $overlay        #f2e9e1
-set $muted          #9893a5
-set $subtle         #797593
-set $text           #575279
-set $love           #b4637a
-set $gold           #ea9d34
-set $rose           #d7827e
-set $pine           #286983
-set $foam           #56949f
-set $iris           #907aa9
-set $highlightlow   #f4ede8
-set $highlightmed   #dfdad9
-set $highlighthigh  #cecacd
+# everforest (light)
+set $bg_dim			#f2efdf
+set $bg0			#fffbef
+set $bg1			#f8f5e4
+set $bg2			#f2efdf
+set $bg3			#edeada
+set $bg4			#e8e5d5
+set $bg5			#bec5b2
+set $bg_visual		#f0f2d4
+set $bg_red			#ffe7de
+set $bg_green		#f4f5d9
+set $bg_blue		#ecf5ed
+set $bg_yellow		#fef2d5
+set $fg				#5c6a72
+set $red			#f85552
+set $orange			#f57d26
+set $yellow			#dfa000
+set $green			#8da101
+set $aqua			#35a77c
+set $blue			#3a04c3
+set $purple			#df69ba
+set $grey0			#a6b0a0
+set $grey1			#939f91
+set $grey2			#829181
+set $statusline1	#93b259
+set $statusline2	#708089
+set $statusline3	#e66868
 
 # Teming border and Windows --------------
-# target                 title		bg			text		indicator	border
-client.focused           $text     	$text		$base		$text		$text
-client.focused_inactive  $base	   	$surface	$base		$surface	$surface
-client.unfocused         $highlighthigh     	$highlighthigh		$text		$rose		$highlighthigh
-client.urgent            $text     	$base 		$text 		$love		$love
-client.placeholder       $base		$base 		$text 		$overlay   	$overlay
-client.background        $text
+# target                 title		bg			text	indicator	border
+client.focused           $bg5     	$bg_yellow	$fg		$yellow		$bg5
+client.focused_inactive  $bg3	   	$bg3		$fg		$yellow		$bg3
+client.unfocused         $bg5		$bg5		$fg		$yellow		$bg5
+client.urgent            $red     	$red		$fg		$yellow		$red
+client.placeholder       $bg_dim	$bg_dim		$fg		$yellow		$bg_dim
+client.background        $bg0
 
 #######
 # Bar #
@@ -161,33 +172,33 @@ gaps inner 20
 ################
 # Theme and FX #
 ################
-output eDP-1 bg ~/Pictures/Wallpapers/pokemon/pidgeot_with-pokeball.jpg fill
+output eDP-1 bg ~/Pictures/Wallpapers/pokemon/pikachu_2_everforest-light.png fill
 default_border normal 3
 for_window [class="^.*"] border 5
 shadows_on_csd disable
 blur enable
-blur_xray disable
-blur_passes 5
-blur_radius 5
+blur_xray enable
+blur_passes 7
+blur_radius 1
 shadows enable
-shadow_color $text
-shadow_inactive_color $muted
-shadow_blur_radius 5
-shadow_offset 10 10
-corner_radius 5
+shadow_color $fg
+shadow_inactive_color $bg5
+shadow_blur_radius 1
+shadow_offset 7 10
+corner_radius 0
 default_dim_inactive 0.3
 dim_inactive_colors.unfocused #999999
-titlebar_separator disable
+titlebar_separator enable
 # animation_duration 0.5
 
 
 ###############
 # Screenshots #
 ###############
-bindsym Shift+Print		exec $scripts/sway-screenshot -m output
+# bindsym Shift+Print		exec $scripts/sway-screenshot -m output
 # bindsym Print			exec $scripts/sway-screenshot -m region
 bindsym mod4+Print		exec $scripts/sway-screenshot -m window
-# bindsym Shift+Print		exec flameshot screen
+bindsym Shift+Print		exec flameshot screen
 bindsym Print			exec flameshot gui
 # bindsym mod4+Print		exec $scripts/sway-screenshot -m window
 
@@ -229,7 +240,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 # Misc #
 ########
 # exec "systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY"
-font pango:FantasqueSansM Nerd Font 10
+font pango:FantasqueSansM Nerd Font 12
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK

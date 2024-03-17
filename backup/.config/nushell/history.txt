@@ -86,3 +86,52 @@ cd .local
 ls
 echo $env.PATH
 /bin/vim ~/.config/nushell/config.nu
+cp -r .config/nushell/ ~/configs/backup/.config/
+cd configs/
+git add .
+git commit -m "updated PATH in nushell config"
+git push
+update
+vim $nu.config-path
+update
+updtae
+update
+spotify-tui
+sudo dnf copr enable atim/spotify-tui -y && sudo dnf install spotify-tui<\n>
+sudo dnf copr enable atim/spotify-tui -y and sudo dnf install spotify-tui<\n>
+sudo dnf copr enable atim/spotify-tui -y
+sudo dnf install spotify-tui<\n>
+spotify-tui
+sudo dnf remove spt
+sudo dnf remove spotify-tui
+update
+clear
+which vivaldi
+which vivaldi-stable
+dnf search brave
+sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo<\n>
+sudo dnf install brave
+sudo dnf install brave-browser
+sudo dnf install dnf-plugins-core<\n>
+sudo dnf install brave-keyring
+dnf clean packages
+sudo dnf install brave-keyring
+sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc<\n>
+sudo dnf install brave-browser
+vim .config/sway/config
+tor
+dnf search irc
+sudo dnf install znc
+znc --makeconf
+neofetch
+vim .config/sway/config
+cd Downloads/
+ls
+update
+cd Desktop/
+cd ../Downloads/
+ls
+sudo dnf install ./warp-terminal-v0.2024.03.12.08.02.stable_01-1.x86_64.rpm
+which zsh
+chsh
+reboot

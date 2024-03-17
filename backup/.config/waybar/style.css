@@ -1,4 +1,4 @@
-@import "./monochrome.css";
+@import "./everforest.css";
 
 * {
   border: none;
@@ -11,48 +11,46 @@
 
 window#waybar {
   background: rgba(21, 18, 27, 0);
-  color: @gold;
+  color: @fg;
 }
 
 tooltip {
-  background: @base;
+  background: @bg0;
   border-radius: 4px;
   border-width: 2px;
   border-style: solid;
-  border-color: @overlay;
+  border-color: @fg;
 }
 
 #workspaces button {
   padding: 5px;
-  color: @pine;
-  background: @highlightlow;
-  border-color: @surface;
+  color: @fg;
+  background: @bg0;
+  border-color: @fg;
   margin-right: 5px;
 }
 
 #workspaces button.active {
-  color: @pine;
-  background: @highlightlow;
+  color: @fg;
+  background: @bg0;
 }
 
 #workspaces button.focused {
-  color: @gold;
-  background: @highlightlow;
+  color: @red;
+  background: @bg0;
   border-radius: 8px;
 }
 #workspaces button.unfocused {
-	background: @highlightlow;
+	background: @bg0;
 }
 
 #workspaces button.urgent {
-  /* color: @base; */
-  /* background: @pine; */
   border-radius: 8px;
 }
 
 #workspaces button:hover {
-  background: @highlightLow;
-  color: @text;
+  background: @bg0;
+  color: @orange;
   border-radius: 8px;
 }
 
@@ -68,22 +66,22 @@ tooltip {
 #tray,
 #memory,
 #backlight {
-  background: @base;
+  background: @bg0;
   opacity: 0.9;
   padding: 0px 10px;
   margin: 3px 0px;
   margin-top: 15px;
-  border: 2px solid @gold;
+  border: 2px solid @fg;
 }
 
 #memory {
-  color: @rose;
+  color: @green;
   border-left: 0px;
   border-right: 0px;
 }
 
 #temperature {
-  color: @gold;
+  color: @orange;
   border-left: 0px;
   border-right: 0px;
 }
@@ -91,37 +89,37 @@ tooltip {
 #temperature.critical {
   border-left: 0px;
   border-right: 0px;
-  color: @rose;
+  color: @red;
 }
 
 #backlight {
-  color: @pine;
-  border-radius: 0px 8px 8px 0px;
+  color: @aqua;
+  border-radius: 0px;
   margin-right: 30px;
 }
 
 #tray {
-  border-radius: 8px;
+  border-radius: 0px;
   margin-left: 10px;
   margin-right: 0px;
 }
 
 #workspaces {
-  background: @base;
-  border-radius: 8px;
+  background: @bg0;
+  border-radius: 0px;
   margin-left: 10px;
   padding-right: 0px;
   padding-left: 5px;
 }
 
 #custom-power_profile {
-  color: @foam;
+  color: @aqua;
   border-left: 0px;
   border-right: 0px;
 }
 
 #window {
-  border-radius: 8px;
+  border-radius: 0px;
   margin-left: 60px;
   margin-right: 60px;
 }
@@ -139,27 +137,27 @@ window#waybar.empty #window {
 }
 
 #clock {
-  color: @base;
-  background: @rose;
-  border-radius: 8px;
+  color: @fg;
+  background: @bg0;
+  border-radius: 0px;
   margin-left: 30px;
 }
 
 #network {
-  color: @love;
-  border-radius: 8px 0px 0px 8px;
+  color: @purple;
+  border-radius: 0px;
   border-right: 0px;
 }
 
 #pulseaudio {
-  color: @gold;
-  border-radius: 8px 0px 0px 8px;
+  color: @yellow;
+  border-radius: 0px;
   border-right: 0px;
 }
 
 #battery {
-  color: @pine;
-  border-radius: 0 8px 8px 0;
+  color: @blue;
+  border-radius: 0px;
   margin-right: 10px;
   border-left: 0px;
 }

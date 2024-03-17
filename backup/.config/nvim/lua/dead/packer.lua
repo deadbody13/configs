@@ -13,9 +13,20 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use({ 'rose-pine/neovim', as = 'rose-pine' })
+	-- 	use({ 'rose-pine/neovim', as = 'rose-pine' })
 	-- use ({ 'projekt0n/github-nvim-theme' })
 	-- vim.cmd('colorscheme rose-pine')
+	-- use {'nyoom-engineering/oxocarbon.nvim'}
+	use({
+		"neanias/everforest-nvim",
+		-- Optional; default configuration will be used if setup isn't called.
+		config = function()
+			require("everforest").setup()
+		end,
+	})
+	vim.opt.background = "dark" -- set this to dark or light
+	vim.cmd("colorscheme everforest")
+
 
 	use( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
@@ -60,5 +71,17 @@ return require('packer').startup(function(use)
 	use 'nvim-tree/nvim-web-devicons' -- OPTIONAL: for file icons
 	use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
 	use 'romgrk/barbar.nvim'
+
+	use {
+		'chomosuke/typst-preview.nvim',
+		tag = 'v0.1.*',
+		opts = {
+			get_root = function(bufnr)
+				return vim.api.nvim_buf_get_name(bufnr):match('(.*/)')
+			end
+		},
+		-- run = function() require 'typst-preview'.update() end
+		build = function() require('typst-preview').update() end
+	}
 
 end)
