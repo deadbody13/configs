@@ -1,0 +1,32 @@
+/*
+* Flavour: Rosé Pine Dawn
+* Maintainer: DankChoir
+*/
+
+
+@define-color bg_dim		#f2efdf;
+@define-color bg0			#fffbef;
+@define-color bg1			#f8f5e4;
+@define-color bg2			#f2efdf;
+@define-color bg3			#edeada;
+@define-color bg4			#e8e5d5;
+@define-color bg5			#bec5b2;
+@define-color bg_visual		#f0f2d4;
+@define-color bg_red		#ffe7de;
+@define-color bg_green		#f4f5d9;
+@define-color bg_blue		#ecf5ed;
+@define-color bg_yellow		#fef2d5;
+@define-color fg			#5c6a72;
+@define-color red			#f85552;
+@define-color orange		#f57d26;
+@define-color yellow		#dfa000;
+@define-color green			#8da101;
+@define-color aqua			#35a77c;
+@define-color blue			#3a04c3;
+@define-color purple		#df69ba;
+@define-color grey0			#a6b0a0;
+@define-color grey1			#939f91;
+@define-color grey2			#829181;
+@define-color statusline1	#93b259;
+@define-color statusline2	#708089;
+@define-color statusline3	#e66868;
