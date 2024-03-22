@@ -221,7 +221,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 # Misc #
 ########
 # exec "systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY"
-font pango:basis33 12
+font pango:DS 10
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK

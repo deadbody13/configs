@@ -72,7 +72,7 @@
 			  "warning": 30,
 			  "critical": 20
 		  },
-		  "format": "{icon} {capacity}%",
+		  "format": "bat: {capacity}%",
 		  "format-charging": "bat: {capacity}%",
 		  "format-plugged": "bat: {capacity}%",
 		  "format-alt": "{time} {icon}",

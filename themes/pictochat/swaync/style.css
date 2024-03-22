@@ -4,9 +4,9 @@
 
 * {
   all: unset;
-  font-family: basis33;
+  font-family: DS;
   transition: 0.3s;
-  font-size: 0.8rem;
+  font-size: 1.0rem;
 }
 
 .floating-notifications.background .notification-row {
