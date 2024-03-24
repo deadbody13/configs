@@ -141,7 +141,8 @@ client.background        $fg
 # Bar #
 #######
 # exec_always pkill waybar ; waybar
-exec --no-startup-id waybar
+# exec --no-startup-id waybar
+exec_always --no-startup-id ~/.config/waybar/launch.sh
 
 ########
 # Gaps #

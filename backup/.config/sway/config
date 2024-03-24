@@ -120,47 +120,29 @@ assign [instance="spotify"] 3
 # Colors #
 ##########
 # everforest (light)
-set $bg_dim			#f2efdf
-set $bg0			#fffbef
-set $bg1			#f8f5e4
-set $bg2			#f2efdf
-set $bg3			#edeada
-set $bg4			#e8e5d5
-set $bg5			#bec5b2
-set $bg_visual		#f0f2d4
-set $bg_red			#ffe7de
-set $bg_green		#f4f5d9
-set $bg_blue		#ecf5ed
-set $bg_yellow		#fef2d5
-set $fg				#5c6a72
-set $red			#f85552
-set $orange			#f57d26
-set $yellow			#dfa000
-set $green			#8da101
-set $aqua			#35a77c
-set $blue			#3a04c3
-set $purple			#df69ba
-set $grey0			#a6b0a0
-set $grey1			#939f91
-set $grey2			#829181
-set $statusline1	#93b259
-set $statusline2	#708089
-set $statusline3	#e66868
+set $bg0			#ffffff
+set $bg1			#dddddd
+set $bg2			#bbbbbb
+set $bg3			#999999
+set $fg				#000000
+set $yellow			#ffff00
+set $red			#ff0000
 
 # Teming border and Windows --------------
 # target                 title		bg			text	indicator	border
-client.focused           $bg5     	$bg_yellow	$fg		$yellow		$bg5
-client.focused_inactive  $bg3	   	$bg3		$fg		$yellow		$bg3
-client.unfocused         $bg5		$bg5		$fg		$yellow		$bg5
-client.urgent            $red     	$red		$fg		$yellow		$red
-client.placeholder       $bg_dim	$bg_dim		$fg		$yellow		$bg_dim
-client.background        $bg0
+client.focused           $fg     	$bg0		$fg		$yellow		$fg
+client.focused_inactive  $fg	   	$bg0		$fg		$yellow		$fg
+client.unfocused         $fg		$bg0		$fg		$yellow		$fg
+client.urgent            $fg     	$bg0		$fg		$yellow		$red
+client.placeholder       $fg		$bg0		$fg		$yellow		$fg
+client.background        $fg
 
 #######
 # Bar #
 #######
 # exec_always pkill waybar ; waybar
-exec waybar
+# exec --no-startup-id waybar
+exec_always --no-startup-id ~/.config/waybar/launch.sh
 
 ########
 # Gaps #
@@ -172,19 +154,19 @@ gaps inner 20
 ################
 # Theme and FX #
 ################
-output eDP-1 bg ~/Pictures/Wallpapers/pokemon/pikachu_2_everforest-light.png fill
-default_border normal 3
+output eDP-1 bg ~/Pictures/Wallpapers/pokemon/pikachu_2_edge-Edge_Light.png fill
+default_border normal 1
 for_window [class="^.*"] border 5
 shadows_on_csd disable
 blur enable
 blur_xray enable
 blur_passes 7
 blur_radius 1
-shadows enable
-shadow_color $fg
-shadow_inactive_color $bg5
-shadow_blur_radius 1
-shadow_offset 7 10
+# shadows enable
+# shadow_color $fg
+# shadow_inactive_color $bg5
+# shadow_blur_radius 1
+# shadow_offset 7 10
 corner_radius 0
 default_dim_inactive 0.3
 dim_inactive_colors.unfocused #999999
@@ -240,7 +222,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 # Misc #
 ########
 # exec "systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY"
-font pango:FantasqueSansM Nerd Font 12
+font pango:DS 10
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK

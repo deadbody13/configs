@@ -9,17 +9,20 @@
   // "spacing": 4,
   "modules-left": ["clock", 
 	  "sway/workspaces",
-	  "tray"],
+	  "custom/arp_hosts"
+	  // "tray"
+  ],
 	  "modules-center": ["sway/window"],
 	  "modules-right": [
 		"network",
-	// "bluetooth",
+		"bluetooth",
 		"temperature",
 		"memory",
 		"battery",
 		"pulseaudio",
 		"backlight"
 	  ],
+
 	  "hyprland/window": {
 		  "format": "{}",
 		  "max-length": 40
@@ -51,9 +54,13 @@
 	  "clock": {
 		  "format": "{:%R  /  %m.%d}",
 		  "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-	// "format": "{: %I:%M %p   %a, %b %e}",
-	// "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
 	  },
+
+	  // "custom/arp_hosts": {
+	  //     "format": "{}",
+	  //     "exec": "~/.config/waybar/scripts/arp_hosts",
+	  //     "restart-interval": 60
+	  // },
 
 	  "backlight": {
 		  "device": "intel_backlight",

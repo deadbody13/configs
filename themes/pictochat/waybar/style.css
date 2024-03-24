@@ -63,6 +63,7 @@ tooltip {
 #workspaces,
 #tray,
 #memory,
+#custom-arp_hosts,
 #backlight {
   background: @bg0;
   opacity: 0.9;
@@ -70,6 +71,10 @@ tooltip {
   margin: 3px 0px;
   margin-top: 15px;
   border: 1px solid @fg;
+}
+
+#custom-arp_hosts {
+	margin-left: 10px;
 }
 
 #memory {
@@ -118,15 +123,13 @@ tooltip {
 }
 
 window#waybar.empty {
-  background-color: transparent;
 }
 
 window#waybar.empty #window {
-  padding: 0px;
-  margin: 0px;
-  border: 0px;
-  /*  background-color: rgba(66,66,66,0.5); */ /* transparent */
-  background-color: transparent;
+}
+
+#custom {
+	border: 1px solid black;
 }
 
 #clock {
