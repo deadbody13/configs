@@ -1,9 +1,15 @@
+#################################################
+# Theme											#
+# - includes colors, fonts, and SwayFX features #
+#################################################
+include ~/.config/sway/themes/everforest
+
 #############
 # Variables #
 #############
 set $mod Mod1
 set $TERM kitty
-set $FILE_MANAGER thunar
+set $FILE_MANAGER kitty command ranger
 set $BROWSER firefox
 set $EMAIL thunderbird-wayland
 set $scripts ~/.config/sway/scripts
@@ -116,33 +122,10 @@ assign [app_id="thunderbird"] 2
 assign [instance="discord"] 2
 assign [instance="spotify"] 3
 
-##########
-# Colors #
-##########
-# everforest (light)
-set $bg0			#ffffff
-set $bg1			#dddddd
-set $bg2			#bbbbbb
-set $bg3			#999999
-set $fg				#000000
-set $yellow			#ffff00
-set $red			#ff0000
-
-# Teming border and Windows --------------
-# target                 title		bg			text	indicator	border
-client.focused           $fg     	$bg0		$fg		$yellow		$fg
-client.focused_inactive  $fg	   	$bg0		$fg		$yellow		$fg
-client.unfocused         $fg		$bg0		$fg		$yellow		$fg
-client.urgent            $fg     	$bg0		$fg		$yellow		$red
-client.placeholder       $fg		$bg0		$fg		$yellow		$fg
-client.background        $fg
-
 #######
 # Bar #
 #######
-# exec_always pkill waybar ; waybar
-# exec --no-startup-id waybar
-exec_always --no-startup-id ~/.config/waybar/launch.sh
+exec_always ~/.config/waybar/launch.sh
 
 ########
 # Gaps #
@@ -151,26 +134,6 @@ smart_gaps off
 gaps outer 5
 gaps inner 20
 
-################
-# Theme and FX #
-################
-output eDP-1 bg ~/Pictures/Wallpapers/pokemon/pikachu_2_edge-Edge_Light.png fill
-default_border normal 1
-for_window [class="^.*"] border 5
-shadows_on_csd disable
-blur enable
-blur_xray enable
-blur_passes 7
-blur_radius 1
-# shadows enable
-# shadow_color $fg
-# shadow_inactive_color $bg5
-# shadow_blur_radius 1
-# shadow_offset 7 10
-corner_radius 0
-default_dim_inactive 0.3
-dim_inactive_colors.unfocused #999999
-titlebar_separator enable
 # animation_duration 0.5
 
 
@@ -222,7 +185,6 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 # Misc #
 ########
 # exec "systemctl --user import-environment SWAYSOCK WAYLAND_DISPLAY"
-font pango:DS 10
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK

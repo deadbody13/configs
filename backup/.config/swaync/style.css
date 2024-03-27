@@ -1,12 +1,46 @@
-/* Pictochat */
-@define-color bg	#ffffff;
-@define-color fg	#000000;
+/*
+:root {
+  --base: #191724;
+  --surface: #1f1d2e;
+  --overlay: #26233a;
+  --muted: #6e6a86;
+  --subtle: #908caa;
+  --text: #e0def4;
+  --love: #eb6f92;
+  --gold: #f6c177;
+  --rose: #ebbcba;
+  --pine: #31748f;
+  --foam: #9ccfd8;
+  --iris: #c4a7e7;
+  --highlightLow: #21202e;
+  --highlightMed: #403d52;
+  --highlightHigh: #524f67;
+}
+*/
+/* Rose-Pine Dawn (light) */
+@define-color background-primary  #faf4ed;
+@define-color background-secondary  #fffaf3;
+@define-color background-secondary-alt  #f2e9de;
+@define-color channeltextarea-background  #f2e9de;
+@define-color background-tertiary  #f2e9de;
+@define-color background-accent  #d7827e;
+@define-color text-normal  #575279;
+@define-color text-spotify  #575279;
+@define-color text-muted  #6e6a86;
+@define-color text-link  #286983;
+@define-color background-floating  #f2e9de;
+@define-color header-primary  #575279;
+@define-color header-secondary  #575279;
+@define-color header-spotify  #56949f;
+@define-color interactive-normal  #575279;
+@define-color interactive-hover  #6e6a86;
+@define-color interactive-active  #575279;
 
 * {
   all: unset;
-  font-family: DS;
+  font-family: FiraCode Nerd Font;
   transition: 0.3s;
-  font-size: 1.0rem;
+  font-size: 1.2rem;
 }
 
 .floating-notifications.background .notification-row {
@@ -14,11 +48,12 @@
 }
 
 .floating-notifications.background .notification-row .notification-background {
-  border-radius: 0.0rem;
-  background-color: @bg;
-  color: @fg;
-  border: 1px solid @fg;
-  margin: 0 0.2rem 0 0;
+  border-radius: 0.5rem;
+  background-color: @background-primary;
+  color: @text-normal;
+  border: 1px solid @background-accent;
+  margin-top: 20px;
+  margin-right: 20px;
 }
 
 .floating-notifications.background
@@ -26,14 +61,14 @@
   .notification-background
   .notification {
   padding: 0.5rem;
-  border-radius: 0.0rem;
+  border-radius: 0.5rem;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .notification.critical {
-  border: 1px solid @fg;
+  border: 1px solid @background-accent;
 }
 
 .floating-notifications.background
@@ -43,7 +78,7 @@
   .notification-content
   .summary {
   margin: 0.5rem;
-  color: @fg;
+  color: @text-normal;
   font-weight: bold;
 }
 
@@ -54,7 +89,7 @@
   .notification-content
   .body {
   margin: 0.5rem;
-  color: @fg;
+  color: @text-normal;
 }
 
 .floating-notifications.background
@@ -73,10 +108,10 @@
   > *:last-child
   > *
   .notification-action {
-  border-radius: 0.0rem;
-  color: @fg;
-  background-color: @bg;
-  border: 1px solid @fg;
+  border-radius: 0.5rem;
+  color: @text-normal;
+  background-color: @background-primary;
+  border: 1px solid @background-accent;
 }
 
 .floating-notifications.background
@@ -86,7 +121,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @bg;
+  background-color: @background-primary;
 }
 
 .floating-notifications.background
@@ -96,7 +131,7 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @bg;
+  background-color: @background-primary;
 }
 
 .floating-notifications.background
@@ -105,73 +140,73 @@
   .close-button {
   margin: 0.5rem;
   padding: 0.25rem;
-  border-radius: 0.0rem;
-  color: @fg;
-  background-color: @bg;
+  border-radius: 0.5rem;
+  color: @text-normal;
+  background-color: @background-primary;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:hover {
-  color: @fg;
+  color: @text-normal;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: @bg;
+  background-color: @background-primary;
 }
 
 .control-center {
-  border-radius: 0.0rem;
+  border-radius: 0.5rem;
   margin: 1rem;
-  background-color: @bg;
-  color: @fg;
+  background-color: @background-primary;
+  color: @text-normal;
   padding: 1rem;
-  border: 1px solid @fg;
+  border: 1px solid @background-accent;
 }
 
 .control-center .widget-title {
-  color: @fg;
+  color: @text-normal;
   font-weight: bold;
 }
 
 .control-center .widget-title button {
-  border-radius: 0.0rem;
-  color: @fg;
-  background-color: @bg;
-  border: 1px solid @fg;
+  border-radius: 0.5rem;
+  color: @text-normal;
+  background-color: @background-primary;
+  border: 1px solid @background-accent;
   padding: 0.5rem;
 }
 
 .control-center .widget-title button:hover {
-  background-color: @bg;
+  background-color: @background-primary;
 }
 
 .control-center .widget-title button:active {
-  background-color: @bg;
+  background-color: @background-primary;
 }
 
 .control-center .notification-row .notification-background {
-  border-radius: 0.0rem;
+  border-radius: 0.5rem;
   margin: 0.5rem 0;
-  background-color: @bg;
-  color: @fg;
-  border: 1px solid @fg;
+  background-color: @background-primary;
+  color: @text-normal;
+  border: 1px solid @background-accent;
 }
 
 .control-center .notification-row .notification-background .notification {
   padding: 0.5rem;
-  border-radius: 0.0rem;
+  border-radius: 0.5rem;
 }
 
 .control-center
   .notification-row
   .notification-background
   .notification.critical {
-  border: 1px solid @fg;
+  border: 1px solid @background-accent;
 }
 
 .control-center
@@ -179,7 +214,7 @@
   .notification-background
   .notification
   .notification-content {
-  color: @fg;
+  color: @text-normal;
 }
 
 .control-center
@@ -189,7 +224,7 @@
   .notification-content
   .summary {
   margin: 0.5rem;
-  color: @fg;
+  color: @text-normal;
   font-weight: bold;
 }
 
@@ -200,7 +235,7 @@
   .notification-content
   .body {
   margin: 0.5rem;
-  color: @fg;
+  color: @text-normal;
 }
 
 .control-center
@@ -219,10 +254,10 @@
   > *:last-child
   > *
   .notification-action {
-  border-radius: 0.0rem;
-  color: @fg;
-  background-color: @bg;
-  border: 1px solid @fg;
+  border-radius: 0.5rem;
+  color: @text-normal;
+  background-color: @background-primary;
+  border: 1px solid @background-accent;
 }
 
 .control-center
@@ -232,7 +267,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @bg;
+  background-color: @background-primary;
 }
 
 .control-center
@@ -242,77 +277,77 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @bg;
+  background-color: @background-primary;
 }
 
 .control-center .notification-row .notification-background .close-button {
   margin: 0.5rem;
   padding: 0.25rem;
-  border-radius: 0.0rem;
-  color: @fg;
-  background-color: @bg;
+  border-radius: 0.5rem;
+  color: @text-normal;
+  background-color: @background-primary;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
-  color: @fg;
+  color: @text-normal;
 }
 
 .control-center
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: @bg;
+  background-color: @background-primary;
 }
 
 progressbar,
 progress,
 trough {
-  border-radius: 0.0rem;
+  border-radius: 0.5rem;
 }
 
 .notification.critical progress {
-  background-color: @bg;
+  background-color: @background-primary;
 }
 
 .notification.low progress,
 .notification.normal progress {
-  background-color: @bg;
+  background-color: @background-primary;
 }
 
 trough {
-  background-color: @bg;
+  background-color: @background-primary;
 }
 
 .control-center trough {
-  background-color: @bg;
+  background-color: @background-primary;
 }
 
 .control-center-dnd {
   margin: 1rem 0;
-  border-radius: 0.0rem;
+  border-radius: 0.5rem;
 }
 
 .control-center-dnd slider {
-  background: @bg;
-  border-radius: 0.0rem;
+  background-color: @background-primary;
+  border-radius: 0.5rem;
 }
 
 .widget-dnd {
-  color: @fg;
+  color: @text-normal;
 }
 
 .widget-dnd > switch {
-  border-radius: 0.0rem;
-  background: @bg;
-  border: 1px solid @fg;
+  border-radius: 0.5rem;
+  background: @background-primary;
+  border: 1px solid @background-accent;
 }
 
 .widget-dnd > switch:checked slider {
-  background: @bg;
+  background: @background-primary;
 }
 
 .widget-dnd > switch slider {
-  background: @bg;
-  border-radius: 0.0rem;
+  background: @background-primary;
+  border-radius: 0.5rem;
   margin: 0.25rem;
 }

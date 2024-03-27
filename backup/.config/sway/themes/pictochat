@@ -1,0 +1,47 @@
+########
+# Misc #
+########
+font pango:DS 10
+
+##########
+# Colors #
+##########
+# everforest (light)
+set $bg0			#ffffff
+set $bg1			#dddddd
+set $bg2			#bbbbbb
+set $bg3			#999999
+set $fg				#000000
+set $yellow			#ffff00
+set $red			#ff0000
+
+# Teming border and Windows --------------
+# target                 title		bg			text	indicator	border
+client.focused           $fg     	$bg0		$fg		$yellow		$fg
+client.focused_inactive  $fg	   	$bg0		$fg		$yellow		$fg
+client.unfocused         $fg		$bg0		$fg		$yellow		$fg
+client.urgent            $fg     	$bg0		$fg		$yellow		$red
+client.placeholder       $fg		$bg0		$fg		$yellow		$fg
+client.background        $fg
+
+################
+# Theme and FX #
+################
+output eDP-1 bg ~/Pictures/Wallpapers/pokemon/pikachu_2_edge-Edge_Light.png fill
+default_border normal 1
+for_window [class="^.*"] border 5
+shadows_on_csd disable
+blur enable
+blur_xray enable
+blur_passes 7
+blur_radius 1
+# shadows enable
+# shadow_color $fg
+# shadow_inactive_color $bg5
+# shadow_blur_radius 1
+# shadow_offset 7 10
+corner_radius 0
+default_dim_inactive 0.3
+dim_inactive_colors.unfocused #999999
+titlebar_separator enable
+# animation_duration 0.5
