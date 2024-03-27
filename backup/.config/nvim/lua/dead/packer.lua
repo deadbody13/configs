@@ -17,15 +17,15 @@ return require('packer').startup(function(use)
 	-- use ({ 'projekt0n/github-nvim-theme' })
 	-- vim.cmd('colorscheme rose-pine')
 	-- use {'nyoom-engineering/oxocarbon.nvim'}
-	-- use({
-	-- 	"neanias/everforest-nvim",
-	-- 	-- Optional; default configuration will be used if setup isn't called.
-	-- 	config = function()
-	-- 		require("everforest").setup()
-	-- 	end,
-	-- })
+	use({
+		"neanias/everforest-nvim",
+		-- Optional; default configuration will be used if setup isn't called.
+		config = function()
+			require("everforest").setup()
+		end,
+	})
 	vim.opt.background = "light" -- set this to dark or light
-	-- vim.cmd("colorscheme everforest")
+	vim.cmd("colorscheme everforest")
 
 
 	use( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})

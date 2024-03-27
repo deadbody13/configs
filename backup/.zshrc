@@ -1,5 +1,6 @@
 # Lines configured by zsh-newuser-install
-autoload -U colors && colors
+# autoload -U colors && colors
+export TERM=xterm-mono
 RED="%{$fg[red]%}"
 BLUE="%{$fg[blue]%}"
 GREEN="%{$fg[green]%}"

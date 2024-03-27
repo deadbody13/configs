@@ -1,0 +1,30 @@
+#!/bin/bash
+
+nate_work='a8:7e:ea:3c:ec:4f'
+nate_mobile='02:93:41:cb:3b:42'
+mason_work='ac:19:8e:2b:1c:ae'
+mason_mobile='12:cb:46:22:bb:da'
+
+# scan=`sudo arp-scan --interface=wlp3s0 --localnet`
+scan=/tmp/scan
+touch $scan
+sudo arp-scan --interface=wlp3s0 --localnet > $scan
+
+if grep	-q $nate_work $scan
+then
+	echo "nate_work"
+fi
+if grep -q $nate_mobile $scan
+then
+	echo "nate_mobile"
+fi
+if grep -q $mason_work $scan
+then
+	echo "mason_work"
+fi
+if grep -q $mason_mobile $scan
+then
+	echo "mason_mobile"
+fi
+
+rm /tmp/scan
