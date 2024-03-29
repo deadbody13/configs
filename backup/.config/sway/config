@@ -8,8 +8,8 @@ include ~/.config/sway/themes/everforest
 # Variables #
 #############
 set $mod Mod1
-set $TERM kitty
-set $FILE_MANAGER kitty command ranger
+set $TERM ~/.local/bin/kitty
+set $FILE_MANAGER thunar
 set $BROWSER firefox
 set $EMAIL thunderbird-wayland
 set $scripts ~/.config/sway/scripts
@@ -131,8 +131,11 @@ exec_always ~/.config/waybar/launch.sh
 # Gaps #
 ########
 smart_gaps off
-gaps outer 5
-gaps inner 20
+gaps top 5
+gaps bottom 5
+gaps right 5
+gaps left  5
+gaps inner 17
 
 # animation_duration 0.5
 
@@ -161,9 +164,10 @@ bindsym mod4+4 exec flatpak run com.spotify.Client
 exec --no-startup-id swaync
 exec --no-startup-id $EMAIL
 # exec --no-startup-id flatpak run com.discordapp.Discord
-exec --no-startup-id flatpak run com.spotify.Client
+# exec --no-startup-id flatpak run com.spotify.Client
 exec --no-startup-id flameshot
 exec --no-startup-id blueman-tray
+exec --no-startup-id /usr/share/kb-light.sh
 # exec --no-startup-id nm-applet
 
 ####################
