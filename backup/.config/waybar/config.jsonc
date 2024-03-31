@@ -5,7 +5,7 @@
 	"exclusive": true,
 	"passthrough": false,
 	"gtk-layer-shell": false,
-	"height": 30,
+	"height": 10,
   // "spacing": 4,
   "modules-left": ["clock", 
 	  "sway/workspaces",
@@ -13,7 +13,7 @@
 	  "modules-center": ["sway/window"],
 	  "modules-right": [
 		"network",
-	// "bluetooth",
+		"bluetooth",
 		"temperature",
 		"memory",
 		"battery",
@@ -49,8 +49,8 @@
 	  },
 
 	  "clock": {
-		  "format": "{: %R  %m.%d}",
-		  "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+		  "format": " {:%R  %m.%d}",
+		  // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
 	// "format": "{: %I:%M %p   %a, %b %e}",
 	// "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
 	  },
@@ -111,14 +111,14 @@
 
 	  "temperature": {
 		  "thermal-zone": 1,
-		  "format": "TEMP {temperatureC}°C",
+		  "format": "🌡 {temperatureC}°C",
 		  "critical-threshold": 50,
 		  "format-critical": "{temperatureC}°C "
 	  },
 
 	  "memory": {
 		  "interval": 30,
-		  "format": "RAM {}%",
+		  "format": "🖥 {}%",
 		  "max-length": 10,
 		  "tooltip": true,
 		  "tooltip-format": "Memory - {used:0.1f}GB used",

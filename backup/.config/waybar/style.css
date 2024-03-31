@@ -69,8 +69,8 @@ tooltip {
   background: @bg0;
   opacity: 0.9;
   padding: 0px 10px;
-  margin: 3px 0px;
   margin-top: 15px;
+  margin-bottom: 0px;
   border: 2px solid @fg;
 }
 
@@ -78,6 +78,10 @@ tooltip {
   color: @green;
   border-left: 0px;
   border-right: 0px;
+}
+
+#bluetooth {
+	color: @blue;
 }
 
 #temperature {

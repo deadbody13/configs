@@ -80,6 +80,10 @@ tooltip {
   border-right: 0px;
 }
 
+#bluetooth {
+	color: @blue;
+}
+
 #temperature {
   color: @orange;
   border-left: 0px;

@@ -131,7 +131,11 @@ exec_always ~/.config/waybar/launch.sh
 # Gaps #
 ########
 smart_gaps off
-gaps inner 15
+gaps top 5
+gaps bottom 5
+gaps right 5
+gaps left  5
+gaps inner 17
 
 # animation_duration 0.5
 

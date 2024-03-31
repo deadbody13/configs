@@ -5,7 +5,7 @@
 	"exclusive": true,
 	"passthrough": false,
 	"gtk-layer-shell": false,
-	"height": 30,
+	"height": 10,
   // "spacing": 4,
   "modules-left": ["clock", 
 	  "sway/workspaces",
@@ -13,7 +13,7 @@
 	  "modules-center": ["sway/window"],
 	  "modules-right": [
 		"network",
-	// "bluetooth",
+		"bluetooth",
 		"temperature",
 		"memory",
 		"battery",
@@ -49,8 +49,8 @@
 	  },
 
 	  "clock": {
-		  "format": "{: %R  %m.%d}",
-		  "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+		  "format": " {:%R  %m.%d}",
+		  // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
 	// "format": "{: %I:%M %p   %a, %b %e}",
 	// "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
 	  },
