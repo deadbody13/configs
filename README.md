@@ -1,5 +1,5 @@
 # configs
-My config files for my Fedora Linux system. I do my best to credit everyone that I get my work (currently trying to do that with all my wallpapers) from so if you see something that you think needs attribution, let me know.
+My config files for my Fedora Linux system. I do my best to credit everyone that I base my stuff on (currently trying to do that with all my wallpapers) so if you see something that you think needs attribution, let me know.
 
 ## Current
 Currently, my rice is based on the [Everforest](https://github.com/sainnhe/everforest/tree/master) theme.
