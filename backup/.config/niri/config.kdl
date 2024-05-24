@@ -163,12 +163,28 @@ spawn-at-startup "swaync"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-animations {
+window-rule {
+	geometry-corner-radius 0
+	clip-to-geometry true
+	focus-ring {
+		on
+		width 2
+		// active-color "#93b259"
+	}
+	border {
+		on
+		width 1
+		// active-color "#93b259"
+		// inactive-color "#708089"
+	}
 }
-
 window-rule {
     match title="Firefox"
-    default-column-width { proportion 0.75; }
+    default-column-width { proportion 0.70; }
+}
+window-rule {
+    match title="kitty"
+    default-column-width { proportion 0.30; }
 }
 
 // Example: block out two password managers from screen capture.
@@ -266,20 +282,22 @@ binds {
     Alt+Shift+U         { move-workspace-down; }
     Alt+Shift+I         { move-workspace-up; }
 
-    Alt+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Alt+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    // Alt+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    // Alt+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
     Alt+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Alt+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
-    Alt+WheelScrollRight      { focus-column-right; }
-    Alt+WheelScrollLeft       { focus-column-left; }
-    Alt+Ctrl+WheelScrollRight { move-column-right; }
-    Alt+Ctrl+WheelScrollLeft  { move-column-left; }
+    // Alt+WheelScrollRight      { focus-column-right; }
+    // Alt+WheelScrollLeft       { focus-column-left; }
+    Alt+WheelScrollDown			{ focus-column-right; }
+    Alt+WheelScrollUp			{ focus-column-left; }
+    Alt+Shift+WheelScrollDown	{ move-column-right; }
+    Alt+Shift+WheelScrollUp  	{ move-column-left; }
 
-    Alt+Shift+WheelScrollDown      { focus-column-right; }
-    Alt+Shift+WheelScrollUp        { focus-column-left; }
-    Alt+Ctrl+Shift+WheelScrollDown { move-column-right; }
-    Alt+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+    // Alt+Shift+WheelScrollDown      { focus-column-right; }
+    // Alt+Shift+WheelScrollUp        { focus-column-left; }
+    // Alt+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    // Alt+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
     Alt+1 { focus-workspace 1; }
     Alt+2 { focus-workspace 2; }

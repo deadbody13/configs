@@ -17,3 +17,5 @@ map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
 map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
 map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
 map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
+-- Close buffer
+map('n', '<C-w>', '<Cmd>BufferClose<CR>', opts)
