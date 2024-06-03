@@ -1,5 +1,0 @@
-#!/bin/bash
-
-sudo grub2-mkconfig -o /etc/grub2.cfg
-sudo grub2-mkconfig -o /etc/grub2-efi.cfg
-sudo grub2-mkconfig -o /boot/grub2/grub.cfg
