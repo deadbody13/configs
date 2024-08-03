@@ -45,6 +45,6 @@ map alt+shift+l move_window right
 enabled_layouts grid 
 
 # BEGIN_KITTY_THEME
-# Github
+# Everforest Light Hard
 include current-theme.conf
 # END_KITTY_THEME

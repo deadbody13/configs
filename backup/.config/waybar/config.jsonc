@@ -7,18 +7,14 @@
 	"gtk-layer-shell": false,
 	"height": 10,
   // "spacing": 4,
-  "modules-left": ["clock", 
-	  "sway/workspaces",
-	  "tray"],
-	  "modules-center": ["sway/window"],
+  "modules-left": ["temperature",
+  	"memory",
+  	"tray"],
+	  "modules-center": ["clock"],
 	  "modules-right": [
 		"network",
 		"bluetooth",
-		"temperature",
-		"memory",
-		"battery",
-		"pulseaudio",
-		"backlight"
+		"pulseaudio"
 	  ],
 	  "hyprland/window": {
 		  "format": "{}",

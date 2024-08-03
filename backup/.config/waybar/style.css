@@ -68,7 +68,7 @@ tooltip {
 #backlight {
   background: @bg0;
   opacity: 0.9;
-  padding: 0px 10px;
+  padding: 7px 10px;
   margin-top: 15px;
   margin-bottom: 0px;
   border: 2px solid @fg;
@@ -76,8 +76,9 @@ tooltip {
 
 #memory {
   color: @green;
+  border-radius: 0px 15px 15px 0px;
+  border-right: 2px solid @fg;
   border-left: 0px;
-  border-right: 0px;
 }
 
 #bluetooth {
@@ -86,14 +87,17 @@ tooltip {
 
 #temperature {
   color: @orange;
-  border-left: 0px;
+  border-radius: 15px 0px 0px 15px;
+  border-left: 2px solid @fg;
   border-right: 0px;
+  margin-left: 15px;
 }
 
 #temperature.critical {
-  border-left: 0px;
-  border-right: 0px;
   color: @red;
+  border-radius: 15px 0px 0px 15px;
+  border-left: 2px solid @fg;
+  border-right: 0px;
 }
 
 #backlight {
@@ -103,7 +107,7 @@ tooltip {
 }
 
 #tray {
-  border-radius: 0px;
+  border-radius: 15px;
   margin-left: 10px;
   margin-right: 0px;
 }
@@ -143,20 +147,22 @@ window#waybar.empty #window {
 #clock {
   color: @fg;
   background: @bg0;
-  border-radius: 0px;
-  margin-left: 30px;
+  border-radius: 15px;
+  margin-left: 0px;
 }
 
 #network {
   color: @purple;
-  border-radius: 0px;
+  border-radius: 15px 0px 0px 15px;
   border-right: 0px;
 }
 
 #pulseaudio {
   color: @yellow;
-  border-radius: 0px;
-  border-right: 0px;
+  border-radius: 0px 15px 15px 0px;
+  border-right: 1px solid @fg;
+  border-left: 0px;
+  margin-right: 30px;
 }
 
 #battery {

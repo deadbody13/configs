@@ -4,9 +4,9 @@
 
 * {
   all: unset;
-  font-family: "Cantarell, Light";
+  font-family: "IBM Plex Serif";
   transition: 0.3s;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .floating-notifications.background .notification-row {
@@ -14,7 +14,7 @@
 }
 
 .floating-notifications.background .notification-row .notification-background {
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
   background-color: @bg;
   color: @fg;
   border: 1px solid @fg;
@@ -26,7 +26,7 @@
   .notification-background
   .notification {
   padding: 0.5rem;
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
 }
 
 .floating-notifications.background
@@ -73,7 +73,7 @@
   > *:last-child
   > *
   .notification-action {
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
   color: @fg;
   background-color: @bg;
   border: 1px solid @fg;
@@ -105,7 +105,7 @@
   .close-button {
   margin: 0.5rem;
   padding: 0.25rem;
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
   color: @fg;
   background-color: @bg;
 }
@@ -125,7 +125,7 @@
 }
 
 .control-center {
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
   margin: 1rem;
   background-color: @bg;
   color: @fg;
@@ -139,7 +139,7 @@
 }
 
 .control-center .widget-title button {
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
   color: @fg;
   background-color: @bg;
   border: 1px solid @fg;
@@ -155,7 +155,7 @@
 }
 
 .control-center .notification-row .notification-background {
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
   margin: 0.5rem 0;
   background-color: @bg;
   color: @fg;
@@ -164,7 +164,7 @@
 
 .control-center .notification-row .notification-background .notification {
   padding: 0.5rem;
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
 }
 
 .control-center
@@ -219,7 +219,7 @@
   > *:last-child
   > *
   .notification-action {
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
   color: @fg;
   background-color: @bg;
   border: 1px solid @fg;
@@ -248,7 +248,7 @@
 .control-center .notification-row .notification-background .close-button {
   margin: 0.5rem;
   padding: 0.25rem;
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
   color: @fg;
   background-color: @bg;
 }
@@ -267,7 +267,7 @@
 progressbar,
 progress,
 trough {
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
 }
 
 .notification.critical progress {
@@ -289,12 +289,12 @@ trough {
 
 .control-center-dnd {
   margin: 1rem 0;
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
 }
 
 .control-center-dnd slider {
   background: @bg;
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
 }
 
 .widget-dnd {
@@ -302,7 +302,7 @@ trough {
 }
 
 .widget-dnd > switch {
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
   background: @bg;
   border: 1px solid @fg;
 }
@@ -313,6 +313,6 @@ trough {
 
 .widget-dnd > switch slider {
   background: @bg;
-  border-radius: 0.0rem;
+  border-radius: 1.0rem;
   margin: 0.25rem;
 }
