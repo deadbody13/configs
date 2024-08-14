@@ -37,7 +37,7 @@ output "DP-3" {
 }
 
 layout {
-    gaps 16
+    gaps 10
 	// never, always, on-overflow
     center-focused-column "always"
 
@@ -50,53 +50,17 @@ layout {
 
     default-column-width { proportion 0.5; }
     focus-ring {
-		// off
+		off
         width 2
-        // Color of the ring on the active monitor.
-        // active-color "#dfa00022"
-        // Color of the ring on inactive monitors.
+        active-color "#e66868"
         inactive-color "#00000000"
-
-        // You can also use gradients. They take precedence over solid colors.
-        // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
-        // The angle is the same as in linear-gradient, and is optional,
-        // defaulting to 180 (top-to-bottom gradient).
-        // You can use any CSS linear-gradient tool on the web to set these up.
-        //
-        // active-gradient   from="#f57d26" to="#e0dcc755" angle=10 relative-to="window"
-		// active-gradient from="#000000ff" to="#ffffffff" angle=10 relative-to="window"
-
-        // You can also color the gradient relative to the entire view
-        // of the workspace, rather than relative to just the window itself.
-        // To do that, set relative-to="workspace-view".
-        //
-        // inactive-gradient from="#505050" to="#808080" angle=5 in="rgba-linear"
     }
-
-    // You can also add a border. It's similar to the focus ring, but always visible.
     border {
-        // The settings are the same as for the focus ring.
-        // If you enable the border, you probably want to disable the focus ring.
-		// off
-
-        width 2
-        active-color "#000000"
-        inactive-color "#000000"
-
-        // active-gradient   from="#000000" to="#ffffff" angle=5
-        // inactive-gradient from="#000000" to="#ffffff" angle=5
+        width 4
+		active-gradient   from="#f85552" to="#ecf5ed" angle=130 relative-to="workspace-view" in="oklab"
+		inactive-gradient from="#dfa000" to="#ecf5ed" angle=10 	relative-to="workspace-view" in="oklab"
     }
-
-    // Struts shrink the area occupied by windows, similarly to layer-shell panels.
-    // You can think of them as a kind of outer gaps. They are set in logical pixels.
-    // Left and right struts will cause the next window to the side to always be visible.
-    // Top and bottom struts will simply add outer gaps in addition to the area occupied by
-    // layer-shell panels and regular gaps.
     struts {
-        // left 64
-        // right 64
-        // top 64
-        // bottom 64
     }
 }
 
@@ -123,7 +87,7 @@ window-rule {
 }
 window-rule {
     match title="foot"
-    default-column-width { proportion 0.30; }
+    default-column-width { proportion 0.50; }
 }
 window-rule {
 	match app-id="org.gnome.Nautilus|udiskie"
@@ -131,18 +95,6 @@ window-rule {
 	max-height 500
 	min-width 900
 	max-width 900
-}
-
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
 }
 
 binds {
@@ -153,7 +105,7 @@ binds {
 	Super+1 { spawn "firefox"; }
 	Alt+Shift+n { spawn "swaync-client" "-t"; }
 	Super+e { spawn "nautilus"; }
-	Ctrl+Alt+Delete { spawn "systemctl" "suspend"; }
+	Ctrl+Alt+Delete { spawn "kitty" "-e" "/home/sven/.config/niri/power.sh"; }
 
 	//
 	// Audio
@@ -254,8 +206,8 @@ binds {
 	//
     Alt+F { maximize-column; }
     Alt+Shift+F { fullscreen-window; }
-    Alt+Minus { set-column-width "-10%"; }
-    Alt+Equal { set-column-width "+10%"; }
+    Alt+Minus { set-column-width "-20%"; }
+    Alt+Equal { set-column-width "+20%"; }
     Alt+Shift+Minus { set-window-height "-10%"; }
     Alt+Shift+Equal { set-window-height "+10%"; }
     // Alt+R { switch-preset-column-width; }
@@ -270,4 +222,57 @@ binds {
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Alt+Shift+E { quit; }
+}
+
+animations {
+    slowdown 1.0
+
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+
+	window-open {
+		duration-ms 250
+		curve "ease-out-quad"
+
+		custom-shader r"
+		vec4 expanding_circle(vec3 coords_geo, vec3 size_geo) {
+			vec3 coords_tex = niri_geo_to_tex * coords_geo;
+			vec4 color = texture2D(niri_tex, coords_tex.st);
+
+			vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;
+			coords = coords / length(size_geo.xy);
+			float p = niri_clamped_progress;
+			if (p * p <= dot(coords, coords))
+				color = vec4(0.0);
+
+			return color;
+		}
+		"
+	}
+    window-close {
+        duration-ms 150
+        curve "ease-out-quad"
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=350 epsilon=0.0001
+    }
+
+    window-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    window-resize {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+
+    config-notification-open-close {
+        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+    }
+
+    screenshot-ui-open {
+        duration-ms 200
+        curve "ease-out-quad"
+    }
 }
