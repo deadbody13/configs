@@ -1,16 +1,20 @@
 #!/bin/bash
 
 echo ""
-echo "1: power off"
-echo "2: sleep"
+echo "1: sleep"
+echo "2: power off"
+echo "3: reboot"
 echo ""
 
 read -p "" input
 
 if [ $input == "1" ]
 then
-	shutdown now
+	systemctl suspend
 elif [ $input == "2" ]
 then
-	systemctl suspend
+	shutdown now
+elif [ $input == "3" ]
+then
+	reboot
 fi

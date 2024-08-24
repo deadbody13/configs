@@ -1,3 +1,4 @@
+prefer-no-csd
 debug {
 	wait-for-frame-completion-before-queueing
 }
@@ -37,15 +38,14 @@ output "DP-3" {
 }
 
 layout {
-    gaps 10
+    gaps 5
 	// never, always, on-overflow
-    center-focused-column "always"
+    center-focused-column "on-overflow"
 
     // You can customize the widths that "switch-preset-column-width" (Alt+R) toggles between.
     preset-column-widths {
-        proportion 0.33333
-        proportion 0.5
-        proportion 0.66667
+        proportion 0.4
+        proportion 0.6
     }
 
     default-column-width { proportion 0.5; }
@@ -56,45 +56,46 @@ layout {
         inactive-color "#00000000"
     }
     border {
-        width 4
-		active-gradient   from="#f85552" to="#ecf5ed" angle=130 relative-to="workspace-view" in="oklab"
+        width 3
+		active-gradient   from="#f3b400" to="#5c6a72" angle=145 relative-to="window" in="srgb-linear"
 		inactive-gradient from="#dfa000" to="#ecf5ed" angle=10 	relative-to="workspace-view" in="oklab"
     }
     struts {
+		top -8
+		bottom 5
     }
 }
 
 //
 // Startup applications
 //
-spawn-at-startup "swaybg" "-i" "/home/sven/Pictures/Wallpapers/pokemon/pikachu_2_everforest-light.png"
+spawn-at-startup "swaybg" "-i" "/home/sven/Pictures/Wallpapers/pokemon/pikachu.svg"
 spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "udiskie" "-s"
 spawn-at-startup "blueman-applet"
-spawn-at-startup "/home/sven/projects/xwayland-satellite/target/release/xwayland-satellite"
+spawn-at-startup "/home/sven/projects/xwayland-satellite/target/release/xwayland-satellite" ":0"
 spawn-at-startup "swayidle" "-w" "before-sleep" "'swaylock'"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 window-rule {
-	geometry-corner-radius 15
+	geometry-corner-radius 5
 	clip-to-geometry true
 }
 window-rule {
     match title="Firefox"
-    default-column-width { proportion 0.70; }
+    default-column-width { proportion 0.60; }
 }
 window-rule {
-    match title="foot"
-    default-column-width { proportion 0.50; }
+    match title="foot|Spotify*"
+	match app-id="org.gnome.Nautilus|udiskie"
+    default-column-width { proportion 0.40; }
 }
 window-rule {
 	match app-id="org.gnome.Nautilus|udiskie"
 	min-height 500
 	max-height 500
-	min-width 900
-	max-width 900
 }
 
 binds {
@@ -205,12 +206,13 @@ binds {
 	// Resizing
 	//
     Alt+F { maximize-column; }
-    Alt+Shift+F { fullscreen-window; }
+    Alt+Shift+F { reset-window-height; }
+    // Alt+Shift+F { fullscreen-window; }
     Alt+Minus { set-column-width "-20%"; }
     Alt+Equal { set-column-width "+20%"; }
     Alt+Shift+Minus { set-window-height "-10%"; }
     Alt+Shift+Equal { set-window-height "+10%"; }
-    // Alt+R { switch-preset-column-width; }
+    Alt+R { switch-preset-column-width; }
     // Alt+Shift+R { reset-window-height; }
 
 	//

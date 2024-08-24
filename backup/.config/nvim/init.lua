@@ -11,6 +11,6 @@ require("mason").setup()
 
 
 if vim.g.neovide then
-	require("dead.neovide")
+	require("neovide")
 end
 

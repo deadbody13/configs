@@ -1,3 +1,10 @@
 #!/bin/bash
 
-sudo dnf5 update
+echo "-----"
+echo "system:"
+echo "-----"
+sudo dnf update
+echo "-----"
+echo "flatpak:"
+echo "-----"
+flatpak update

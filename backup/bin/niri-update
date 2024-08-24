@@ -1,0 +1,11 @@
+#!/bin/bash
+
+pushd $HOME/projects/niri/
+	git pull
+	cargo clean
+	cargo build --release
+	cargo generate-rpm
+	rm target/generate-rpm/*
+	sudo dnf remove niri
+	sudo dnf install .target/generate-rpm/niri*rpm
+popd

@@ -23,3 +23,5 @@ compinit
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(starship init zsh)"
+
+export PATH=$PATH:/home/sven/.spicetify
