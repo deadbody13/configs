@@ -1,7 +1,8 @@
 #!/bin/bash
 
 pushd backup
-cp -rv ~/{.bash_profile,.bashrc,bin,.fonts,startpage,.themes,.vimrc,.zshenv,.zshrc} .
+cp -rv ~/{.bash_profile,.bashrc,bin,.fonts,.themes,.vimrc,.zshenv,.zshrc} .
+cp -rv ~/projects/startpage projects/
 	pushd .config
 	for x in *
 	do
