@@ -1,20 +1,15 @@
 #!/bin/bash
 
-echo ""
-echo "1: sleep"
-echo "2: power off"
-echo "3: reboot"
-echo ""
+input=$(printf "suspend\0icon\x1fsleep\nshutdown\0icon\x1fshutdown\nreboot\0icon\x1freboot" | fuzzel --dmenu --icon-theme=WhiteSur)
 
-read -p "" input
-
-if [ $input == "1" ]
-then
-	systemctl suspend
-elif [ $input == "2" ]
-then
-	shutdown now
-elif [ $input == "3" ]
-then
-	reboot
-fi
+case "$input" in
+	suspend)
+		systemctl suspend
+		;;
+	shutdown)
+		shutdown now
+		;;
+	reboot)
+		reboot
+		;;
+esac

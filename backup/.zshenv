@@ -16,9 +16,17 @@ fi
 export QT_QPA_PLATFORM=wayland
 
 alias vim="nvim"
-alias vide="neovide"
 alias ff="fastfetch"
 alias hugos="hugo server -D --disableFastRender"
 alias swaync_reload="swaync-client -R && swaync-client -rs"
+alias purge-local-branches='git branch | grep -v "main" | xargs git branch -D'
 
 jflash=/run/media/sven/jflash
+
+vide () {
+	neovide $1 &
+}
+videe () {
+	(neovide $1 &) && exit
+	exit
+}
