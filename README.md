@@ -3,6 +3,7 @@ My config files for my Fedora Linux system. I do my best to credit everyone that
 
 ## Current
 Currently, my setup is based on the [Everforest](https://github.com/sainnhe/everforest/tree/master) theme. Only important stuff happens here...
+![everforest rice](images/niri-rice_wallpaper.png)
 ![everforest rice](images/niri-rice.png)
 
 ## Credits
