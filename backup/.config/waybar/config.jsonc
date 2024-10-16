@@ -10,6 +10,7 @@
 		"tray"
 	],
 	"modules-center": [
+		"niri/workspaces",
 		"clock"
 	],
 	"modules-right": [
@@ -19,27 +20,18 @@
 		"bluetooth",
 		"pulseaudio"
 	],
-	"hyprland/window": {
-		"format": "{}",
-		"max-length": 40
-	},
-
-	"sway/workspaces": {
-		"disable-scroll": true,
-		"all-outputs": true,
-		"on-click": "activate",
+	"niri/workspaces": {
 		"format": "{icon}",
 		"format-icons": {
-			"1": "1",
-			"2": "2",
-			"3": "3",
-			"4": "4",
-			"5": "5",
-			"6": "6",
-			"7": "7",
-			"8": "8",
-			"9": "9",
-			"10": "10"
+		// Named workspaces
+		// (you need to configure them in niri)
+		// "browser": "",
+		// "discord": "",
+		// "chat": "<b></b>",
+
+		// Icons by state
+		"active": "",
+		"default": ""
 		}
 	},
 
@@ -48,10 +40,7 @@
 	},
 
 	"clock": {
-		"format": " {:%R  %m.%d}",
-		  // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-	// "format": "{: %I:%M %p   %a, %b %e}",
-	// "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+		"format": "🗓 {:%m.%d  ⏲ %R}"
 	},
 
 	"backlight": {
@@ -113,7 +102,7 @@
 		"thermal-zone": 1,
 		"format": "▊ 🌡 {temperatureC}°C",
 		"critical-threshold": 75,
-		"format-critical": "▊ {temperatureC}°C "
+		"format-critical": "▊  {temperatureC}°C"
 	},
 
 	"memory": {

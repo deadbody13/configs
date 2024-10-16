@@ -6,9 +6,14 @@ hotkey-overlay {
 	skip-at-startup
 }
 environment {
-	// DISPLAY ":0"
+	DISPLAY ":0"
 	QT_QPA_PLATFORM "wayland"
 	XDG_CURRENT_DESKTOP "Niri"
+}
+
+cursor {
+	xcursor-theme "phinger-cursors-light"
+	xcursor-size 24
 }
 
 input {
@@ -24,17 +29,20 @@ input {
     // focus-follows-mouse
 }
 
+output "DP-3" {
+	// top
+    mode "2560x1440@119.998"
+	// off
+    scale 1.0
+    transform "normal"
+    position x=0 y=0
+}
 output "DP-4" {
+	// bottom
     mode "2560x1440@119.998"
     scale 1.0
     transform "normal"
     position x=0 y=1440
-}
-output "DP-3" {
-    mode "2560x1440@119.998"
-    scale 1.0
-    transform "normal"
-    position x=0 y=0
 }
 
 layout {
@@ -57,8 +65,9 @@ layout {
     }
     border {
         width 3
-		active-gradient   from="#f3b400" to="#5c6a72" angle=145 relative-to="window" in="srgb-linear"
-		inactive-gradient from="#dfa000" to="#ecf5ed" angle=10 	relative-to="workspace-view" in="oklab"
+		active-gradient   from="#df69ba" to="#25a77c" angle=290 relative-to="window" in="oklch shorter hue"
+		// inactive-gradient from="#dfa000" to="#ecf5ed" angle=145	relative-to="workspace-view" in="oklab"
+		inactive-color "#8c471599"
     }
     struts {
 		top -8
@@ -74,7 +83,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "udiskie" "-s"
 spawn-at-startup "blueman-applet"
-spawn-at-startup "/home/sven/projects/xwayland-satellite/target/release/xwayland-satellite" ":12"
+spawn-at-startup "/home/sven/projects/xwayland-satellite/target/release/xwayland-satellite" ":0"
 spawn-at-startup "swayidle" "-w" "before-sleep" "'swaylock'"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
@@ -196,19 +205,19 @@ binds {
 	// Consuming, Expelling
 	//
     Alt+C { center-column; }
-    Ctrl+Comma { consume-or-expel-window-left; }
-    Ctrl+Period { consume-or-expel-window-right; }
+    // Ctrl+Comma { consume-or-expel-window-left; }
+    // Ctrl+Period { consume-or-expel-window-right; }
     // Alt+Comma  { consume-window-into-column; }
     // Alt+Period { expel-window-from-column; }
-    // Alt+BracketLeft  { consume-or-expel-window-left; }
-    // Alt+BracketRight { consume-or-expel-window-right; }
+    Alt+BracketLeft  { consume-or-expel-window-left; }
+    Alt+BracketRight { consume-or-expel-window-right; }
 
 	//
 	// Resizing
 	//
     Alt+F { maximize-column; }
     Alt+Shift+F { reset-window-height; }
-    // Alt+Shift+F { fullscreen-window; }
+    F11 { fullscreen-window; }
     Alt+Minus { set-column-width "-20%"; }
     Alt+Equal { set-column-width "+20%"; }
     Alt+Shift+Minus { set-window-height "-10%"; }

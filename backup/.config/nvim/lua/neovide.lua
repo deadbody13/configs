@@ -1,4 +1,4 @@
-vim.o.guifont = "FantasqueSansM Nerd Font:h12"
+vim.o.guifont = "SeriousShanns Nerd Font Mono:h12"
 vim.g.neovide_scroll_animation_length = 0.5
 vim.g.neovide_refresh_rate = 60
 vim.g.idle_refresh_rate = 5
