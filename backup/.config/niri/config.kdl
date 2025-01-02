@@ -23,7 +23,7 @@ input {
     }
     mouse {
         // natural-scroll
-        accel-speed 0.0
+        accel-speed -0.3
         accel-profile "flat"
     }
     // focus-follows-mouse
@@ -65,13 +65,16 @@ layout {
     }
     border {
         width 3
-		active-gradient   from="#df69ba" to="#25a77c" angle=290 relative-to="window" in="oklch shorter hue"
+		active-color "#93b259"
+		// active-gradient   from="#df69ba" to="#25a77c" angle=290 relative-to="window" in="oklch shorter hue"
 		// inactive-gradient from="#dfa000" to="#ecf5ed" angle=145	relative-to="workspace-view" in="oklab"
-		inactive-color "#8c471599"
+		inactive-color "#fffbef"
     }
     struts {
-		top -8
+		top 1
 		bottom 5
+		left 5
+		right 5
     }
 }
 
@@ -89,11 +92,15 @@ spawn-at-startup "swayidle" "-w" "before-sleep" "'swaylock'"
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 window-rule {
-	geometry-corner-radius 5
+	geometry-corner-radius 0
 	clip-to-geometry true
 }
 window-rule {
     match title="Firefox"
+    default-column-width { proportion 0.60; }
+}
+window-rule {
+	match app-id="Vivaldi*"
     default-column-width { proportion 0.60; }
 }
 window-rule {
@@ -102,9 +109,9 @@ window-rule {
     default-column-width { proportion 0.40; }
 }
 window-rule {
+	match title="Steam Settings|Friends List"
 	match app-id="org.gnome.Nautilus|udiskie"
-	min-height 500
-	max-height 500
+	open-floating true
 }
 
 binds {

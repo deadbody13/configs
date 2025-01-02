@@ -5,7 +5,9 @@
 	"exclusive": true,
 	"passthrough": false,
 	"gtk-layer-shell": false,
-	"height": 35,
+	// "height": 10,
+	"width": 2560,
+	"margin-top": 0,
 	"modules-left": [
 		"tray"
 	],

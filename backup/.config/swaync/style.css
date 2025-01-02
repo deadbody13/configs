@@ -1,11 +1,11 @@
 /* Everforest */
 /* @define-color bg	#fffbef; */
 @define-color bg	#ffffff;
-@define-color fg	#5c6a72;
+@define-color fg	#93b259;
 
 * {
   all: unset;
-  font-family: "IBM Plex Serif";
+  font-family: "Comic Neue";
   transition: 0.3s;
   font-size: 1.2rem;
 }

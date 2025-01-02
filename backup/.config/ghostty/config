@@ -1,0 +1,5 @@
+font-family = "SeriousShanns Nerd Font Mono"
+font-size = 10
+theme = CLRS 
+window-decoration = false
+window-padding-x = 15

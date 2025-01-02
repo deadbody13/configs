@@ -1,24 +1,26 @@
 @import "./everforest.css";
 
 * {
-	border: none;
-	border-radius: 0;
-	font-family: "SeriousShanns Nerd Font Mono";
+	font-family: "Comic Neue";
 	font-weight: bold;
 	font-size: 14px;
-	min-height: 0;
 }
 
 window#waybar {
-	background: rgba(21, 18, 27, 0);
+	background-color: @bg0;
+	transition-property: background-color;
+	border-radius: 0px;
+	border-width: 2px;
+	border-style: outset;
+	border-color: @statusline1;
 	color: @fg;
 }
 
 tooltip {
-	background: @bg0;
+	background-color: @bg0;
 	border-radius: 4px;
 	border-width: 2px;
-	border-style: solid;
+	border-style: groove;
 	border-color: @fg;
 }
 
@@ -57,8 +59,8 @@ tooltip {
 #tray,
 #memory,
 #backlight {
-	opacity: 0.9;
 	padding: 7px 10px;
+	border-radius: 10px;
 }
 
 #memory {
@@ -79,19 +81,19 @@ tooltip {
 
 #backlight {
 	color: @aqua;
-	border-radius: 0px;
+	border-radius: 10px;
 	margin-right: 30px;
 }
 
 #tray {
 	color: #000000;
-	border-radius: 0px;
+	border-radius: 10px;
 	margin-left: 10px;
 	margin-right: 0px;
 }
 
 #workspaces {
-	border-radius: 0px;
+	border-radius: 10px;
 	margin: 0px;
 	padding: 0px 10px 0px 10px;
 }
@@ -103,13 +105,14 @@ tooltip {
 }
 
 #window {
-	border-radius: 0px;
+	border-radius: 10px;
 	margin-left: 60px;
 	margin-right: 60px;
 }
 
 window#waybar.empty {
-	background-color: transparent;
+	background-color: @bg0;
+	border-radius: 10px;
 }
 
 window#waybar.empty #window {
@@ -117,7 +120,8 @@ window#waybar.empty #window {
 	margin: 0px;
 	border: 0px;
 	/*  background-color: rgba(66,66,66,0.5); */ /* transparent */
-	background-color: transparent;
+	background-color: @bg0;
+	border-radius: 10px;
 }
 
 #clock {
@@ -135,7 +139,7 @@ window#waybar.empty #window {
 
 #battery {
 	color: @blue;
-	border-radius: 0px;
+	border-radius: 10px;
 	margin-right: 10px;
 	border-left: 0px;
 }

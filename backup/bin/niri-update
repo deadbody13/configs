@@ -5,6 +5,6 @@ pushd $HOME/projects/niri/
 	cargo clean
 	cargo build --release
 	cargo generate-rpm
-	sudo dnf remove niri
-	sudo dnf install ./target/generate-rpm/niri*rpm
+	sudo dnf -y remove niri
+	sudo dnf -y install ./target/generate-rpm/niri*rpm
 popd
