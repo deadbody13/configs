@@ -1,7 +1,7 @@
-@import "./everforest.css";
+@import "./rose-pine.css";
 
 * {
-	font-family: "Comic Neue";
+	font-family: "RobotoMono Nerd Font Mono";
 	font-weight: bold;
 	font-size: 14px;
 }
@@ -9,19 +9,21 @@
 window#waybar {
 	background-color: @bg0;
 	transition-property: background-color;
-	border-radius: 0px;
-	border-width: 2px;
-	border-style: outset;
-	border-color: @statusline1;
+	border-radius: 7px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: @rose;
 	color: @fg;
 }
 
+tooltip label {
+	font-family: "Comic Neue";
+	font-weight: normal;
+	color: @fg;
+}
 tooltip {
 	background-color: @bg0;
-	border-radius: 4px;
-	border-width: 2px;
-	border-style: groove;
-	border-color: @fg;
+	border: 1px solid @fg;
 }
 
 #workspaces button {
@@ -59,7 +61,7 @@ tooltip {
 #tray,
 #memory,
 #backlight {
-	padding: 7px 10px;
+	padding: 5px 0px;
 	border-radius: 10px;
 }
 
@@ -86,16 +88,14 @@ tooltip {
 }
 
 #tray {
-	color: #000000;
-	border-radius: 10px;
-	margin-left: 10px;
-	margin-right: 0px;
+	color: @fg;
+	padding-top: 20px;
 }
 
 #workspaces {
 	border-radius: 10px;
 	margin: 0px;
-	padding: 0px 10px 0px 10px;
+	/* padding: 0px 10px 0px 10px; */
 }
 
 #custom-power_profile {
@@ -125,6 +125,7 @@ window#waybar.empty #window {
 }
 
 #clock {
+	padding-top: 250px;
 	color: @fg;
 }
 
@@ -134,7 +135,6 @@ window#waybar.empty #window {
 
 #pulseaudio {
 	color: @yellow;
-	margin-right: 30px;
 }
 
 #battery {
@@ -142,4 +142,8 @@ window#waybar.empty #window {
 	border-radius: 10px;
 	margin-right: 10px;
 	border-left: 0px;
+}
+#custom-notification {
+	color: @aqua;
+	background: transparent;
 }

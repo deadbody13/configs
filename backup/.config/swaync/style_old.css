@@ -1,0 +1,328 @@
+/* Everforest */
+/* @define-color bg	#fffbef; */
+@define-color bg	#ffffff;
+@define-color fg	#222222;
+
+* {
+  all: unset;
+  font-family: "Open Sans";
+  transition: 0.3s;
+  font-size: 1.2rem;
+}
+
+.floating-notifications.background .notification-row {
+  padding: 1rem;
+}
+
+.floating-notifications.background .notification-row .notification-background {
+  border-radius: 0.30rem;
+  background-color: @bg;
+  color: @fg;
+  border: 1px solid @fg;
+  margin: 0 0.2rem 0 0;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .text-box .time {
+  /* Notification time-ago */
+  font-size: 16px;
+  font-weight: bold;
+  color: #bbbbbb;
+  text-shadow: none;
+  margin-right: 30px;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification {
+  padding: 0.5rem;
+  border-radius: 0.50rem;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification.critical {
+  border: 1px solid @fg;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .summary {
+  margin: 0.5rem;
+  color: @fg;
+  font-weight: bold;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .body {
+  margin: 0.5rem;
+  color: @fg;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > * {
+  min-height: 3rem;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action {
+  border-radius: 0.50rem;
+  color: @fg;
+  background-color: @bg;
+  border: 1px solid @fg;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:hover {
+  background-color: @bg;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:active {
+  background-color: @bg;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button {
+  margin: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.50rem;
+  color: @fg;
+  background-color: @bg;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button:hover {
+  color: @fg;
+}
+
+.floating-notifications.background
+  .notification-row
+  .notification-background
+  .close-button:active {
+  background-color: @bg;
+}
+
+.control-center {
+  border-radius: 0.50rem;
+  margin: 1rem;
+  background-color: @bg;
+  color: @fg;
+  padding: 1rem;
+  border: 1px solid @fg;
+}
+
+.control-center .widget-title {
+  color: @fg;
+  font-weight: bold;
+}
+
+.control-center .widget-title button {
+  border-radius: 0.50rem;
+  color: @fg;
+  background-color: @bg;
+  border: 1px solid @fg;
+  padding: 0.5rem;
+}
+
+.control-center .widget-title button:hover {
+  background-color: @bg;
+}
+
+.control-center .widget-title button:active {
+  background-color: @bg;
+}
+
+.control-center .notification-row .notification-background {
+  border-radius: 0.50rem;
+  margin: 0.5rem 0;
+  background-color: @bg;
+  color: @fg;
+  border: 1px solid @fg;
+}
+
+.control-center .notification-row .notification-background .notification {
+  padding: 0.5rem;
+  border-radius: 0.50rem;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification.critical {
+  border: 1px solid @fg;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content {
+  color: @fg;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .summary {
+  margin: 0.5rem;
+  color: @fg;
+  font-weight: bold;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  .notification-content
+  .body {
+  margin: 0.5rem;
+  color: @fg;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > * {
+  min-height: 3rem;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action {
+  border-radius: 0.50rem;
+  color: @fg;
+  background-color: @bg;
+  border: 1px solid @fg;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:hover {
+  background-color: @bg;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .notification
+  > *:last-child
+  > *
+  .notification-action:active {
+  background-color: @bg;
+}
+
+.control-center .notification-row .notification-background .close-button {
+  margin: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.50rem;
+  color: @fg;
+  background-color: @bg;
+}
+
+.control-center .notification-row .notification-background .close-button:hover {
+  color: @fg;
+}
+
+.control-center
+  .notification-row
+  .notification-background
+  .close-button:active {
+  background-color: @bg;
+}
+
+progressbar,
+progress,
+trough {
+  border-radius: 0.50rem;
+}
+
+.notification.critical progress {
+  background-color: @bg;
+}
+
+.notification.low progress,
+.notification.normal progress {
+  background-color: @bg;
+}
+
+trough {
+  background-color: @bg;
+}
+
+.control-center trough {
+  background-color: @bg;
+}
+
+.control-center-dnd {
+  margin: 1rem 0;
+  border-radius: 0.50rem;
+}
+
+.control-center-dnd slider {
+  background: @bg;
+  border-radius: 0.50rem;
+}
+
+.widget-dnd {
+  color: @fg;
+}
+
+.widget-dnd > switch {
+  border-radius: 0.50rem;
+  background: @bg;
+  border: 1px solid @fg;
+}
+
+.widget-dnd > switch:checked slider {
+  background: @bg;
+}
+
+.widget-dnd > switch slider {
+  background: @bg;
+  border-radius: 0.50rem;
+  margin: 0.25rem;
+}

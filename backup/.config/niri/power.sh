@@ -1,6 +1,6 @@
 #!/bin/bash
 
-input=$(printf "suspend\0icon\x1fsleep\nshutdown\0icon\x1fshutdown\nreboot\0icon\x1freboot" | fuzzel --dmenu --icon-theme=WhiteSur)
+input=$(printf "suspend\0icon\x1fsystem-suspend\nshutdown\0icon\x1fsystem-shutdown\nreboot\0icon\x1fsystem-restart" | fuzzel --dmenu --icon-theme=Rose-Pine)
 
 case "$input" in
 	suspend)

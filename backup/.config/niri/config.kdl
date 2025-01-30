@@ -8,7 +8,9 @@ hotkey-overlay {
 environment {
 	DISPLAY ":0"
 	QT_QPA_PLATFORM "wayland"
+	QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
 	XDG_CURRENT_DESKTOP "Niri"
+	GTK_THEME "Rosepine-Dark"
 }
 
 cursor {
@@ -29,16 +31,15 @@ input {
     // focus-follows-mouse
 }
 
+// top
 output "DP-3" {
-	// top
     mode "2560x1440@119.998"
-	// off
     scale 1.0
     transform "normal"
     position x=0 y=0
 }
+// bottom
 output "DP-4" {
-	// bottom
     mode "2560x1440@119.998"
     scale 1.0
     transform "normal"
@@ -46,42 +47,50 @@ output "DP-4" {
 }
 
 layout {
-    gaps 5
+    gaps 15
 	// never, always, on-overflow
     center-focused-column "on-overflow"
+	shadow {
+		on
+		softness 2
+		spread 0
+		draw-behind-window true
+		offset x=5 y=8
+		color "#9ccfd8bb"
+		inactive-color "#908caa44"
+	}
 
     // You can customize the widths that "switch-preset-column-width" (Alt+R) toggles between.
     preset-column-widths {
         proportion 0.4
+		proportion 0.5
         proportion 0.6
     }
 
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 0.6; }
     focus-ring {
 		off
         width 2
         active-color "#e66868"
-        inactive-color "#00000000"
+        inactive-color "#524f67"
     }
     border {
         width 3
-		active-color "#93b259"
+		active-color "#c4a7e7"
 		// active-gradient   from="#df69ba" to="#25a77c" angle=290 relative-to="window" in="oklch shorter hue"
 		// inactive-gradient from="#dfa000" to="#ecf5ed" angle=145	relative-to="workspace-view" in="oklab"
-		inactive-color "#fffbef"
+		inactive-color "#524f67"
     }
     struts {
-		top 1
-		bottom 5
-		left 5
-		right 5
+		top 	0
+		bottom 	0
     }
 }
 
 //
 // Startup applications
 //
-spawn-at-startup "swaybg" "-i" "/home/sven/Pictures/Wallpapers/pokemon/pikachu.svg"
+spawn-at-startup "swaybg" "-i" "/home/sven/Pictures/Wallpapers/leafy.png"
 spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "udiskie" "-s"
@@ -91,12 +100,18 @@ spawn-at-startup "swayidle" "-w" "before-sleep" "'swaylock'"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
+
+//
+// Window Rules
+//
 window-rule {
-	geometry-corner-radius 0
+	geometry-corner-radius 10
 	clip-to-geometry true
 }
+// browsers
 window-rule {
-    match title="Firefox|Vivaldi*"
+    match title="Firefox|Vivaldi"
+	match app-id="google-chrome|zen"
     default-column-width { proportion 0.60; }
 }
 window-rule {
@@ -104,7 +119,6 @@ window-rule {
 	match app-id="udiskie|neovide"
     default-column-width { proportion 0.40; }
 }
-
 // floating windows
 window-rule {
 	match title="Steam Settings|Friends List"
@@ -114,10 +128,19 @@ window-rule {
 	open-floating true
 }
 window-rule {
+	match title="File Upload"
 	match app-id="org.gnome.Nautilus"
 	default-column-width { proportion 0.3; }
 	default-window-height { proportion 0.4; }
 	open-floating true
+}
+// block from stream
+window-rule {
+	match title="[wW]eather.com|[lL]ogin|Google Messages for web|GroupMe|Google Photos|Gmail"
+	block-out-from "screencast"
+}
+// no shadow
+window-rule {
 }
 
 binds {
@@ -125,11 +148,21 @@ binds {
     Alt+Return { spawn "foot"; }
     Alt+D { spawn "fuzzel"; }
     Ctrl+Super+L { spawn "swaylock"; }
-	Super+1 { spawn "firefox"; }
+	Super+1 { spawn "flatpak" "run" "app.zen_browser.zen"; }
 	Alt+Shift+n { spawn "swaync-client" "-t"; }
 	Super+e { spawn "nautilus"; }
 	// Ctrl+Alt+Delete { spawn "kitty" "-e" "/home/sven/.config/niri/power.sh"; }
 	Ctrl+Alt+Delete { spawn "/home/sven/.config/niri/power.sh"; }
+
+	Ctrl+Print {
+    spawn "sh" "-c" r#"
+        file=~/Videos/recordings/"$(date +%s)".mp4
+        wf-recorder -c h264_nvenc -r 60 --bframes 0 -g "$(slurp -b '#00000090' -w 0)" -f "$file"
+        wl-copy file:/"$file" -t text/uri-list
+    "#;
+	}
+
+	Ctrl+Escape { spawn "killall" "-s" "SIGINT" "wf-recorder"; }
 
 	//
 	// Audio
@@ -237,6 +270,8 @@ binds {
     Alt+Shift+Equal { set-window-height "+10%"; }
     Alt+R { switch-preset-column-width; }
     // Alt+Shift+R { reset-window-height; }
+	Alt+Space { switch-focus-between-floating-and-tiling; }
+	Alt+Shift+Space { toggle-window-floating; }
 
 	//
 	// Screenshotting
@@ -249,55 +284,55 @@ binds {
     Alt+Shift+E { quit; }
 }
 
-animations {
-    slowdown 1.0
-
-    workspace-switch {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-    }
-
-	window-open {
-		duration-ms 250
-		curve "ease-out-quad"
-
-		custom-shader r"
-		vec4 expanding_circle(vec3 coords_geo, vec3 size_geo) {
-			vec3 coords_tex = niri_geo_to_tex * coords_geo;
-			vec4 color = texture2D(niri_tex, coords_tex.st);
-
-			vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;
-			coords = coords / length(size_geo.xy);
-			float p = niri_clamped_progress;
-			if (p * p <= dot(coords, coords))
-				color = vec4(0.0);
-
-			return color;
-		}
-		"
-	}
-    window-close {
-        duration-ms 150
-        curve "ease-out-quad"
-    }
-
-    horizontal-view-movement {
-        spring damping-ratio=1.0 stiffness=350 epsilon=0.0001
-    }
-
-    window-movement {
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-    }
-
-    window-resize {
-        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-    }
-
-    config-notification-open-close {
-        spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
-    }
-
-    screenshot-ui-open {
-        duration-ms 200
-        curve "ease-out-quad"
-    }
-}
+// animations {
+//     slowdown 1.0
+// 
+//     workspace-switch {
+//         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+//     }
+// 
+// 	window-open {
+// 		duration-ms 250
+// 		curve "ease-out-quad"
+// 
+// 		custom-shader r"
+// 		vec4 expanding_circle(vec3 coords_geo, vec3 size_geo) {
+// 			vec3 coords_tex = niri_geo_to_tex * coords_geo;
+// 			vec4 color = texture2D(niri_tex, coords_tex.st);
+// 
+// 			vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;
+// 			coords = coords / length(size_geo.xy);
+// 			float p = niri_clamped_progress;
+// 			if (p * p <= dot(coords, coords))
+// 				color = vec4(0.0);
+// 
+// 			return color;
+// 		}
+// 		"
+// 	}
+//     window-close {
+//         duration-ms 150
+//         curve "ease-out-quad"
+//     }
+// 
+//     horizontal-view-movement {
+//         spring damping-ratio=1.0 stiffness=350 epsilon=0.0001
+//     }
+// 
+//     window-movement {
+//         spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+//     }
+// 
+//     window-resize {
+//         spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+//     }
+// 
+//     config-notification-open-close {
+//         spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+//     }
+// 
+//     screenshot-ui-open {
+//         duration-ms 200
+//         curve "ease-out-quad"
+//     }
+// }

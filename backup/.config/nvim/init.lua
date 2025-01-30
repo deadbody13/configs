@@ -2,7 +2,7 @@ require("set")
 require("remap")
 require("config.lazy")
 -- colorscheme
-vim.cmd([[colorscheme modus_operandi]]) -- modus_operandi, modus_vivendi
+vim.cmd([[colorscheme rose-pine]]) -- modus_operandi, modus_vivendi
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -45,3 +45,16 @@ require("telescope").setup {
 	},
 }
 require("telescope").load_extension "file_browser"
+
+require('lualine').setup({
+        options = {
+            theme = 'deepwhite',
+        },
+    })
+require('barbar').setup({
+        icons = {
+            filetype = {
+                custom_colors = true,
+            },
+        },
+})

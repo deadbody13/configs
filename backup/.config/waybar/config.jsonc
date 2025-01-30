@@ -1,12 +1,12 @@
 {
 	"layer": "top",
-	"position": "top",
+	"position": "left",
 	"mod": "dock",
+	"id": "waybar",
 	"exclusive": true,
 	"passthrough": false,
 	"gtk-layer-shell": false,
 	// "height": 10,
-	"width": 2560,
 	"margin-top": 0,
 	"modules-left": [
 		"tray"
@@ -16,6 +16,7 @@
 		"clock"
 	],
 	"modules-right": [
+		"custom/notification",
 		"temperature",
 		"memory",
 		"network",
@@ -25,11 +26,6 @@
 	"niri/workspaces": {
 		"format": "{icon}",
 		"format-icons": {
-		// Named workspaces
-		// (you need to configure them in niri)
-		// "browser": "",
-		// "discord": "",
-		// "chat": "<b></b>",
 
 		// Icons by state
 		"active": "",
@@ -42,7 +38,10 @@
 	},
 
 	"clock": {
-		"format": "🗓 {:%m.%d  ⏲ %R}"
+		"tooltip": false,
+		// "time": "{:%H\n:%M}",
+		"format": "<span color='#f57d26'>{:%H\n:%M\n</span><span color='#dfa000'>---\n%a\n%m\n.%d}</span>"
+		// "format": "{time}"
 	},
 
 	"backlight": {
@@ -70,9 +69,9 @@
 	},
 
 	"pulseaudio": {
-		"format": "▊ {icon} {volume}",
+		"format": "{volume}%",
 		"tooltip": false,
-		"format-muted": " muted",
+		"format-muted": "",
 		"on-click": "pamixer -t",
 		"on-click-right": "pavucontrol",
 		"on-scroll-up": "pamixer -i 5",
@@ -100,16 +99,18 @@
 	},
 
 	"temperature": {
+		"tooltip": false,
 		"interval": 2,
 		"thermal-zone": 1,
-		"format": "▊ 🌡 {temperatureC}°C",
+		"format": "{temperatureC}°C",
 		"critical-threshold": 75,
-		"format-critical": "▊  {temperatureC}°C"
+		"format-critical": "{temperatureC}°C"
 	},
 
 	"memory": {
+		"tooltip": false,
 		"interval": 30,
-		"format": "▊ 🖥 {}%",
+		"format": "{}%",
 		"max-length": 10,
 		"tooltip": true,
 		"tooltip-format": "Memory - {used:0.1f}GB used",
@@ -119,7 +120,7 @@
 	"network": {
 	// "interface": "wlp2*", // (Optional) To force the use of this interface
 	"format-wifi": " {signalStrength}%",
-	"format-ethernet": "▊  {ipaddr}/{cidr}",
+	"format-ethernet": "",
 	"tooltip-format": "{essid} - {ifname} via {gwaddr} ",
 	"format-linked": "{ifname} (No IP) ",
 	"format-disconnected": "NONE ⚠",
@@ -128,9 +129,9 @@
 	},
 
 	"bluetooth": {
-		"format": "▊  {status}",
+		"format": "",
 		"format-disabled": "", // an empty format will hide the module
-		"format-connected": "▊  {num_connections}",
+		"format-connected": " {num_connections}",
 		"tooltip-format": "{device_alias}",
 		"tooltip-format-connected": " {device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}",
@@ -162,5 +163,25 @@
 		"smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
 		"on-scroll-up": "playerctl -p spotify next",
 		"on-scroll-down": "playerctl -p spotify previous"
+	},
+	"custom/notification": {
+		"tooltip": false,
+		"format": "{icon}",
+		"format-icons": {
+			"notification": "",
+			"none": "",
+			"dnd-notification": "",
+			"dnd-none": "",
+			"inhibited-notification": "",
+			"inhibited-none": "",
+			"dnd-inhibited-notification": "",
+			"dnd-inhibited-none": ""
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -swb",
+		"on-click": "swaync-client -t -sw",
+		"on-click-right": "swaync-client -d -sw",
+		"escape": true
 	}
 }

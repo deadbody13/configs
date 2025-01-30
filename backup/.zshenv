@@ -21,6 +21,8 @@ alias hugos="hugo server -D --disableFastRender"
 alias swaync_reload="swaync-client -R && swaync-client -rs"
 alias purge-local-branches='git branch | grep -v "main" | xargs git branch -D'
 
+alias icon_theme="gsettings get org.gnome.desktop.interface icon-theme"
+
 jflash=/run/media/sven/jflash
 
 vide () {

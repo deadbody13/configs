@@ -1,11 +1,6 @@
-/* Everforest */
-/* @define-color bg	#fffbef; */
-@define-color bg	#ffffff;
-@define-color fg	#93b259;
-
 * {
   all: unset;
-  font-family: "Comic Neue";
+  font-family: "Quicksand";
   transition: 0.3s;
   font-size: 1.2rem;
 }
@@ -15,11 +10,10 @@
 }
 
 .floating-notifications.background .notification-row .notification-background {
-  border-radius: 0.50rem;
-  background-color: @bg;
-  color: @fg;
-  border: 1px solid @fg;
-  margin: 0 0.2rem 0 0;
+  border-radius: 0.5rem;
+  background-color: #191724;
+  color: #e0def4;
+  border: 1px solid #6e6a86;
 }
 
 .floating-notifications.background
@@ -27,14 +21,14 @@
   .notification-background
   .notification {
   padding: 0.5rem;
-  border-radius: 0.50rem;
+  border-radius: 0.5rem;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .notification.critical {
-  border: 1px solid @fg;
+  border: 1px solid #eb6f92;
 }
 
 .floating-notifications.background
@@ -44,7 +38,7 @@
   .notification-content
   .summary {
   margin: 0.5rem;
-  color: @fg;
+  color: #e0def4;
   font-weight: bold;
 }
 
@@ -55,7 +49,7 @@
   .notification-content
   .body {
   margin: 0.5rem;
-  color: @fg;
+  color: #908caa;
 }
 
 .floating-notifications.background
@@ -74,10 +68,10 @@
   > *:last-child
   > *
   .notification-action {
-  border-radius: 0.50rem;
-  color: @fg;
-  background-color: @bg;
-  border: 1px solid @fg;
+  border-radius: 0.5rem;
+  color: #e0def4;
+  background-color: #1f1d2e;
+  border: 1px solid #6e6a86;
 }
 
 .floating-notifications.background
@@ -87,7 +81,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @bg;
+  background-color: #26233a;
 }
 
 .floating-notifications.background
@@ -97,7 +91,7 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @bg;
+  background-color: #6e6a86;
 }
 
 .floating-notifications.background
@@ -106,73 +100,73 @@
   .close-button {
   margin: 0.5rem;
   padding: 0.25rem;
-  border-radius: 0.50rem;
-  color: @fg;
-  background-color: @bg;
+  border-radius: 0.5rem;
+  color: #e0def4;
+  background-color: #eb6f92;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:hover {
-  color: @fg;
+  color: #191724;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: @bg;
+  background-color: #ebbcba;
 }
 
 .control-center {
-  border-radius: 0.50rem;
+  border-radius: 0.5rem;
   margin: 1rem;
-  background-color: @bg;
-  color: @fg;
+  background-color: #191724;
+  color: #e0def4;
   padding: 1rem;
-  border: 1px solid @fg;
+  border: 1px solid #6e6a86;
 }
 
 .control-center .widget-title {
-  color: @fg;
+  color: #ebbcba;
   font-weight: bold;
 }
 
 .control-center .widget-title button {
-  border-radius: 0.50rem;
-  color: @fg;
-  background-color: @bg;
-  border: 1px solid @fg;
+  border-radius: 0.5rem;
+  color: #e0def4;
+  background-color: #1f1d2e;
+  border: 1px solid #6e6a86;
   padding: 0.5rem;
 }
 
 .control-center .widget-title button:hover {
-  background-color: @bg;
+  background-color: #26233a;
 }
 
 .control-center .widget-title button:active {
-  background-color: @bg;
+  background-color: #6e6a86;
 }
 
 .control-center .notification-row .notification-background {
-  border-radius: 0.50rem;
+  border-radius: 0.5rem;
   margin: 0.5rem 0;
-  background-color: @bg;
-  color: @fg;
-  border: 1px solid @fg;
+  background-color: #1f1d2e;
+  color: #e0def4;
+  border: 1px solid #6e6a86;
 }
 
 .control-center .notification-row .notification-background .notification {
   padding: 0.5rem;
-  border-radius: 0.50rem;
+  border-radius: 0.5rem;
 }
 
 .control-center
   .notification-row
   .notification-background
   .notification.critical {
-  border: 1px solid @fg;
+  border: 1px solid #eb6f92;
 }
 
 .control-center
@@ -180,7 +174,7 @@
   .notification-background
   .notification
   .notification-content {
-  color: @fg;
+  color: #e0def4;
 }
 
 .control-center
@@ -190,7 +184,7 @@
   .notification-content
   .summary {
   margin: 0.5rem;
-  color: @fg;
+  color: #e0def4;
   font-weight: bold;
 }
 
@@ -201,7 +195,7 @@
   .notification-content
   .body {
   margin: 0.5rem;
-  color: @fg;
+  color: #908caa;
 }
 
 .control-center
@@ -220,10 +214,10 @@
   > *:last-child
   > *
   .notification-action {
-  border-radius: 0.50rem;
-  color: @fg;
-  background-color: @bg;
-  border: 1px solid @fg;
+  border-radius: 0.5rem;
+  color: #e0def4;
+  background-color: #1f1d2e;
+  border: 1px solid #6e6a86;
 }
 
 .control-center
@@ -233,7 +227,7 @@
   > *:last-child
   > *
   .notification-action:hover {
-  background-color: @bg;
+  background-color: #26233a;
 }
 
 .control-center
@@ -243,77 +237,77 @@
   > *:last-child
   > *
   .notification-action:active {
-  background-color: @bg;
+  background-color: #6e6a86;
 }
 
 .control-center .notification-row .notification-background .close-button {
   margin: 0.5rem;
   padding: 0.25rem;
-  border-radius: 0.50rem;
-  color: @fg;
-  background-color: @bg;
+  border-radius: 0.5rem;
+  color: #e0def4;
+  background-color: #eb6f92;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
-  color: @fg;
+  color: #191724;
 }
 
 .control-center
   .notification-row
   .notification-background
   .close-button:active {
-  background-color: @bg;
+  background-color: #ebbcba;
 }
 
 progressbar,
 progress,
 trough {
-  border-radius: 0.50rem;
+  border-radius: 0.5rem;
 }
 
 .notification.critical progress {
-  background-color: @bg;
+  background-color: #eb6f92;
 }
 
 .notification.low progress,
 .notification.normal progress {
-  background-color: @bg;
+  background-color: #9ccfd8;
 }
 
 trough {
-  background-color: @bg;
+  background-color: #1f1d2e;
 }
 
 .control-center trough {
-  background-color: @bg;
+  background-color: #6e6a86;
 }
 
 .control-center-dnd {
   margin: 1rem 0;
-  border-radius: 0.50rem;
+  border-radius: 0.5rem;
 }
 
 .control-center-dnd slider {
-  background: @bg;
-  border-radius: 0.50rem;
+  background: #26233a;
+  border-radius: 0.5rem;
 }
 
 .widget-dnd {
-  color: @fg;
+  color: #908caa;
 }
 
 .widget-dnd > switch {
-  border-radius: 0.50rem;
-  background: @bg;
-  border: 1px solid @fg;
+  border-radius: 0.5rem;
+  background: #26233a;
+  border: 1px solid #6e6a86;
 }
 
 .widget-dnd > switch:checked slider {
-  background: @bg;
+  background: #31748f;
 }
 
 .widget-dnd > switch slider {
-  background: @bg;
-  border-radius: 0.50rem;
+  background: #6e6a86;
+  border-radius: 0.5rem;
   margin: 0.25rem;
 }

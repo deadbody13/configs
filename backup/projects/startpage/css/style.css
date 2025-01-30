@@ -16,8 +16,8 @@
 	--other_color1: #332e56;
 	--other_color2: #4b4757;
 	--other_color3: #33313c;
-	--color-fg: #575279;
-	--color-bg: #ffffff;
+	--color-fg: #e0def4;
+	--color-bg: #191724;
 	--color-bg-secondary: #d7827e;
 }
 @font-face {
@@ -45,7 +45,7 @@
 }
 body {
 	background-color: var(--color-bg);
-	font-family: "EB Garamond";
+	font-family: "Quicksand";
 	color: var(--color-fg);
 }
 h1 {
