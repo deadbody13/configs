@@ -6,7 +6,7 @@ hotkey-overlay {
 	skip-at-startup
 }
 environment {
-	DISPLAY ":0"
+	// DISPLAY ":0"
 	QT_QPA_PLATFORM "wayland"
 	QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
 	XDG_CURRENT_DESKTOP "Niri"
@@ -30,7 +30,6 @@ input {
     }
     // focus-follows-mouse
 }
-
 // top
 output "DP-3" {
     mode "2560x1440@119.998"
@@ -46,10 +45,11 @@ output "DP-4" {
     position x=0 y=1440
 }
 
+
 layout {
     gaps 15
 	// never, always, on-overflow
-    center-focused-column "on-overflow"
+    center-focused-column "never"
 	shadow {
 		on
 		softness 2
@@ -77,8 +77,6 @@ layout {
     border {
         width 3
 		active-color "#c4a7e7"
-		// active-gradient   from="#df69ba" to="#25a77c" angle=290 relative-to="window" in="oklch shorter hue"
-		// inactive-gradient from="#dfa000" to="#ecf5ed" angle=145	relative-to="workspace-view" in="oklab"
 		inactive-color "#524f67"
     }
     struts {
@@ -95,10 +93,10 @@ spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "udiskie" "-s"
 spawn-at-startup "blueman-applet"
-spawn-at-startup "/home/sven/projects/xwayland-satellite/target/release/xwayland-satellite" ":0"
+spawn-at-startup "/home/sven/projects/xwayland-satellite/target/release/xwayland-satellite" ":13"
 spawn-at-startup "swayidle" "-w" "before-sleep" "'swaylock'"
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d_%H-%M-%S.png"
 
 
 //
@@ -111,7 +109,7 @@ window-rule {
 // browsers
 window-rule {
     match title="Firefox|Vivaldi"
-	match app-id="google-chrome|zen"
+	match app-id="google-chrome|zen|Microsoft-edge"
     default-column-width { proportion 0.60; }
 }
 window-rule {
@@ -122,7 +120,7 @@ window-rule {
 // floating windows
 window-rule {
 	match title="Steam Settings|Friends List"
-	match app-id="udiskie|blueman-manager"
+	match app-id="udiskie|blueman-manager|Jitsi"
 	default-column-width { proportion 0.4; }
 	default-window-height { proportion 0.8; }
 	open-floating true
@@ -132,6 +130,12 @@ window-rule {
 	match app-id="org.gnome.Nautilus"
 	default-column-width { proportion 0.3; }
 	default-window-height { proportion 0.4; }
+	open-floating true
+}
+window-rule {
+	match app-id="Jitsi"
+	default-column-width { proportion 0.2; }
+	default-window-height { proportion 0.2; }
 	open-floating true
 }
 // block from stream
@@ -148,10 +152,9 @@ binds {
     Alt+Return { spawn "foot"; }
     Alt+D { spawn "fuzzel"; }
     Ctrl+Super+L { spawn "swaylock"; }
-	Super+1 { spawn "flatpak" "run" "app.zen_browser.zen"; }
+	Super+1 { spawn "gtk-launch" "com.microsoft.Edge.desktop"; }
 	Alt+Shift+n { spawn "swaync-client" "-t"; }
 	Super+e { spawn "nautilus"; }
-	// Ctrl+Alt+Delete { spawn "kitty" "-e" "/home/sven/.config/niri/power.sh"; }
 	Ctrl+Alt+Delete { spawn "/home/sven/.config/niri/power.sh"; }
 
 	Ctrl+Print {
@@ -259,6 +262,11 @@ binds {
     Alt+BracketRight { consume-or-expel-window-right; }
 
 	//
+	// Tabs
+	//
+	Alt+W { toggle-column-tabbed-display; }
+
+	//
 	// Resizing
 	//
     Alt+F { maximize-column; }
@@ -284,55 +292,3 @@ binds {
     Alt+Shift+E { quit; }
 }
 
-// animations {
-//     slowdown 1.0
-// 
-//     workspace-switch {
-//         spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-//     }
-// 
-// 	window-open {
-// 		duration-ms 250
-// 		curve "ease-out-quad"
-// 
-// 		custom-shader r"
-// 		vec4 expanding_circle(vec3 coords_geo, vec3 size_geo) {
-// 			vec3 coords_tex = niri_geo_to_tex * coords_geo;
-// 			vec4 color = texture2D(niri_tex, coords_tex.st);
-// 
-// 			vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;
-// 			coords = coords / length(size_geo.xy);
-// 			float p = niri_clamped_progress;
-// 			if (p * p <= dot(coords, coords))
-// 				color = vec4(0.0);
-// 
-// 			return color;
-// 		}
-// 		"
-// 	}
-//     window-close {
-//         duration-ms 150
-//         curve "ease-out-quad"
-//     }
-// 
-//     horizontal-view-movement {
-//         spring damping-ratio=1.0 stiffness=350 epsilon=0.0001
-//     }
-// 
-//     window-movement {
-//         spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-//     }
-// 
-//     window-resize {
-//         spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-//     }
-// 
-//     config-notification-open-close {
-//         spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
-//     }
-// 
-//     screenshot-ui-open {
-//         duration-ms 200
-//         curve "ease-out-quad"
-//     }
-// }
