@@ -1,0 +1,316 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.A6751878"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
+        }
+    ],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{4ff56d04-d9cf-57ea-bae2-ad396374e7e3}",
+    "keybindings": 
+    [
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        }
+    ],
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": {},
+        "list": 
+        [
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": true,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "colorScheme": "Modus Operandi",
+                "font": 
+                {
+                    "face": "SeriousShanns Nerd Font Mono"
+                },
+                "guid": "{bc2da056-dd06-5879-b969-1dfcefc8d2c7}",
+                "hidden": false,
+                "name": "openSUSE-Tumbleweed",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "hidden": true,
+                "name": "Git Bash",
+                "source": "Git"
+            },
+            {
+                "bellStyle": "none",
+                "colorScheme": "Campbell",
+                "commandline": "C:\\Windows\\system32\\wsl.exe -d OracleLinux_9_1",
+                "guid": "{2531921f-ba88-41eb-b355-75abf569124e}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
+                "name": "OracleLinux_9_1",
+                "pathTranslationStyle": "wsl",
+                "startingDirectory": "~"
+            },
+            {
+                "guid": "{43205315-0cfa-5d18-a0c2-42bf393b56fe}",
+                "hidden": false,
+                "name": "Ubuntu-24.04",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "colorScheme": "rose-pine",
+                "font": 
+                {
+                    "face": "Go Mono",
+                    "size": 10,
+                    "weight": "semi-bold"
+                },
+                "guid": "{4ff56d04-d9cf-57ea-bae2-ad396374e7e3}",
+                "hidden": false,
+                "name": "Ubuntu 22.04.5 LTS",
+                "padding": "30",
+                "source": "CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc"
+            }
+        ]
+    },
+    "schemes": 
+    [
+        {
+            "background": "#FFF9E8",
+            "black": "#5C6A72",
+            "blue": "#3A94C5",
+            "brightBlack": "#5C6A72",
+            "brightBlue": "#3A94C5",
+            "brightCyan": "#35A77C",
+            "brightGreen": "#8DA101",
+            "brightPurple": "#DF69BA",
+            "brightRed": "#F85552",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#DFA000",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#35A77C",
+            "foreground": "#5C6A72",
+            "green": "#8DA101",
+            "name": "Everforest Light Hard",
+            "purple": "#DF69BA",
+            "red": "#F85552",
+            "selectionBackground": "#FFFFFF",
+            "white": "#DFDDC8",
+            "yellow": "#DFA000"
+        },
+        {
+            "background": "#FFFFFF",
+            "black": "#000000",
+            "blue": "#0031A9",
+            "brightBlack": "#595959",
+            "brightBlue": "#0000FF",
+            "brightCyan": "#008899",
+            "brightGreen": "#008900",
+            "brightPurple": "#DD22DD",
+            "brightRed": "#D00000",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#808000",
+            "cursorColor": "#000000",
+            "cyan": "#005E8B",
+            "foreground": "#000000",
+            "green": "#006800",
+            "name": "Modus Operandi",
+            "purple": "#721045",
+            "red": "#A60000",
+            "selectionBackground": "#FFFFFF",
+            "white": "#A6A6A6",
+            "yellow": "#6F5500"
+        },
+        {
+            "background": "#191724",
+            "black": "#26233A",
+            "blue": "#9CCFD8",
+            "brightBlack": "#6E6A86",
+            "brightBlue": "#9CCFD8",
+            "brightCyan": "#EBBCBA",
+            "brightGreen": "#31748F",
+            "brightPurple": "#C4A7E7",
+            "brightRed": "#EB6F92",
+            "brightWhite": "#E0DEF4",
+            "brightYellow": "#F6C177",
+            "cursorColor": "#555169",
+            "cyan": "#EBBCBA",
+            "foreground": "#E0DEF4",
+            "green": "#31748F",
+            "name": "rose-pine",
+            "purple": "#C4A7E7",
+            "red": "#EB6F92",
+            "selectionBackground": "#2A2837",
+            "white": "#E0DEF4",
+            "yellow": "#F6C177"
+        },
+        {
+            "background": "#FAF4ED",
+            "black": "#F2E9DE",
+            "blue": "#56949F",
+            "brightBlack": "#6E6A86",
+            "brightBlue": "#56949F",
+            "brightCyan": "#D7827E",
+            "brightGreen": "#286983",
+            "brightPurple": "#907AA9",
+            "brightRed": "#B4637A",
+            "brightWhite": "#575279",
+            "brightYellow": "#EA9D34",
+            "cursorColor": "#9893A5",
+            "cyan": "#D7827E",
+            "foreground": "#575279",
+            "green": "#286983",
+            "name": "rose-pine-dawn",
+            "purple": "#907AA9",
+            "red": "#B4637A",
+            "selectionBackground": "#EEE9E6",
+            "white": "#575279",
+            "yellow": "#EA9D34"
+        },
+        {
+            "background": "#232136",
+            "black": "#393552",
+            "blue": "#9CCFD8",
+            "brightBlack": "#817C9C",
+            "brightBlue": "#9CCFD8",
+            "brightCyan": "#EA9A97",
+            "brightGreen": "#3E8FB0",
+            "brightPurple": "#C4A7E7",
+            "brightRed": "#EB6F92",
+            "brightWhite": "#E0DEF4",
+            "brightYellow": "#F6C177",
+            "cursorColor": "#59546D",
+            "cyan": "#EA9A97",
+            "foreground": "#E0DEF4",
+            "green": "#3E8FB0",
+            "name": "rose-pine-moon",
+            "purple": "#C4A7E7",
+            "red": "#EB6F92",
+            "selectionBackground": "#312F44",
+            "white": "#E0DEF4",
+            "yellow": "#F6C177"
+        }
+    ],
+    "theme": "dark",
+    "themes": 
+    [
+        {
+            "name": "rose-pine",
+            "tab": 
+            {
+                "background": "#191724FF",
+                "iconStyle": "default",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow": 
+            {
+                "background": "#26233AFF",
+                "unfocusedBackground": "#908CAAFF"
+            },
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        },
+        {
+            "name": "rose-pine-dawn",
+            "tab": 
+            {
+                "background": "#FAF4EDFF",
+                "iconStyle": "default",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow": 
+            {
+                "background": "#F2E9E1FF",
+                "unfocusedBackground": "#797593FF"
+            },
+            "window": 
+            {
+                "applicationTheme": "light",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        },
+        {
+            "name": "rose-pine-moon",
+            "tab": 
+            {
+                "background": "#232136FF",
+                "iconStyle": "default",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow": 
+            {
+                "background": "#393552FF",
+                "unfocusedBackground": "#908CAAFF"
+            },
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
+                "useMica": false
+            }
+        }
+    ]
+}
