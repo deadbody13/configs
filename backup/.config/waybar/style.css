@@ -1,4 +1,4 @@
-@import "./rose-pine.css";
+@import "./modus-operandi.css";
 
 * {
 	font-family: "RobotoMono Nerd Font Mono";
@@ -7,9 +7,8 @@
 }
 
 window#waybar {
-	background-color: @bg0;
-	transition-property: background-color;
-	border-radius: 7px;
+	background-color: alpha(#ffffff, 0.999);
+	border-radius: 0px 7px 7px 0px;
 	border-width: 1px;
 	border-style: solid;
 	border-color: @rose;
@@ -19,11 +18,12 @@ window#waybar {
 tooltip label {
 	font-family: "Comic Neue";
 	font-weight: normal;
-	color: @fg;
+	color: #fff;
 }
 tooltip {
 	background-color: @bg0;
 	border: 1px solid @fg;
+	color: @fg;
 }
 
 #workspaces button {
@@ -61,7 +61,7 @@ tooltip {
 #tray,
 #memory,
 #backlight {
-	padding: 5px 0px;
+	padding: 5px 5px;
 	border-radius: 10px;
 }
 
@@ -125,7 +125,7 @@ window#waybar.empty #window {
 }
 
 #clock {
-	padding-top: 250px;
+	padding-top: 25px;
 	color: @fg;
 }
 
@@ -139,9 +139,6 @@ window#waybar.empty #window {
 
 #battery {
 	color: @blue;
-	border-radius: 10px;
-	margin-right: 10px;
-	border-left: 0px;
 }
 #custom-notification {
 	color: @aqua;

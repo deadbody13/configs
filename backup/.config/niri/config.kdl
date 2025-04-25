@@ -6,11 +6,13 @@ hotkey-overlay {
 	skip-at-startup
 }
 environment {
-	// DISPLAY ":0"
+	DISPLAY ":0"
 	QT_QPA_PLATFORM "wayland"
 	QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
 	XDG_CURRENT_DESKTOP "Niri"
-	GTK_THEME "Rosepine-Dark"
+	GTK_ICON_THEME "Numix-Light"
+	GTK_THEME "Cosmic"
+	MY_TERMINAL "foot"
 }
 
 cursor {
@@ -29,6 +31,10 @@ input {
         accel-profile "flat"
     }
     // focus-follows-mouse
+	touchpad {
+		tap
+		natural-scroll
+	}
 }
 // top
 output "DP-3" {
@@ -47,7 +53,7 @@ output "DP-4" {
 
 
 layout {
-    gaps 15
+    gaps 10
 	// never, always, on-overflow
     center-focused-column "never"
 	shadow {
@@ -56,8 +62,8 @@ layout {
 		spread 0
 		draw-behind-window true
 		offset x=5 y=8
-		color "#9ccfd8bb"
-		inactive-color "#908caa44"
+		color "#777777"
+		inactive-color "#444444"
 	}
 
     // You can customize the widths that "switch-preset-column-width" (Alt+R) toggles between.
@@ -71,29 +77,31 @@ layout {
     focus-ring {
 		off
         width 2
-        active-color "#e66868"
-        inactive-color "#524f67"
+        active-color "#c4c4c4"
+        inactive-color "#e0e0e0"
     }
     border {
-        width 3
-		active-color "#c4a7e7"
-		inactive-color "#524f67"
+        width 1.5
+		active-color "#000000"
+		inactive-color "#595959"
     }
     struts {
 		top 	0
 		bottom 	0
+		left 	-3
     }
 }
 
 //
 // Startup applications
 //
-spawn-at-startup "swaybg" "-i" "/home/sven/Pictures/Wallpapers/leafy.png"
+spawn-at-startup "swaybg" "-c" "cccccc"
 spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "udiskie" "-s"
 spawn-at-startup "blueman-applet"
-spawn-at-startup "/home/sven/projects/xwayland-satellite/target/release/xwayland-satellite" ":13"
+spawn-at-startup "nm-applet"
+spawn-at-startup "/home/sven/projects/xwayland-satellite/target/release/xwayland-satellite"
 spawn-at-startup "swayidle" "-w" "before-sleep" "'swaylock'"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d_%H-%M-%S.png"
@@ -103,8 +111,12 @@ screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d_%H-%M-%S.png"
 // Window Rules
 //
 window-rule {
-	geometry-corner-radius 10
+	geometry-corner-radius 3
 	clip-to-geometry true
+}
+window-rule {
+	match title="Steam"
+	default-column-width { proportion 1.0; }
 }
 // browsers
 window-rule {
@@ -127,9 +139,9 @@ window-rule {
 }
 window-rule {
 	match title="File Upload"
-	match app-id="org.gnome.Nautilus"
-	default-column-width { proportion 0.3; }
-	default-window-height { proportion 0.4; }
+	match app-id="org.gnome.Nautilus|dolphin"
+	default-column-width { proportion 0.5; }
+	default-window-height { proportion 0.5; }
 	open-floating true
 }
 window-rule {
@@ -149,12 +161,12 @@ window-rule {
 
 binds {
     Alt+Shift+Slash { show-hotkey-overlay; }
-    Alt+Return { spawn "foot"; }
+    Alt+Return { spawn "bash" "-c" "$MY_TERMINAL"; }
     Alt+D { spawn "fuzzel"; }
     Ctrl+Super+L { spawn "swaylock"; }
-	Super+1 { spawn "gtk-launch" "com.microsoft.Edge.desktop"; }
+	Super+1 { spawn "gtk-launch" "com.microsoft.EdgeDev"; }
 	Alt+Shift+n { spawn "swaync-client" "-t"; }
-	Super+e { spawn "nautilus"; }
+	Super+e { spawn "dolphin"; }
 	Ctrl+Alt+Delete { spawn "/home/sven/.config/niri/power.sh"; }
 
 	Ctrl+Print {

@@ -7,6 +7,12 @@ GREEN="%{$fg[green]%}"
 RESET="%{$reset_color%}"
 # export PS1="[$GREEN%n$RESET@%m$BLUE:%1d$RESET]$ "
 export PS1="%2d: "
+export EDITOR=/usr/bin/nvim
+
+if [ -e "/usr/share/terminfo/x/xterm-256color" ]
+then
+	export TERM=xterm-256color
+fi
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -23,5 +29,3 @@ compinit
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(starship init zsh)"
-
-export PATH=$PATH:/home/sven/.spicetify

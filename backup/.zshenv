@@ -1,3 +1,4 @@
+export COMPUTER="laptop"
 export SWAY_SCREENSHOT_DIR=~/Pictures/Screenshots
 export PATH=~/.local/bin:~/platform-tools:~/bin:$PATH
 export EDITOR=nvim
@@ -16,19 +17,11 @@ fi
 export QT_QPA_PLATFORM=wayland
 
 alias vim="nvim"
-alias ff="fastfetch"
+alias vid="neovide"
+# alias dnf="dnf5"
 alias hugos="hugo server -D --disableFastRender"
 alias swaync_reload="swaync-client -R && swaync-client -rs"
-alias purge-local-branches='git branch | grep -v "main" | xargs git branch -D'
-
-alias icon_theme="gsettings get org.gnome.desktop.interface icon-theme"
-
-jflash=/run/media/sven/jflash
-
-vide () {
-	neovide $1 &
-}
-videe () {
-	(neovide $1 &) && exit
-	exit
-}
+alias arp_scan="sudo arp-scan --interface=wlp3s0 --localnet"
+alias vmstart_debian="vboxmanage startvm debian --type headless"
+alias vmstop_debian="vboxmanage controlvm debian poweroff"
+alias ddgr="ddgr -n 5"
