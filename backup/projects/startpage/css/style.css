@@ -16,9 +16,9 @@
 	--other_color1: #332e56;
 	--other_color2: #4b4757;
 	--other_color3: #33313c;
-	--color-fg: #e0def4;
-	--color-bg: #191724;
-	--color-bg-secondary: #d7827e;
+	--color-fg: #000000;
+	--color-bg: #ffffff;
+	--color-bg-secondary: #9f9f9f;
 }
 @font-face {
 	font-family: "Jost Light";

@@ -6,8 +6,9 @@
 	"exclusive": true,
 	"passthrough": false,
 	"gtk-layer-shell": false,
-	// "height": 10,
-	"margin-top": 0,
+	"margin-top":    50,
+	"margin-bottom": 50,
+	"margin-left": 	 0,
 	"modules-left": [
 		"tray"
 	],
@@ -16,11 +17,10 @@
 		"clock"
 	],
 	"modules-right": [
-		"custom/notification",
 		"temperature",
+		"custom/gpu-temp",
 		"memory",
 		"network",
-		"bluetooth",
 		"pulseaudio"
 	],
 	"niri/workspaces": {
@@ -34,13 +34,13 @@
 	},
 
 	"tray": {
-		"spacing": 10
+		"spacing": 20
 	},
 
 	"clock": {
 		"tooltip": false,
 		// "time": "{:%H\n:%M}",
-		"format": "<span color='#f57d26'>{:%H\n:%M\n</span><span color='#dfa000'>---\n%a\n%m\n.%d}</span>"
+		"format": "<span color='#000000'>{:%H\n%M\n</span><span color='#777'>---\n%a\nd-%d\nm-%m\n%Y}</span>"
 		// "format": "{time}"
 	},
 
@@ -69,7 +69,7 @@
 	},
 
 	"pulseaudio": {
-		"format": "{volume}%",
+		"format": "{icon} {volume}%",
 		"tooltip": false,
 		"format-muted": "",
 		"on-click": "pamixer -t",
@@ -102,19 +102,22 @@
 		"tooltip": false,
 		"interval": 2,
 		"thermal-zone": 1,
-		"format": "{temperatureC}°C",
+		"format": "{temperatureC}°",
 		"critical-threshold": 75,
-		"format-critical": "{temperatureC}°C"
+		"format-critical": "{temperatureC}°"
 	},
-
+	"custom/gpu-temp": {
+		"exec": "~/.config/waybar/scripts/gpu-temp.sh",
+		"format": "{}°",
+		"return-type": "",
+		"interval": 3
+	},
 	"memory": {
 		"tooltip": false,
-		"interval": 30,
-		"format": "{}%",
-		"max-length": 10,
-		"tooltip": true,
+		"interval": 10,
+		"format": "{used:1.0f}G",
 		"tooltip-format": "Memory - {used:0.1f}GB used",
-		"on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+		"on-click": "foot 'btop'"
 	},
 
 	"network": {

@@ -1,8 +1,6 @@
 prefer-no-csd
 debug {
-	wait-for-frame-completion-before-queueing
-	wait-for-frame-completion-in-pipewire
-	emulate-zero-presentation-time
+	// wait-for-frame-completion-before-queueing
 }
 hotkey-overlay {
 	skip-at-startup
@@ -10,18 +8,11 @@ hotkey-overlay {
 environment {
 	DISPLAY ":0"
 	QT_QPA_PLATFORM "wayland"
-	ELECTION_OZONE_PLATFORM_HINT "auto"
 	QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
 	XDG_CURRENT_DESKTOP "Niri"
-	GTK_ICON_THEME "Breeze"
-	GTK_THEME "Breeze"
+	GTK_THEME "Rosepine-Dark"
 	MY_TERMINAL "foot"
 }
-
-// layer-rule {
-// 	match namespace="^launcher$"
-// 	baba-is-float true
-// }
 
 cursor {
 	xcursor-theme "phinger-cursors-light"
@@ -46,7 +37,6 @@ input {
 }
 // top
 output "DP-3" {
-	// off
     mode "2560x1440@119.998"
     scale 1.0
     transform "normal"
@@ -62,57 +52,48 @@ output "DP-4" {
 
 
 layout {
-	tab-indicator {
-		width 10
-		gap 10
-		gaps-between-tabs 2
-		length total-proportion=0.25
-		place-within-column
-
-		active-color "#2f3f83"
-		inactive-color "#999999"
-		urgent-color "#d00000"
-	}
-    gaps 20
+    gaps 15
 	// never, always, on-overflow
     center-focused-column "never"
 	shadow {
 		on
-		softness 15
-		spread 3
+		softness 2
+		spread 0
 		draw-behind-window true
-		offset x=2 y=5
-		color "#005e8b"
-		inactive-color "#44444400"
+		offset x=5 y=8
+		color "#9ccfd8bb"
+		inactive-color "#908caa44"
 	}
+
+    // You can customize the widths that "switch-preset-column-width" (Alt+R) toggles between.
     preset-column-widths {
         proportion 0.4
 		proportion 0.5
         proportion 0.6
     }
+
     default-column-width { proportion 0.6; }
     focus-ring {
 		off
         width 2
-        active-color "#c4c4c4"
-        inactive-color "#e0e0e0"
+        active-color "#e66868"
+        inactive-color "#524f67"
     }
     border {
-        width 1.5
-		active-color "#000000"
-		inactive-color "#595959"
+        width 3
+		active-color "#c4a7e7"
+		inactive-color "#524f67"
     }
     struts {
 		top 	0
 		bottom 	0
-		left 	-3
     }
 }
 
 //
 // Startup applications
 //
-spawn-at-startup "swaybg" "-c" "cccccc"
+spawn-at-startup "swaybg" "-i" "/home/sven/Pictures/Wallpapers/leafy.png"
 spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "udiskie" "-s"
@@ -128,7 +109,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d_%H-%M-%S.png"
 // Window Rules
 //
 window-rule {
-	geometry-corner-radius 3
+	geometry-corner-radius 10
 	clip-to-geometry true
 }
 window-rule {
@@ -146,24 +127,22 @@ window-rule {
 	match app-id="udiskie|neovide"
     default-column-width { proportion 0.40; }
 }
-// floating windows (long)
+// floating windows
 window-rule {
-	match title="Steam Settings|Friends List|Winetricks|REDlauncher|Library"
+	match title="Steam Settings|Friends List"
 	match app-id="udiskie|blueman-manager|Jitsi"
 	default-column-width { proportion 0.4; }
 	default-window-height { proportion 0.8; }
 	open-floating true
 }
-// floating windows (short)
 window-rule {
-	match title="File Upload|login"
-	match app-id="org.gnome.Nautilus|dolphin"
-	default-column-width { proportion 0.5; }
-	default-window-height { proportion 0.5; }
+	match title="File Upload"
+	match app-id="org.gnome.Nautilus"
+	default-column-width { proportion 0.3; }
+	default-window-height { proportion 0.4; }
 	open-floating true
 }
 window-rule {
-	match title="cta|CTA|sso|SSO|[gG]oogle|sign_in|continue|Authview|figma|account|user|content|Sign in|Google|Connecting|New Tab|about:blank|account|blank|Clicked"
 	match app-id="Jitsi"
 	default-column-width { proportion 0.2; }
 	default-window-height { proportion 0.2; }
@@ -183,14 +162,10 @@ binds {
     Alt+Return { spawn "bash" "-c" "$MY_TERMINAL"; }
     Alt+D { spawn "fuzzel"; }
     Ctrl+Super+L { spawn "swaylock"; }
+	Super+1 { spawn "gtk-launch" "com.microsoft.EdgeDev.desktop"; }
 	Alt+Shift+n { spawn "swaync-client" "-t"; }
-	Super+e { spawn "dolphin"; }
+	Super+e { spawn "nautilus"; }
 	Ctrl+Alt+Delete { spawn "/home/sven/.config/niri/power.sh"; }
-	Super+p { spawn "/home/sven/.config/niri/screen.sh"; }
-
-	// favorites
-	// Super+1 { spawn "gtk-launch" "com.microsoft.Edge"; }
-	Super+1 { spawn "firefox"; }
 
 	Ctrl+Print {
     spawn "sh" "-c" r#"
@@ -205,8 +180,8 @@ binds {
 	//
 	// Audio
 	//
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
@@ -215,17 +190,10 @@ binds {
 	//
     Alt+Shift+Q { close-window; }
 
-	Super+Tab { toggle-overview; }
-
     Alt+H     { focus-column-left; }
     Alt+J     { focus-window-down; }
     Alt+K     { focus-window-up; }
     Alt+L     { focus-column-right; }
-	
-	Alt+WheelScrollLeft { focus-column-left; }
-	Alt+WheelScrollDown { focus-window-down; }
-	Alt+WheelScrollUp { focus-window-up; }
-	Alt+WheelScrollRight { focus-column-right; }
 
     Alt+Shift+H     { move-column-left; }
     Alt+Shift+J     { move-window-down; }
@@ -247,16 +215,14 @@ binds {
     Super+Shift+K     { move-column-to-monitor-up; }
     Super+Shift+L     { move-column-to-monitor-right; }
 
-    Alt+Ctrl+j { focus-workspace-down; }
-    Alt+Ctrl+k { focus-workspace-up; }
-    Super+WheelScrollDown { focus-workspace-down; }
-    Super+WheelScrollUp   { focus-workspace-up; }
-    Super+Page_Down{ focus-workspace-down; }
-    Super+Page_Up { focus-workspace-up; }
-    Alt+Shift+Ctrl+j { move-column-to-workspace-down; }
-    Alt+Shift+Ctrl+k { move-column-to-workspace-up; }
-    Alt+Shift+WheelScrollDown { move-column-to-workspace-down; }
-    Alt+Shift+WheelScrollUp   { move-column-to-workspace-up; }
+    Alt+Page_Down      { focus-workspace-down; }
+    Alt+Page_Up        { focus-workspace-up; }
+    Alt+U              { focus-workspace-down; }
+    Alt+I              { focus-workspace-up; }
+    Alt+Ctrl+Page_Down { move-column-to-workspace-down; }
+    Alt+Ctrl+Page_Up   { move-column-to-workspace-up; }
+    Alt+Ctrl+U         { move-column-to-workspace-down; }
+    Alt+Ctrl+I         { move-column-to-workspace-up; }
 
     Alt+Shift+Page_Down { move-workspace-down; }
     Alt+Shift+Page_Up   { move-workspace-up; }
@@ -270,10 +236,10 @@ binds {
 
     // Alt+WheelScrollRight      { focus-column-right; }
     // Alt+WheelScrollLeft       { focus-column-left; }
-    // Alt+WheelScrollDown			{ focus-column-right; }
-    // Alt+WheelScrollUp			{ focus-column-left; }
-    // Alt+Shift+WheelScrollDown	{ move-column-right; }
-    // Alt+Shift+WheelScrollUp  	{ move-column-left; }
+    Alt+WheelScrollDown			{ focus-column-right; }
+    Alt+WheelScrollUp			{ focus-column-left; }
+    Alt+Shift+WheelScrollDown	{ move-column-right; }
+    Alt+Shift+WheelScrollUp  	{ move-column-left; }
 
     Alt+1 { focus-workspace 1; }
     Alt+2 { focus-workspace 2; }

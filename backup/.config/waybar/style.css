@@ -1,15 +1,14 @@
-@import "./rose-pine.css";
+@import "./modus-operandi.css";
 
 * {
-	font-family: "RobotoMono Nerd Font Mono";
+	font-family: "Martian Mono";
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 window#waybar {
-	background-color: @bg0;
-	transition-property: background-color;
-	border-radius: 7px;
+	background-color: alpha(#ffffff, 0.999);
+	border-radius: 0px 7px 7px 0px;
 	border-width: 1px;
 	border-style: solid;
 	border-color: @rose;
@@ -19,11 +18,12 @@ window#waybar {
 tooltip label {
 	font-family: "Comic Neue";
 	font-weight: normal;
-	color: @fg;
+	color: #000;
 }
 tooltip {
 	background-color: @bg0;
 	border: 1px solid @fg;
+	color: @fg;
 }
 
 #workspaces button {
@@ -49,7 +49,7 @@ tooltip {
 	color: @orange;
 }
 
-#custom-power_profile,
+#custom-gpu-temp,
 #window,
 #clock,
 #battery,
@@ -61,12 +61,12 @@ tooltip {
 #tray,
 #memory,
 #backlight {
-	padding: 5px 0px;
+	padding: 5px 10px;
 	border-radius: 10px;
 }
 
 #memory {
-	color: @green;
+	color: #666;
 }
 
 #bluetooth {
@@ -74,7 +74,10 @@ tooltip {
 }
 
 #temperature {
-	color: @orange;
+	color: #000;
+}
+#custom-gpu-temp {
+	color: #333;
 }
 
 #temperature.critical {
@@ -125,23 +128,21 @@ window#waybar.empty #window {
 }
 
 #clock {
-	padding-top: 250px;
+	padding-top: 25px;
 	color: @fg;
 }
 
 #network {
-	color: @purple;
+	color: #999;
 }
 
 #pulseaudio {
-	color: @yellow;
+	color: #bbb;
+	padding-bottom: 40px;
 }
 
 #battery {
 	color: @blue;
-	border-radius: 10px;
-	margin-right: 10px;
-	border-left: 0px;
 }
 #custom-notification {
 	color: @aqua;

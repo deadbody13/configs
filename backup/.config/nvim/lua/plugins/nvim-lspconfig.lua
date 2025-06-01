@@ -61,7 +61,7 @@ M.config = function()
 			-- No luasnip source here
 		})
 	})
-	cmp.setup.filetype('md', {
+	cmp.setup.filetype('markdown', {
 		sources = cmp.config.sources({
 			{ name = 'nvim_lsp' },
 			{ name = 'path' },

@@ -1,6 +1,7 @@
 # Lines configured by zsh-newuser-install
 # autoload -U colors && colors
-export TERM=xterm-mono
+# export TERM=xterm-mono
+export TERM=xterm-256color
 RED="%{$fg[red]%}"
 BLUE="%{$fg[blue]%}"
 GREEN="%{$fg[green]%}"
@@ -25,3 +26,5 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
 
 export PATH=$PATH:/home/sven/.spicetify
+
+alias ll="eza -lhg"

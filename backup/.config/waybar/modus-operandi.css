@@ -1,0 +1,49 @@
+/*
+* Variant: Rosé Pine
+* Maintainer: DankChoir
+*/
+
+@define-color base            #ffffff;
+@define-color bg0            #f0f0f0;
+@define-color surface         #ffffff;
+@define-color fg 			  #000000;
+@define-color overlay         #26233a;
+
+@define-color muted           #595959;
+@define-color subtle          #193668;
+@define-color text            #000000;
+
+/*
+@define-color love            #eb6f92;
+@define-color orange            #eb6f92;
+@define-color gold            #f6c177;
+@define-color yellow 		#f6c177;
+@define-color rose            #ebbcba;
+@define-color red 			#ebbcba;
+@define-color pine            #31748f;
+@define-color foam            #9ccfd8;
+@define-color green            #9ccfd8;
+@define-color blue            #9ccfd8;
+@define-color iris            #c4a7e7;
+@define-color aqua            #c4a7e7;
+@define-color purple 		#c4a7e7;
+*/
+
+@define-color red0            #a60000;
+@define-color orange          #884900;
+@define-color yellow0         #6f5500;
+@define-color yellow 		  #7a4f2f;
+@define-color pink0           #7b435c;
+@define-color red 			  #972500;
+@define-color blue0           #0031a9;
+@define-color cyan0           #005e8b;
+@define-color green           #006800;
+@define-color blue            #354fcf;
+@define-color purple0         #4a5a8a;
+@define-color aqua            #3f578f;
+@define-color purple 		  #9099d9;
+
+@define-color highlightLow    #ff8f88;
+@define-color statusline1     #8adf80;
+@define-color highlightMed    #bfc9ff;
+@define-color highlightHigh   #dfa0f0;
