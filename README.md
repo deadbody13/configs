@@ -3,8 +3,7 @@ My config files for my Fedora Linux system. I do my best to credit everyone that
 
 ## Current
 Currently, my setup is based on the [Everforest](https://github.com/sainnhe/everforest/tree/master) theme. Only important stuff happens here...
-![everforest rice](images/rice_monochrome_1.png)
-![everforest rice](images/rice_monochrome_2.png)
+![Monochrome rice](images/rice_monochrome.png)
 
 ## Credits
 The base Waybar config was ~~borrowed~~ ~~stolen~~ acquired from [Danko Fox](https://github.com/DankChoir). This was tweaked to fit each of the themes.
