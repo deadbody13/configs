@@ -1,8 +1,8 @@
 * {
   all: unset;
-  font-family: "Quicksand";
+  font-family: "Lotion";
   transition: 0.3s;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .floating-notifications.background .notification-row {
@@ -10,10 +10,10 @@
 }
 
 .floating-notifications.background .notification-row .notification-background {
-  border-radius: 0.5rem;
-  background-color: #ffffff;
-  color: #000000;
-  border: 1px solid #9f9f9f;
+  border-radius: 0.3rem;
+  background-color: #f0f0f0;
+  color: #193668;
+  border: 1px solid #193668;
 }
 
 .floating-notifications.background

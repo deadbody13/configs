@@ -17,8 +17,11 @@ add_newline = true
 # ! opt-in for individual modules (e.g., aws, docker, gcloud, nodejs, python)
 # standalone format to get os glyph on ps1 line,
 # prompt character below
+# format = """
+# 🌸$os$directory$git_branch$git_status$git_commit$python$cmd_duration
+# $character"""
 format = """
-🌸$os$directory$git_branch$git_status$git_commit$python$cmd_duration
+🌸$directory$git_branch$git_status$git_commit$python$cmd_duration
 $character"""
 
 # Replace the "❯"

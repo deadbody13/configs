@@ -1,9 +1,9 @@
 @import "./modus-operandi.css";
 
 * {
-	font-family: "Martian Mono";
+	font-family: "Lotion";
 	font-weight: bold;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 window#waybar {

@@ -1,4 +1,4 @@
-vim.o.guifont = "Go Mono:h10"
+vim.o.guifont = "Google Sans Code:h8"
 vim.g.neovide_scroll_animation_length = 0.5
 vim.g.neovide_refresh_rate = 60
 vim.g.idle_refresh_rate = 5

@@ -58,6 +58,7 @@ require('barbar').setup({
             },
         },
 })
+
 require('colorizer').setup()
 
 require("modus-themes").setup({

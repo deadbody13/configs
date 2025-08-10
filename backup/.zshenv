@@ -20,7 +20,7 @@ export QT_QPA_PLATFORM=wayland
 
 alias vim="nvim"
 alias ff="fastfetch"
-alias hugos="hugo server -D --disableFastRender"
+alias hugos="hugo server -D"
 alias swaync_reload="swaync-client -R && swaync-client -rs"
 alias purge-local-branches='git branch | grep -v "main" | xargs git branch -D'
 

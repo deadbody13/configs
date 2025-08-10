@@ -74,8 +74,8 @@
 		"format-muted": "",
 		"on-click": "pamixer -t",
 		"on-click-right": "pavucontrol",
-		"on-scroll-up": "pamixer -i 5",
-		"on-scroll-down": "pamixer -d 5",
+		"on-scroll-up":   "pamixer -i 1",
+		"on-scroll-down": "pamixer -d 1",
 		"scroll-step": 5,
 		"format-icons": {
 			"headphone": "",
