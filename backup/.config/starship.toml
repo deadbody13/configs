@@ -1,132 +1,169 @@
-# SOURCES
-# https://starship.rs/config
-# https://starship.rs/presets/nerd-font.html#configuration
-
-# DEBUG via:
-# starship explain
-# STARSHIP_LOG=trace
-
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Timeout for commands executed by starship (ms)
-command_timeout = 1000
-
-# newline between commands
-add_newline = true
-
-# ! opt-in for individual modules (e.g., aws, docker, gcloud, nodejs, python)
-# standalone format to get os glyph on ps1 line,
-# prompt character below
-# format = """
-# 🌸$os$directory$git_branch$git_status$git_commit$python$cmd_duration
-# $character"""
 format = """
-🌸$directory$git_branch$git_status$git_commit$python$cmd_duration
-$character"""
+$username\
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$c\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
+$nim\
+$rust\
+$scala\
+$conda\
+$python\
+$time\n\
+\\$ 
+"""
 
-# Replace the "❯"
-[character]
-success_symbol = "[λ](green)"
-error_symbol = "[λ](red)"
+palette = "modus-operandi"
 
-[username]
-style_user = "green bold"
-style_root = "red bold"
-format = "[$user]($style)"
-disabled = false
-show_always = true
+[palettes.modus-operandi]
+overlay = '#ffffff'
+red = '#a60000'
+yellow = '#6f5500'
+pink = '#7b435c'
+aqua = '#0031a9'
+cyan = '#005e8b'
+purple = '#4a3a8a'
 
-[hostname]
-ssh_only = false
-format = "[@$hostname](green bold)"
-disabled = false
-
-# truncation length works backwards (i.e., cwd > parent > parent ...)
 [directory]
-truncation_length = 10
-truncation_symbol = "…/"
+format = "\\[$path\\]"
+style = "bg:overlay fg:aqua"
+truncation_length = 0
 truncate_to_repo = true
+# truncation_symbol = "…/"
+
+[directory.substitutions]
+Documents = "󰈙"
+Downloads = " "
+Music = " "
+Pictures = " "
+
+[fill]
+style = "fg:overlay"
+symbol = " "
 
 [git_branch]
-truncation_length = 10
-truncation_symbol = ''
+# format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay) "
+format = "\\[[$branch]($style)"
+style = "bg:overlay fg:cyan"
+symbol = ""
 
 [git_status]
-ahead = '⇡${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
-behind = '⇣${count}'
-staged = '[++\($count\)](green)'
+disabled = false
+style = "bg:overlay fg:red"
+# format = '[](fg:overlay)([$all_status$ahead_behind]($style))[](fg:overlay) '
+format = ' $all_status$ahead_behind\]'
+up_to_date = '[ ✓ ](bg:overlay fg:purple)'
+untracked = '[?\($count\)](bg:overlay fg:yellow)'
+stashed = '[\$](bg:overlay fg:purple)'
+modified = '[!\($count\)](bg:overlay fg:yellow)'
+renamed = '[»\($count\)](bg:overlay fg:purple)'
+deleted = '[✘\($count\)](style)'
+staged = '[++\($count\)](bg:overlay fg:yellow)'
+ahead = '[⇡\(${count}\)](bg:overlay fg:cyan)'
+diverged = '⇕[\[](bg:overlay fg:purple)[⇡\(${ahead_count}\)](bg:overlay fg:cyan)[⇣\(${behind_count}\)](bg:overlay fg:pink)[\]](bg:overlay fg:purple)'
+behind = '[⇣\(${count}\)](bg:overlay fg:pink)'
 
-[git_commit]
-commit_hash_length = 4
+[time]
+disabled = false
+# format = " [](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
+format = "  [ $time]($style)"
+style = "bg:overlay fg:pink"
+time_format = "%H:%M"
+use_12hr = false
 
-[env_var.SHELL]
-variable = "SHELL"
-default = "unknown shell"
-disabled = true
+[username]
+disabled = false
+# format = "[](fg:overlay)[ 󰧱 $user ]($style)[](fg:overlay) "
+format = "[$user ]($style)"
+show_always = true
+style_root = "bg:overlay fg:purple"
+style_user = "bg:overlay fg:purple"
 
-[cmd_duration]
-min_time = 500
-format = '[$duration](bold yellow)'
+# Languages
 
-# Show python version starting with venv
-[python]
-python_binary = ["./venv/bin/python", "python3", "python", "python2"]
-disabled = true
+[c]
+style = "bg:overlay fg:aqua"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
-[aws]
-disabled = true
+[elixir]
+style = "bg:overlay fg:aqua"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
-[docker_context]
-disabled = true
+[elm]
+style = "bg:overlay fg:aqua"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
-[gcloud]
-disabled = true
+[golang]
+style = "bg:overlay fg:aqua"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
+
+[haskell]
+style = "bg:overlay fg:aqua"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
+
+[java]
+style = "bg:overlay fg:aqua"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
+
+[julia]
+style = "bg:overlay fg:aqua"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
 
 [nodejs]
-disabled = true
-
-[os]
-format = '[$symbol](bold black)'
+style = "bg:overlay fg:aqua"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
+symbol = "󰎙 "
 
-[os.symbols]
-Alpaquita = " "
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-Artix = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "󰛓 "
-Gentoo = " "
-HardenedBSD = "󰞌 "
-Illumos = "󰈸 "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = "󰈺 "
-openSUSE = " "
-OracleLinux = "󰌷 "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-Redox = "󰀘 "
-Solus = "󰠳 "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Windows = "󰍲 "
+[nim]
+style = "bg:overlay fg:aqua"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = "󰆥 "
+
+[rust]
+style = "bg:overlay fg:aqua"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
+
+[scala]
+style = "bg:overlay fg:aqua"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = " "
+
+[python]
+style = "bg:overlay fg:aqua"
+format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+disabled = false
+symbol = ' '
+
+[conda]
+style = "bg:overlay fg:aqua"
+format = " [](fg:overlay)[ $symbol$environment ]($style)[](fg:overlay)"
+disabled = false
+symbol = '🅒 '
