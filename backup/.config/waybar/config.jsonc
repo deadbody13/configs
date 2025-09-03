@@ -10,7 +10,8 @@
 	"margin-bottom": 50,
 	"margin-left": 	 0,
 	"modules-left": [
-		"tray"
+		"tray",
+		"bluetooth"
 	],
 	"modules-center": [
 		"niri/workspaces",
