@@ -19,10 +19,13 @@ fi
 export QT_QPA_PLATFORM=wayland
 
 alias vim="nvim"
+alias foo='foot -D . >/dev/null 2>&1 & disown'
 alias ff="fastfetch"
 alias hugos="hugo server -D"
 alias swaync_reload="swaync-client -R && swaync-client -rs"
 alias purge-local-branches='git branch | grep -v "main" | xargs git branch -D'
+speaker='28:6F:40:BC:8B:D3'
+buds='84:5F:04:FF:27:C9'
 
 alias icon_theme="gsettings get org.gnome.desktop.interface icon-theme"
 

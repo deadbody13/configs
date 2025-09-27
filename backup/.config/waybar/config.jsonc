@@ -8,9 +8,10 @@
 	"gtk-layer-shell": false,
 	"margin-top":    50,
 	"margin-bottom": 50,
-	"margin-left": 	 0,
+	"margin-left": 	 5,
+	"margin-right": 5,
 	"modules-left": [
-		"tray",
+		// "tray",
 		"bluetooth"
 	],
 	"modules-center": [
@@ -25,6 +26,7 @@
 		"pulseaudio"
 	],
 	"niri/workspaces": {
+		"align": 0,
 		"format": "{icon}",
 		"format-icons": {
 
@@ -39,9 +41,10 @@
 	},
 
 	"clock": {
+		"align": 0,
 		"tooltip": false,
 		// "time": "{:%H\n:%M}",
-		"format": "<span color='#000000'>{:%H\n%M\n</span><span color='#777'>---\n%a\nd-%d\nm-%m\n%Y}</span>"
+		"format": "<span color='#0031a9'>{:%H\n%M\n</span><span color='#5277ba'>⸻\n%a\nd-%d\nm-%m\n%Y}</span>"
 		// "format": "{time}"
 	},
 
@@ -70,11 +73,12 @@
 	},
 
 	"pulseaudio": {
-		"format": "{icon} {volume}%",
+		"align": 1,
+		"format": "{volume:<3} {icon}",
 		"tooltip": false,
 		"format-muted": "",
 		"on-click": "pamixer -t",
-		"on-click-right": "pavucontrol",
+		"on-click-right": "pavucontrol -t 1",
 		"on-scroll-up":   "pamixer -i 1",
 		"on-scroll-down": "pamixer -d 1",
 		"scroll-step": 5,
@@ -85,7 +89,8 @@
 			"phone": "",
 			"portable": "",
 			"car": "",
-			"default": ["", "", ""]
+			"default": [""]
+			// "default": ["", "", ""]
 		}
 	},
 
@@ -100,36 +105,41 @@
 	},
 
 	"temperature": {
+		"align": 1,
 		"tooltip": false,
 		"interval": 2,
 		"thermal-zone": 1,
-		"format": "{temperatureC}°",
+		"format": "{temperatureC:<3}  🌡",
 		"critical-threshold": 75,
-		"format-critical": "{temperatureC}°"
+		"format-critical": "{temperatureC:<3}!!🌡"
 	},
 	"custom/gpu-temp": {
+		"align": 1,
 		"exec": "~/.config/waybar/scripts/gpu-temp.sh",
-		"format": "{}°",
+		"format": "{:<3}  🌡",
 		"return-type": "",
 		"interval": 3
 	},
 	"memory": {
 		"tooltip": false,
+		"align": 1,
 		"interval": 10,
-		"format": "{used:1.0f}G",
+		"format": "{used:2.1f} 🖥",
 		"tooltip-format": "Memory - {used:0.1f}GB used",
 		"on-click": "foot 'btop'"
+		// "format": "{used:1.0f}G 💻",
 	},
 
 	"network": {
-	// "interface": "wlp2*", // (Optional) To force the use of this interface
-	"format-wifi": " {signalStrength}%",
-	"format-ethernet": "",
-	"tooltip-format": "{essid} - {ifname} via {gwaddr} ",
-	"format-linked": "{ifname} (No IP) ",
-	"format-disconnected": "NONE ⚠",
-	"format-alt": "{ifname}:{essid} {ipaddr}/{cidr}",
-	"on-click-right": "~/.config/rofi/bin/network"
+		// "interface": "wlp2*", // (Optional) To force the use of this interface
+		"align": 1,
+		"format-wifi": " {signalStrength}%",
+		"format-ethernet": "",
+		"tooltip-format": "{essid} - {ifname} via {gwaddr} ",
+		"format-linked": "{ifname} (No IP) ",
+		"format-disconnected": "NONE ⚠",
+		"format-alt": "{ifname}:{essid} {ipaddr}/{cidr}",
+		"on-click-right": "~/.config/rofi/bin/network"
 	},
 
 	"bluetooth": {
@@ -139,7 +149,7 @@
 		"tooltip-format": "{device_alias}",
 		"tooltip-format-connected": " {device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}",
-		"on-click-right": "blueman-manager"
+		"on-click": "blueman-manager"
 	},
 
 	"custom/media": {

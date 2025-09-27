@@ -1,7 +1,5 @@
  prefer-no-csd
  debug {
- 	wait-for-frame-completion-before-queueing
- 	wait-for-frame-completion-in-pipewire
  	emulate-zero-presentation-time
  }
  hotkey-overlay {
@@ -10,12 +8,9 @@
  environment {
  	DISPLAY ":0"
  	QT_QPA_PLATFORM "wayland"
- 	ELECTION_OZONE_PLATFORM_HINT "auto"
+	ELECTRON_OZONE_PLATFORM_HINT "wayland"
  	QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
- 	XDG_CURRENT_DESKTOP "Niri"
- 	GTK_ICON_THEME "Breeze"
- 	GTK_THEME "Breeze"
- 	MY_TERMINAL "foot"
+	XCURSOR_THEME "phinger-cursors-dark"
  }
 
 animations {
@@ -38,7 +33,7 @@ animations {
  }
  
  cursor {
- 	xcursor-theme "phinger-cursors-light"
+ 	xcursor-theme "phinger-cursors-dark"
  	xcursor-size 24
  }
  
@@ -59,7 +54,7 @@ animations {
  	}
  }
  // top
- output "DP-3" {
+ output "DP-4" {
  	// off
      mode "2560x1440@119.998"
      scale 1.0
@@ -67,7 +62,7 @@ animations {
      position x=0 y=0
  }
  // bottom
- output "DP-4" {
+ output "DP-3" {
      mode "2560x1440@119.998"
      scale 1.0
      transform "normal"
@@ -92,12 +87,12 @@ animations {
  	// never, always, on-overflow
      center-focused-column "never"
  	shadow {
- 		on
- 		softness 15
- 		spread 3
+ 		// on
+ 		softness 5
+ 		spread 5
  		draw-behind-window true
- 		offset x=2 y=5
- 		color "#005e8b"
+ 		offset x=1 y=3
+ 		color "#0031a9ff"
  		inactive-color "#44444400"
  	}
      preset-column-widths {
@@ -107,27 +102,27 @@ animations {
      }
      default-column-width { proportion 0.6; }
      focus-ring {
- 		off
-         width 2
-         active-color "#c4c4c4"
-         inactive-color "#e0e0e0"
+ 		 // on
+         width 3
+         active-color "#0031a9"
+         inactive-color "#ccdfff"
      }
      border {
-         width 1.5
- 		active-color "#000000"
- 		inactive-color "#595959"
+         width 1
+ 		active-color "#0031a9"
+ 		inactive-color "#ccdfff"
      }
      struts {
  		top 	0
  		bottom 	0
- 		left 	-3
+ 		left 	-10
      }
  }
  
  //
  // Startup applications
  //
- spawn-at-startup "swaybg" "-c" "cccccc"
+ spawn-at-startup "swaybg" "-i" "/home/sven/Pictures/Wallpapers/pokemon/celebi_1.png"
  spawn-at-startup "waybar"
  spawn-at-startup "swaync"
  spawn-at-startup "udiskie" "-s"
@@ -143,8 +138,8 @@ animations {
 // Window Rules
 // 
  window-rule {
- 	geometry-corner-radius 3
- 	clip-to-geometry true
+ 	geometry-corner-radius 7
+ 	clip-to-geometry true 
  }
  window-rule {
  	match title="Steam"
@@ -163,7 +158,7 @@ animations {
  }
  // floating windows (long)
  window-rule {
- 	match title="Steam Settings|Friends List|Winetricks|REDlauncher|Library"
+ 	match title="Steam Settings|Friends List|Winetricks|REDlauncher|Library|Bluejay"
  	match app-id="udiskie|blueman-manager|Jitsi|pavucontrol|neovide"
  	default-column-width { proportion 0.4; }
  	default-window-height { proportion 0.8; }
@@ -171,8 +166,8 @@ animations {
  }
  // floating windows (short)
  window-rule {
- 	match title="File Upload|login"
- 	match app-id="org.gnome.Nautilus|dolphin|org.gnome.Loupe|swayimg"
+ 	match title="File Upload|login|Rockstar Games Launcher"
+ 	match app-id="org.gnome.Nautilus|dolphin|org.gnome.Loupe|swayimg|thunar|org.gnome.Totem|org.gnome.tweaks"
  	default-column-width { proportion 0.5; }
  	default-window-height { proportion 0.5; }
  	open-floating true
@@ -187,12 +182,12 @@ animations {
 // assign to top monitor
 window-rule {
 	match app-id="discord"
-	open-on-output "DP-3"
+	open-on-output "DP-4"
 }
 // assign to bottom monitor
 window-rule {
 	match title="Steam"
-	open-on-output "DP-4"
+	open-on-output "DP-3"
 }
  // block from stream
  window-rule {
@@ -205,12 +200,12 @@ window-rule {
 
 binds {
 	Alt+Shift+Slash { show-hotkey-overlay; }
-	Alt+Return { spawn "bash" "-c" "$MY_TERMINAL"; }
+	Alt+Return { spawn "bash" "-c" "foot"; }
 	Alt+D { spawn "fuzzel"; }
-	Alt+F12 { spawn "pavucontrol"; }
+	Alt+F12 { spawn "pavucontrol" "-t" "1"; }
 	Ctrl+Super+L { spawn "swaylock"; }
 	Alt+Shift+n { spawn "swaync-client" "-t"; }
-	Super+e { spawn "dolphin"; }
+	Super+e { spawn "thunar"; }
 	Ctrl+Alt+Delete { spawn "/home/sven/.config/niri/power.sh"; }
 	Super+p { spawn "/home/sven/.config/niri/screen.sh"; }
 
@@ -218,7 +213,7 @@ binds {
  	// Super+1 { spawn "gtk-launch" "com.microsoft.Edge"; }
  	Super+1 { spawn "firefox"; }
  	Super+2 { spawn "flatpak" "run" "com.discordapp.Discord"; }
- 	Super+3 { spawn "steam"; }
+ 	Super+3 { spawn "flatpak" "run" "com.valvesoftware.Steam"; }
  
  	Ctrl+Print {
      spawn "sh" "-c" r#"

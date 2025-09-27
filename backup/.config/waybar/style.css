@@ -2,16 +2,16 @@
 
 * {
 	font-family: "Google Sans Code";
-	font-weight: bold;
-	font-size: 14px;
+	font-weight: 900;
+	font-size: 12px;
 }
 
 window#waybar {
 	background-color: alpha(#ffffff, 0.999);
-	border-radius: 0px 7px 7px 0px;
-	border-width: 1px;
+	border-radius: 7px 7px 7px 7px;
+	border-width: 3px 3px 3px 3px;
 	border-style: solid;
-	border-color: @rose;
+	border-color: #0031a9;
 	color: @fg;
 }
 
@@ -36,7 +36,7 @@ tooltip {
 }
 
 #workspaces button.focused {
-	color: @red;
+	color: #0031a9;
 }
 #workspaces button.unfocused {
 }
@@ -55,7 +55,6 @@ tooltip {
 #battery,
 #pulseaudio,
 #network,
-#bluetooth,
 #temperature,
 #workspaces,
 #tray,
@@ -65,22 +64,31 @@ tooltip {
 	border-radius: 10px;
 }
 
+#temperature,
+#custom-gpu-temp,
+#memory,
+#network,
+#pulseaudio {
+	font-size: 10px;
+}
+
 #memory {
-	color: #666;
+	color: #0031a9;
 }
 
 #bluetooth {
-	color: #999;
+	padding-top: 20px;
+	color: #8995ab;
 }
 #bluetooth.connected {
-	color: @blue;
+	color: #0031a9;
 }
 
 #temperature {
-	color: #000;
+	color: #0031a9;
 }
 #custom-gpu-temp {
-	color: #333;
+	color: #0031a9;
 }
 
 #temperature.critical {
@@ -100,7 +108,7 @@ tooltip {
 
 #workspaces {
 	border-radius: 10px;
-	margin: 0px;
+	margin: 0px 0px 50px 0px;
 	/* padding: 0px 10px 0px 10px; */
 }
 
@@ -132,15 +140,15 @@ window#waybar.empty #window {
 
 #clock {
 	padding-top: 25px;
-	color: @fg;
+	color: #0031a9;
 }
 
 #network {
-	color: #999;
+	color: #0031a9;
 }
 
 #pulseaudio {
-	color: #bbb;
+	color: #0031a9;
 	padding-bottom: 40px;
 }
 

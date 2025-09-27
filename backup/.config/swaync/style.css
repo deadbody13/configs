@@ -1,6 +1,7 @@
 * {
   all: unset;
-  font-family: "Lotion";
+  font-family: "Inter";
+  font-weight: 900;
   transition: 0.3s;
   font-size: 1.1rem;
 }
@@ -10,10 +11,10 @@
 }
 
 .floating-notifications.background .notification-row .notification-background {
-  border-radius: 0.3rem;
-  background-color: #f0f0f0;
-  color: #193668;
-  border: 1px solid #193668;
+  border-radius: 7px;
+  background-color: #ffffff;
+  color: #0031a9;
+  border: 3px solid #0031a9;
 }
 
 .floating-notifications.background
@@ -21,14 +22,14 @@
   .notification-background
   .notification {
   padding: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 7px;
 }
 
 .floating-notifications.background
   .notification-row
   .notification-background
   .notification.critical {
-  border: 1px solid #9f9f9f;
+  border: 3px solid #0031a9;
 }
 
 .floating-notifications.background
@@ -38,7 +39,7 @@
   .notification-content
   .summary {
   margin: 0.5rem;
-  color: #000000;
+  color: #0031a9;
   font-weight: bold;
 }
 
@@ -49,7 +50,7 @@
   .notification-content
   .body {
   margin: 0.5rem;
-  color: #000000;
+  color: #0031a9;
 }
 
 .floating-notifications.background
@@ -68,10 +69,10 @@
   > *:last-child
   > *
   .notification-action {
-  border-radius: 0.5rem;
-  color: #000000;
+  border-radius: 7px;
+  color: #0031a9;
   background-color: #ffffff;
-  border: 1px solid #9f9f9f;
+  border: 3px solid #0031a9;
 }
 
 .floating-notifications.background
@@ -100,9 +101,9 @@
   .close-button {
   margin: 0.5rem;
   padding: 0.25rem;
-  border-radius: 0.5rem;
-  border-color: #9f9f9f;
-  color: #000000;
+  border-radius: 7px;
+  border-color: #0031a9;
+  color: #0031a9;
   background-color: #ffffff;
 }
 
@@ -121,24 +122,24 @@
 }
 
 .control-center {
-  border-radius: 0.5rem;
+  border-radius: 7px;
   margin: 1rem;
   background-color: #ffffff;
-  color: #000000;
+  color: #0031a9;
   padding: 1rem;
-  border: 1px solid #9f9f9f;
+  border: 3px solid #0031a9;
 }
 
 .control-center .widget-title {
-  color: #000000;
+  color: #0031a9;
   font-weight: bold;
 }
 
 .control-center .widget-title button {
-  border-radius: 0.5rem;
-  color: #000000;
+  border-radius: 7px;
+  color: #0031a9;
   background-color: #ffffff;
-  border: 1px solid #9f9f9f;
+  border: 3px solid #0031a9;
   padding: 0.5rem;
 }
 
@@ -151,23 +152,23 @@
 }
 
 .control-center .notification-row .notification-background {
-  border-radius: 0.5rem;
+  border-radius: 7px;
   margin: 0.5rem 0;
   background-color: #ffffff;
-  color: #000000;
-  border: 1px solid #9f9f9f;
+  color: #0031a9;
+  border: 3px solid #0031a9;
 }
 
 .control-center .notification-row .notification-background .notification {
   padding: 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 7px;
 }
 
 .control-center
   .notification-row
   .notification-background
   .notification.critical {
-  border: 1px solid #9f9f9f;
+  border: 3px solid #0031a9;
 }
 
 .control-center
@@ -175,7 +176,7 @@
   .notification-background
   .notification
   .notification-content {
-  color: #000000;
+  color: #0031a9;
 }
 
 .control-center
@@ -185,7 +186,7 @@
   .notification-content
   .summary {
   margin: 0.5rem;
-  color: #000000;
+  color: #0031a9;
   font-weight: bold;
 }
 
@@ -196,7 +197,7 @@
   .notification-content
   .body {
   margin: 0.5rem;
-  color: #000000;
+  color: #0031a9;
 }
 
 .control-center
@@ -215,10 +216,10 @@
   > *:last-child
   > *
   .notification-action {
-  border-radius: 0.5rem;
-  color: #000000;
+  border-radius: 7px;
+  color: #0031a9;
   background-color: #ffffff;
-  border: 1px solid #9f9f9f;
+  border: 3px solid #0031a9;
 }
 
 .control-center
@@ -244,10 +245,10 @@
 .control-center .notification-row .notification-background .close-button {
   margin: 0.5rem;
   padding: 0.25rem;
-  border-radius: 0.5rem;
-  color: #000000;
+  border-radius: 7px;
+  color: #0031a9;
   background-color: #ffffff;
-  border-color: #9f9f9f;
+  border-color: #0031a9;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
@@ -264,7 +265,7 @@
 progressbar,
 progress,
 trough {
-  border-radius: 0.5rem;
+  border-radius: 7px;
 }
 
 .notification.critical progress {
@@ -286,12 +287,12 @@ trough {
 
 .control-center-dnd {
   margin: 1rem 0;
-  border-radius: 0.5rem;
+  border-radius: 7px;
 }
 
 .control-center-dnd slider {
   background: #ffffff;
-  border-radius: 0.5rem;
+  border-radius: 7px;
 }
 
 .widget-dnd {
@@ -299,9 +300,9 @@ trough {
 }
 
 .widget-dnd > switch {
-  border-radius: 0.5rem;
+  border-radius: 7px;
   background: #ffffff;
-  border: 1px solid #ffffff;
+  border: 3px solid #ffffff;
 }
 
 .widget-dnd > switch:checked slider {
@@ -310,6 +311,6 @@ trough {
 
 .widget-dnd > switch slider {
   background: #ffffff;
-  border-radius: 0.5rem;
+  border-radius: 7px;
   margin: 0.25rem;
 }

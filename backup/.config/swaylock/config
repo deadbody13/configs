@@ -1,4 +1,4 @@
-# image=~/Pictures/Wallpapers/pokemon/pidgeot_with-pokeball.jpg
+image=~/Pictures/Wallpapers/pokemon/celebi.png
 # indicator-x-position=625
 # indicator-y-position=753
 # indicator-radius=170
@@ -8,7 +8,7 @@
 # key-hl-color=#bca0dc
 
 # Background color
-color=#ffffff
+# color=#ffffff
 
 # Layout text colors
 layout-bg-color=#ffffff
