@@ -74,7 +74,8 @@
 
 	"pulseaudio": {
 		"align": 1,
-		"format": "{volume:<3} {icon}",
+		// "format": "{volume:3}  {icon}",
+		"format": "{volume:3}  %",
 		"tooltip": false,
 		"format-muted": "",
 		"on-click": "pamixer -t",
@@ -109,14 +110,14 @@
 		"tooltip": false,
 		"interval": 2,
 		"thermal-zone": 1,
-		"format": "{temperatureC:<3}  🌡",
+		"format": "{temperatureC:3} °C",
 		"critical-threshold": 75,
-		"format-critical": "{temperatureC:<3}!!🌡"
+		"format-critical": "{temperatureC:3}!°C"
 	},
 	"custom/gpu-temp": {
 		"align": 1,
 		"exec": "~/.config/waybar/scripts/gpu-temp.sh",
-		"format": "{:<3}  🌡",
+		"format": "{:3}°C",
 		"return-type": "",
 		"interval": 3
 	},
@@ -124,9 +125,9 @@
 		"tooltip": false,
 		"align": 1,
 		"interval": 10,
-		"format": "{used:2.1f} 🖥",
-		"tooltip-format": "Memory - {used:0.1f}GB used",
-		"on-click": "foot 'btop'"
+		"format": "{used:4.1f} G",
+		"tooltip-format": "Memory - {used:0.1f}GiB used",
+		"on-click": "flatpak run io.missioncenter.MissionCenter"
 		// "format": "{used:1.0f}G 💻",
 	},
 
@@ -134,7 +135,8 @@
 		// "interface": "wlp2*", // (Optional) To force the use of this interface
 		"align": 1,
 		"format-wifi": " {signalStrength}%",
-		"format-ethernet": "",
+		// "format-ethernet": "",
+		"format-ethernet": "{ifname}",
 		"tooltip-format": "{essid} - {ifname} via {gwaddr} ",
 		"format-linked": "{ifname} (No IP) ",
 		"format-disconnected": "NONE ⚠",

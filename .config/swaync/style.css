@@ -3,11 +3,11 @@
   font-family: "Inter";
   font-weight: 900;
   transition: 0.3s;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .floating-notifications.background .notification-row {
-  padding: 2.0rem;
+  padding: 1.5rem;
 }
 
 .floating-notifications.background .notification-row .notification-background {
@@ -38,7 +38,7 @@
   .notification
   .notification-content
   .summary {
-  margin: 0.5rem;
+  margin: 0.2rem 0.2rem 0.2rem 1.0rem;
   color: #0031a9;
   font-weight: bold;
 }
@@ -49,7 +49,7 @@
   .notification
   .notification-content
   .body {
-  margin: 0.5rem;
+  margin: 0.2rem 0.2rem 0.2rem 1.0rem;
   color: #0031a9;
 }
 

@@ -14,4 +14,13 @@ pushd .config
 		fi
 	done
 popd
+pushd .local/share
+	for x in *
+	do
+		if [ -f ~/.local/$x ]
+		then
+			cp -rv ~/.local/$x
+		fi
+	done
+popd
 cp -r ~/Pictures/Wallpapers .

@@ -159,7 +159,7 @@ animations {
  // floating windows (long)
  window-rule {
  	match title="Steam Settings|Friends List|Winetricks|REDlauncher|Library|Bluejay"
- 	match app-id="udiskie|blueman-manager|Jitsi|pavucontrol|neovide"
+ 	match app-id="udiskie|blueman-manager|Jitsi|pavucontrol|neovide|org.gnome.Papers"
  	default-column-width { proportion 0.4; }
  	default-window-height { proportion 0.8; }
  	open-floating true

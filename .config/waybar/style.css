@@ -70,6 +70,7 @@ tooltip {
 #network,
 #pulseaudio {
 	font-size: 10px;
+	font-weight: 900;
 }
 
 #memory {
