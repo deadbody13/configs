@@ -1,6 +1,0 @@
--- function ColorMyPencils(color)
--- 	color = color or "github_light"
--- 	vim.cmd.colorscheme(color)
--- end
--- 
--- ColorMyPencils()
