@@ -4,6 +4,15 @@ require("config.lazy")
 -- colorscheme
 vim.cmd([[colorscheme modus_operandi]]) -- modus_operandi, modus_vivendi
 
+vim.opt.list = true
+local space = "·"
+vim.opt.listchars:append {
+	tab = "→ ",
+	multispace = space,
+	lead = space,
+	trail = space,
+	nbsp = space
+}
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set("n", "<space>fb", ":Telescope file_browser<CR>")
@@ -47,16 +56,16 @@ require("telescope").setup {
 require("telescope").load_extension "file_browser"
 
 require('lualine').setup({
-        options = {
-            theme = 'modus-vivendi',
-        },
-    })
+	options = {
+		theme = 'modus-vivendi',
+	},
+})
 require('barbar').setup({
-        icons = {
-            filetype = {
-                custom_colors = true,
-            },
-        },
+	icons = {
+		filetype = {
+			custom_colors = true,
+		},
+	},
 })
 
 require('colorizer').setup()
