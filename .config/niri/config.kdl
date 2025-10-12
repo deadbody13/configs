@@ -167,7 +167,7 @@ window-rule {
 // floating windows (short)
 window-rule {
 	match title="File Upload|login|Rockstar Games Launcher"
-	match app-id="org.gnome.Nautilus|dolphin|org.gnome.Loupe|swayimg|thunar|org.gnome.Totem|org.gnome.tweaks"
+	match app-id="org.gnome.Nautilus|dolphin|org.gnome.Loupe|swayimg|thunar|org.gnome.Totem|org.gnome.tweaks|vlc"
 	default-column-width { proportion 0.5; }
 	default-window-height { proportion 0.5; }
 	open-floating true

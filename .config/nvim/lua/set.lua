@@ -20,3 +20,7 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 
+vim.api.nvim_set_hl(0, "Whitespace", { fg = "#000000" })
+vim.api.nvim_set_hl(0, "NonText",    { fg = "#000000" })
+vim.api.nvim_set_hl(0, "SpecialKey", { fg = "#000000" })
+

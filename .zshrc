@@ -1,13 +1,14 @@
 # Lines configured by zsh-newuser-install
 # autoload -U colors && colors
 # export TERM=xterm-mono
-export TERM=xterm-256color
+export TERM=foot
 RED="%{$fg[red]%}"
 BLUE="%{$fg[blue]%}"
 GREEN="%{$fg[green]%}"
 RESET="%{$reset_color%}"
 # export PS1="[$GREEN%n$RESET@%m$BLUE:%1d$RESET]$ "
 export PS1="%2d: "
+export COLORTERM=truecolor
 
 HISTFILE=~/.histfile
 HISTSIZE=1000

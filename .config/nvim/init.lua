@@ -13,6 +13,15 @@ vim.opt.listchars:append {
 	trail = space,
 	nbsp = space
 }
+vim.o.termguicolors = true
+vim.api.nvim_set_hl(0, "Whitespace", { fg = "#000000" })
+vim.api.nvim_set_hl(0, "NonText",    { fg = "#000000" })
+vim.api.nvim_set_hl(0, "SpecialKey", { fg = "#000000" })
+-- vim.cmd([[highlight Whitespace guifg=#ffffff]])
+-- vim.cmd([[highlight NonText    guifg=#ffffff]])
+-- vim.cmd([[highlight SpecialKey guifg=#ffffff]])
+
+
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set("n", "<space>fb", ":Telescope file_browser<CR>")
@@ -100,5 +109,9 @@ require("modus-themes").setup({
 	--- Refer to `extras/lua/modus_operandi.lua` or `extras/lua/modus_vivendi.lua` for the Highlights and ColorScheme table
 	---@param highlights Highlights
 	---@param colors ColorScheme
-	on_highlights = function(highlights, colors) end,
+	on_highlights = function(highlights, colors)
+		highlights.Whitespace = { fg = "#999999" }
+		highlights.SpecialKey = { fg = "#999999" }
+		highlights.NonText    = { fg = "#999999" }
+	end,
 })
