@@ -110,8 +110,8 @@ require("modus-themes").setup({
 	---@param highlights Highlights
 	---@param colors ColorScheme
 	on_highlights = function(highlights, colors)
-		highlights.Whitespace = { fg = "#999999" }
-		highlights.SpecialKey = { fg = "#999999" }
-		highlights.NonText    = { fg = "#999999" }
+		highlights.Whitespace = { fg = "#b5d99c" }
+		highlights.SpecialKey = { fg = "#b5d99c" }
+		highlights.NonText    = { fg = "#b5d99c" }
 	end,
 })

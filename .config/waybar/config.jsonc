@@ -6,10 +6,10 @@
 	"exclusive": true,
 	"passthrough": false,
 	"gtk-layer-shell": false,
-	"margin-top": 3,
-	"margin-bottom": 3,
-	"margin-left":   3,
-	"margin-right": 0,
+	"margin-top":    6,
+	"margin-bottom": 6,
+	"margin-left":   6,
+	"margin-right": 6,
 	"modules-left": [
 		// "tray",
 		"network",
@@ -18,7 +18,8 @@
 	"modules-center": [
 		// "niri/workspaces",
 		"temperature",
-		"custom/gpu-temp",
+		"temperature#gpu",
+		// "custom/gpu-temp",
 		"memory",
 		"pulseaudio"
 	],
@@ -111,17 +112,30 @@
 	"temperature": {
 		"align": 1,
 		"tooltip": false,
-		"interval": 2,
+		"interval": 1,
+		"thermal-zone": 1,
+		"format": "{temperatureC:3} °C",
+		"critical-threshold": 70,
+		"format-critical": "{temperatureC:3} °C"
+	},
+	"temperature#gpu": {
+		"align": 1,
+		"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+		"tooltip": false,
+		"interval": 1,
 		"thermal-zone": 1,
 		"format": "{temperatureC:3} °C",
 		"critical-threshold": 75,
-		"format-critical": "{temperatureC:3}!°C"
+		"format-critical": "{temperatureC:3} °C"
 	},
 	"custom/gpu-temp": {
 		"align": 1,
 		"exec": "~/.config/waybar/scripts/gpu-temp.sh",
 		"format": "{:3}°C",
-		"return-type": "",
+		// set in script
+		// "critical-threshold": 30,
+		"format-critical": "{:3}°C",
+		"return-type": "json",
 		"interval": 3
 	},
 	"custom/time": {
@@ -139,16 +153,11 @@
 		"interval": 5
 	},
 	"custom/power": {
-		"format" : "⏻",
+		"format": "⏻",
 		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "~/.config/waybar/scripts/power_menu.xml",
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
+		"on-click": "~/.config/niri/power.sh",
+		"return-type": "none",
+		"interval": "once"
 	},
 	"memory": {
 		"tooltip": false,

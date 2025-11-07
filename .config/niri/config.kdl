@@ -90,7 +90,7 @@ layout {
 		// on
 		softness 5
 		spread 5
-		draw-behind-window true
+		// draw-behind-window true
 		offset x=1 y=3
 		color "#0031a9ff"
 		inactive-color "#44444400"
@@ -102,15 +102,14 @@ layout {
 	}
 	default-column-width { proportion 0.6; }
 	focus-ring {
-		// on
-		width 3
-		active-color "#0031a9"
-		inactive-color "#ccdfff"
+		width 2
+		active-gradient from="#495243ff" to="#effce6aa" angle=315 in="srgb"
+		inactive-color "#deebd599"
 	}
 	border {
 		width 1
-		active-color "#0031a9"
-		inactive-color "#ccdfff"
+		active-gradient from="#495243ff" to="#effce6aa" angle=315 in="srgb"
+		inactive-color "#deebd599"
 	}
 	struts {
 		top 	0
@@ -183,11 +182,13 @@ window-rule {
 window-rule {
 	match app-id="discord"
 	open-on-output "DP-4"
+	default-column-width { proportion 1.0; }
 }
 // assign to bottom monitor
 window-rule {
 	match title="Steam"
 	open-on-output "DP-3"
+	default-column-width { proportion 1.0; }
 }
 // block from stream
 window-rule {

@@ -135,3 +135,9 @@ sudo dnf install ./warp-terminal-v0.2024.03.12.08.02.stable_01-1.x86_64.rpm
 which zsh
 chsh
 reboot
+ls
+ll
+all
+ls -a
+ls -la
+exit
