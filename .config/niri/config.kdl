@@ -51,6 +51,12 @@ input {
 	touchpad {
 		tap
 		natural-scroll
+		accel-speed 0.1
+	}
+}
+gestures {
+	dnd-edge-view-scroll {
+		trigger-width 30
 	}
 }
 // top
@@ -67,6 +73,10 @@ output "DP-3" {
 	scale 1.0
 	transform "normal"
 	position x=0 y=1440
+}
+// laptop
+output "eDP-1" {
+	scale 1.0
 }
 
 
