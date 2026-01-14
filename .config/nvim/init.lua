@@ -3,6 +3,8 @@ require("remap")
 require("config.lazy")
 -- colorscheme
 vim.cmd([[colorscheme modus_operandi]]) -- modus_operandi, modus_vivendi
+vim.o.encoding = "utf-8"
+vim.o.fileencodings = "utf-8,ucs-bom"
 
 vim.opt.list = true
 local space = "·"

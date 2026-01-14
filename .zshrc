@@ -28,4 +28,5 @@ eval "$(starship init zsh)"
 
 export PATH=$PATH:/home/sven/.spicetify
 
-alias ll="eza -lhg"
+# alias ll="eza -lhg"
+alias ll="g --table --table-style=unicode --long"

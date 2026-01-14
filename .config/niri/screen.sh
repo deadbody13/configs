@@ -3,8 +3,8 @@
 
 input=$(printf "extend\nprimary\nsecondary" | fuzzel --dmenu)
 
-output_1="DP-3"
-output_2="DP-4"
+output_1="DP-4"
+output_2="DP-3"
 
 case "$input" in
 	extend)

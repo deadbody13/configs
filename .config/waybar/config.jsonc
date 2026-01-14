@@ -25,6 +25,7 @@
 	],
 	"modules-right": [
 		// "clock"
+		"custom/menu",
 		"custom/power",
 		"custom/time",
 		"custom/date"
@@ -151,6 +152,13 @@
 		"format": "{}",
 		"return-type": "json",
 		"interval": 5
+	},
+	"custom/menu": {
+		"format": "≡",
+		"tooltip": false,
+		"on-click": "~/.config/niri/app-menu.sh",
+		"return-type": "none",
+		"interval": "once"
 	},
 	"custom/power": {
 		"format": "⏻",

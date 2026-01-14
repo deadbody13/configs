@@ -1,4 +1,4 @@
-prefer-no-csd
+// prefer-no-csd
 debug {
 	emulate-zero-presentation-time
 }
@@ -6,11 +6,8 @@ hotkey-overlay {
 	skip-at-startup
 }
 environment {
-	DISPLAY ":0"
-	QT_QPA_PLATFORM "wayland"
-	ELECTRON_OZONE_PLATFORM_HINT "wayland"
-	QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-	XCURSOR_THEME "phinger-cursors-dark"
+	// DISPLAY ":0"
+	// ELECTRON_OZONE_PLATFORM_HINT "wayland"
 }
 
 animations {
@@ -131,13 +128,13 @@ layout {
 //
 // Startup applications
 //
-spawn-at-startup "swaybg" "-i" "/home/sven/Pictures/Wallpapers/pokemon/celebi_1.png"
+spawn-at-startup "swaybg" "-i" "/home/sven/Pictures/Wallpapers/trees/golden-leaves.jpg"
 spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "udiskie" "-s"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "nm-applet"
-spawn-at-startup "xwayland-satellite"
+// spawn-at-startup "xwayland-satellite"
 spawn-at-startup "swayidle" "-w" "before-sleep" "'swaylock'"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d_%H-%M-%S.png"
@@ -165,26 +162,36 @@ window-rule {
 	match app-id="udiskie|neovide"
 	default-column-width { proportion 0.40; }
 }
+window-rule {
+	match title="foot" is-active=false
+	opacity 0.90
+}
 // floating windows (long)
 window-rule {
 	match title="Steam Settings|Friends List|Winetricks|REDlauncher|Library|Bluejay"
 	match app-id="udiskie|blueman-manager|Jitsi|pavucontrol|neovide|org.gnome.Papers"
+	open-floating true
 	default-column-width { proportion 0.4; }
 	default-window-height { proportion 0.8; }
+}
+window-rule {
+	match app-id="scrcpy"
 	open-floating true
+	default-column-width { proportion 0.2; }
+	default-window-height { proportion 0.8; }
 }
 // floating windows (short)
 window-rule {
 	match title="File Upload|login|Rockstar Games Launcher"
 	match app-id="org.gnome.Nautilus|dolphin|org.gnome.Loupe|swayimg|thunar|org.gnome.Totem|org.gnome.tweaks|vlc"
-	default-column-width { proportion 0.5; }
+	default-column-width  { proportion 0.5; }
 	default-window-height { proportion 0.5; }
 	open-floating true
 }
 window-rule {
 	match title="cta|CTA|sso|SSO|[gG]oogle|sign_in|continue|Authview|figma|account|user|content|Sign in|Google|Connecting|New Tab|about:blank|account|blank|Clicked"
 	match app-id="Jitsi"
-	default-column-width { proportion 0.2; }
+	default-column-width  { proportion 0.2; }
 	default-window-height { proportion 0.2; }
 	open-floating true
 }
@@ -200,6 +207,11 @@ window-rule {
 	open-on-output "DP-3"
 	default-column-width { proportion 1.0; }
 }
+window-rule {
+	match app-id="steam"
+	open-on-output "DP-3"
+	default-floating-position x=25 y=25 relative-to="bottom-right"
+}
 // block from stream
 window-rule {
 	match title="[wW]eather.com|[lL]ogin|Google Messages for web|GroupMe|Google Photos|Gmail"
@@ -212,7 +224,7 @@ window-rule {
 binds {
 	Alt+Shift+Slash { show-hotkey-overlay; }
 	Alt+Return { spawn "bash" "-c" "foot"; }
-	Alt+D { spawn "fuzzel"; }
+	Alt+D { spawn "rofi" "-show" "drun"; }
 	Alt+F12 { spawn "pavucontrol" "-t" "1"; }
 	Ctrl+Super+L { spawn "swaylock"; }
 	Alt+Shift+n { spawn "swaync-client" "-t"; }
@@ -222,7 +234,7 @@ binds {
 
 	// taskbar
 	// Super+1 { spawn "gtk-launch" "com.microsoft.Edge"; }
-	Super+1 { spawn "firefox"; }
+	Super+1 { spawn "flatpak" "run" "app.zen_browser.zen"; }
 	Super+2 { spawn "flatpak" "run" "com.discordapp.Discord"; }
 	Super+3 { spawn "flatpak" "run" "com.valvesoftware.Steam"; }
 
@@ -241,8 +253,8 @@ binds {
 	//
 	XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01+"; }
 	XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01-"; }
-	XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-	XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+	XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute"   "@DEFAULT_AUDIO_SINK@" "toggle"; }
+	XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute"   "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
 	//
 	// Window management

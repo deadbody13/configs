@@ -28,8 +28,7 @@ speaker='28:6F:40:BC:8B:D3'
 buds='84:5F:04:FF:27:C9'
 
 alias icon_theme="gsettings get org.gnome.desktop.interface icon-theme"
-
-alias ll="eza -lgh"
+# alias ll="eza -lgh"
 
 jflash=/run/media/sven/jflash
 

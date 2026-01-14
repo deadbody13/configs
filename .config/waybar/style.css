@@ -4,8 +4,8 @@
 @define-color critical	rgba(189, 74, 74, 1.0);
 
 * {
-	font-family: "Intel One Mono";
-	font-size: 12px;
+	font-family: "JetBrains Mono";
+	font-size: 10px;
 	color: @fg;
 }
 
@@ -19,9 +19,9 @@ window#waybar {
 /* Generic module box */
 #custom-gpu-temp,
 #window,
-#clock,
-#custom-time,
+#clock, #custom-time,
 #custom-date,
+#custom-menu,
 #custom-power,
 #battery,
 #pulseaudio,
@@ -43,6 +43,9 @@ window#waybar {
 }
 #custom-date {
 	margin-bottom: 12px;
+}
+#custom-menu, #custom-power {
+	font-size: 16px;
 }
 
 #temperature.critical {
