@@ -224,7 +224,7 @@ window-rule {
 binds {
 	Alt+Shift+Slash { show-hotkey-overlay; }
 	Alt+Return { spawn "bash" "-c" "foot"; }
-	Alt+D { spawn "rofi" "-show" "drun"; }
+	Alt+D { spawn "rofi" "-show" "drun" "-icon-theme" "Adwaita" "-show-icons"; }
 	Alt+F12 { spawn "pavucontrol" "-t" "1"; }
 	Ctrl+Super+L { spawn "swaylock"; }
 	Alt+Shift+n { spawn "swaync-client" "-t"; }
