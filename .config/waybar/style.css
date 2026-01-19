@@ -4,7 +4,7 @@
 @define-color critical	rgba(189, 74, 74, 1.0);
 
 * {
-	font-family: "JetBrains Mono";
+	font-family: "PT Mono";
 	font-size: 10px;
 	color: @fg;
 }
