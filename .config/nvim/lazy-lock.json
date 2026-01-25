@@ -13,6 +13,7 @@
   "lualine.nvim": { "branch": "master", "commit": "0a5a66803c7407767b799067986b4dc3036e1983" },
   "mason.nvim": { "branch": "main", "commit": "0950b15060067f752fde13a779a994f59516ce3d" },
   "modus-themes.nvim": { "branch": "master", "commit": "181dc38ddbcf9ad94d454cb06b13c859d4ff28d1" },
+  "nord.nvim": { "branch": "master", "commit": "80c1e5321505aeb22b7a9f23eb82f1e193c12470" },
   "nvim-cmp": { "branch": "main", "commit": "a110e12d0b58eefcf5b771f533fc2cf3050680ac" },
   "nvim-colorizer.lua": { "branch": "master", "commit": "a065833f35a3a7cc3ef137ac88b5381da2ba302e" },
   "nvim-tree.lua": { "branch": "master", "commit": "2086e564c4d23fea714e8a6d63b881e551af2f41" },

@@ -32,10 +32,12 @@ pink = '#7b435c'
 aqua = '#0031a9'
 cyan = '#005e8b'
 purple = '#4a3a8a'
+nord_bg = '#2e3440'
+nord_fg = '#d8dee9'
 
 [directory]
 format = "\\[$path\\]"
-style = "bg:overlay fg:aqua"
+style = "bg:nord_bg fg:aqua"
 truncation_length = 0
 truncate_to_repo = true
 # truncation_symbol = "…/"
@@ -53,30 +55,30 @@ symbol = " "
 [git_branch]
 # format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay) "
 format = "\\[[$branch]($style)"
-style = "bg:overlay fg:cyan"
+style = "bg:nord_bg fg:cyan"
 symbol = ""
 
 [git_status]
 disabled = false
-style = "bg:overlay fg:red"
-# format = '[](fg:overlay)([$all_status$ahead_behind]($style))[](fg:overlay) '
+style = "bg:nord_bg fg:red"
+# format = '[](fg:nord_bg)([$all_status$ahead_behind]($style))[](fg:nord_bg) '
 format = ' $all_status$ahead_behind\]'
-up_to_date = '[ ✓ ](bg:overlay fg:purple)'
-untracked = '[?\($count\)](bg:overlay fg:yellow)'
-stashed = '[\$](bg:overlay fg:purple)'
-modified = '[!\($count\)](bg:overlay fg:yellow)'
-renamed = '[»\($count\)](bg:overlay fg:purple)'
+up_to_date = '[ ✓ ](bg:nord_bg fg:purple)'
+untracked = '[?\($count\)](bg:nord_bg fg:yellow)'
+stashed = '[\$](bg:nord_bg fg:purple)'
+modified = '[!\($count\)](bg:nord_bg fg:yellow)'
+renamed = '[»\($count\)](bg:nord_bg fg:purple)'
 deleted = '[✘\($count\)](style)'
-staged = '[++\($count\)](bg:overlay fg:yellow)'
-ahead = '[⇡\(${count}\)](bg:overlay fg:cyan)'
-diverged = '⇕[\[](bg:overlay fg:purple)[⇡\(${ahead_count}\)](bg:overlay fg:cyan)[⇣\(${behind_count}\)](bg:overlay fg:pink)[\]](bg:overlay fg:purple)'
-behind = '[⇣\(${count}\)](bg:overlay fg:pink)'
+staged = '[++\($count\)](bg:nord_bg fg:yellow)'
+ahead = '[⇡\(${count}\)](bg:nord_bg fg:cyan)'
+diverged = '⇕[\[](bg:nord_bg fg:purple)[⇡\(${ahead_count}\)](bg:nord_bg fg:cyan)[⇣\(${behind_count}\)](bg:nord_bg fg:pink)[\]](bg:nord_bg fg:purple)'
+behind = '[⇣\(${count}\)](bg:nord_bg fg:pink)'
 
 [time]
 disabled = false
 # format = " [](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
 format = "  [ $time]($style)"
-style = "bg:overlay fg:pink"
+style = "bg:nord_bg fg:yellow"
 time_format = "%H:%M"
 use_12hr = false
 
@@ -86,7 +88,7 @@ disabled = false
 format = "[$user ]($style)"
 show_always = true
 style_root = "bg:overlay fg:purple"
-style_user = "bg:overlay fg:purple"
+style_user = "bg:nord_bg fg:nord_fg"
 
 # Languages
 

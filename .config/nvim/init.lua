@@ -2,7 +2,7 @@ require("set")
 require("remap")
 require("config.lazy")
 -- colorscheme
-vim.cmd([[colorscheme modus_operandi]]) -- modus_operandi, modus_vivendi
+vim.cmd([[colorscheme nord]]) -- modus_operandi, modus_vivendi
 vim.o.encoding = "utf-8"
 vim.o.fileencodings = "utf-8,ucs-bom"
 
@@ -68,7 +68,7 @@ require("telescope").load_extension "file_browser"
 
 require('lualine').setup({
 	options = {
-		theme = 'modus-vivendi',
+		theme = 'nord',
 	},
 })
 require('barbar').setup({

@@ -1,6 +1,2 @@
-configuration {
-	modi:       "window,drun,ssh,combi";
-	font:       "PT Serif 12";
-	combi-modi: "window,drun,ssh";
-}
+
 @theme "~/.config/rofi/themes/dmenu.rasi"
