@@ -17,9 +17,9 @@ popd
 pushd .local/share
 	for x in *
 	do
-		if [ -f ~/.local/$x ]
+		if [ -d ~/.local/share/$x ]
 		then
-			cp -rv ~/.local/$x .
+			cp -rv ~/.local/share/$x .
 		fi
 	done
 popd

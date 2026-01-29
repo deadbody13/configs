@@ -1,0 +1,8 @@
+
+[Desktop Entry]
+Type=Application
+Name=Epic Games Store
+Icon=lutris_epic-games-store
+Exec=env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/3
+Categories=Game
+TryExec=lutris

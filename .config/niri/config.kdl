@@ -107,8 +107,8 @@ layout {
 	default-column-width { proportion 0.6; }
 	focus-ring {
 		width 2
-		active-gradient from="#495243ff" to="#effce6aa" angle=315 in="srgb"
-		inactive-color "#deebd599"
+		inactive-gradient from="#495243ff" to="#000000aa" angle=315 in="srgb"
+		active-color "#deebd599"
 	}
 	border {
 		width 1
@@ -239,7 +239,7 @@ binds {
 
 	// taskbar
 	// Super+1 { spawn "gtk-launch" "com.microsoft.Edge"; }
-	Super+1 { spawn "flatpak" "run" "app.zen_browser.zen"; }
+	Super+1 { spawn "flatpak" "run" "com.microsoft.Edge"; }
 	Super+2 { spawn "flatpak" "run" "com.discordapp.Discord"; }
 	Super+3 { spawn "flatpak" "run" "com.valvesoftware.Steam"; }
 
