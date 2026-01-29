@@ -186,7 +186,7 @@ window-rule {
 	open-floating true
 }
 window-rule {
-	match title="cta|CTA|sso|SSO|[gG]oogle|sign_in|continue|Authview|figma|account|user|content|Sign in|Google|Connecting|New Tab|about:blank|account|blank|Clicked"
+	match title="cta|CTA|sso|SSO|[gG]oogle|sign_in|continue|Authview|figma|account|user|content|Sign in|Google|Connecting|about:blank|account|blank|Clicked"
 	match app-id="Jitsi"
 	default-column-width  { proportion 0.2; }
 	default-window-height { proportion 0.2; }
@@ -232,7 +232,7 @@ binds {
 
 	// taskbar
 	// Super+1 { spawn "gtk-launch" "com.microsoft.Edge"; }
-	Super+1 { spawn "flatpak" "run" "com.microsoft.Edge"; }
+	Super+1 { spawn "helium.AppImage"; }
 	Super+2 { spawn "flatpak" "run" "com.discordapp.Discord"; }
 	Super+3 { spawn "flatpak" "run" "com.valvesoftware.Steam"; }
 
