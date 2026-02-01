@@ -2,11 +2,11 @@
 
 pkill fuzzel
 
-input=$(printf "Edge\0icon\x1fcom.microsoft.Edge\nDiscord\0icon\x1fdiscord\nSteam\0icon\x1fsteam" | fuzzel --dmenu --icon-theme=Newaita-replacement --minimal-lines --y-margin=110 --hide-prompt --width=15)
+input=$(printf "Helium\0icon\x1fbrowser\nDiscord\0icon\x1fdiscord\nSteam\0icon\x1fsteam" | fuzzel --dmenu --icon-theme=Newaita-replacement --minimal-lines --y-margin=110 --hide-prompt --width=15)
 
 case "$input" in
-	Edge)
-		flatpak run com.microsoft.Edge
+	Helium)
+		helium.AppImage
 		;;
 	Discord)
 		flatpak run com.discordapp.Discord

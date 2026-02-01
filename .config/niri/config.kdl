@@ -65,6 +65,14 @@ output "DP-3" {
 	transform "normal"
 	position x=0 y=1440
 }
+// tv
+output "HDMI-A-5" {
+	off
+	mode "3840x2160@60.000"
+	scale 1.0
+	transform "normal"
+	position x=-3840 y=1440
+}
 
 
 layout {
@@ -201,12 +209,12 @@ window-rule {
 // assign to bottom monitor
 window-rule {
 	match title="Steam"
-	open-on-output "DP-3"
+	// open-on-output "DP-3"
 	default-column-width { proportion 1.0; }
 }
 window-rule {
 	match app-id="steam"
-	open-on-output "DP-3"
+	// open-on-output "DP-3"
 	default-floating-position x=25 y=25 relative-to="bottom-right"
 }
 // block from stream

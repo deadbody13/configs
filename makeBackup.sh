@@ -23,4 +23,6 @@ pushd .local/share
 		fi
 	done
 popd
+cp -r ~/.local/bin ./.local/
+
 cp -r ~/Pictures/Wallpapers .
