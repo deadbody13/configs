@@ -1,4 +1,4 @@
-// prefer-no-csd
+prefer-no-csd
 debug {
 	emulate-zero-presentation-time
 }
@@ -127,8 +127,9 @@ layout {
 // Startup applications
 //
 spawn-at-startup "swaybg" "-i" "/home/sven/Pictures/Wallpapers/Cherry_Blossoms/cherry-blossoms_1.png"
-spawn-at-startup "waybar"
-spawn-at-startup "swaync"
+spawn-at-startup "/home/sven/.config/waybar/launch.sh"
+// spawn-at-startup "swaync"
+spawn-at-startup "mako"
 spawn-at-startup "udiskie" "-s"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "nm-applet"
@@ -136,6 +137,42 @@ spawn-at-startup "nm-applet"
 spawn-at-startup "swayidle" "-w" "before-sleep" "'swaylock'"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d_%H-%M-%S.png"
+
+//
+// blur
+//
+blur {
+	passes 1
+	offset 6.0
+	saturation 0
+	noise 0.02
+}
+window-rule {
+	background-effect {
+		blur true
+	}
+}
+layer-rule {
+	match namespace="^waybar$|^notifications$"
+	background-effect {
+		blur true
+		xray false
+	}
+}
+window-rule {
+	match app-id="[tT]hunar"
+	match title="foot"
+	background-effect {
+		blur true
+		// xray false
+	}
+}
+layer-rule {
+	match namespace="^launcher$"
+	background-effect {
+		blur true
+	}
+}
 
 
 //
@@ -162,7 +199,7 @@ window-rule {
 }
 window-rule {
 	match title="foot" is-active=false
-	opacity 0.90
+	opacity 0.95
 }
 // floating windows (long)
 window-rule {
@@ -181,7 +218,7 @@ window-rule {
 // floating windows (short)
 window-rule {
 	match title="File Upload|login|Rockstar Games Launcher"
-	match app-id="org.gnome.Nautilus|dolphin|org.gnome.Loupe|swayimg|[tT]hunar|org.gnome.Totem|org.gnome.tweaks|vlc"
+	match app-id="xdg-desktop-portal-gtk|org.gnome.Nautilus|dolphin|org.gnome.Loupe|swayimg|[tT]hunar|org.gnome.Totem|org.gnome.tweaks|vlc"
 	default-column-width  { proportion 0.5; }
 	default-window-height { proportion 0.5; }
 	open-floating true
@@ -222,9 +259,6 @@ window-rule {
 	match title="[wW]eather.com|[lL]ogin|Google Messages for web|GroupMe|Google Photos|Gmail"
 	block-out-from "screencast"
 }
-// no shadow
-window-rule {
-}
 
 binds {
 	Alt+Shift+Slash { show-hotkey-overlay; }
@@ -233,7 +267,8 @@ binds {
 	Alt+D { spawn "fuzzel"; }
 	Alt+F12 { spawn "pavucontrol" "-t" "1"; }
 	Ctrl+Super+L { spawn "swaylock"; }
-	Alt+Shift+n { spawn "swaync-client" "-t"; }
+	// Alt+Shift+n { spawn "swaync-client" "-t"; }
+	Alt+Shift+n { spawn "/home/sven/.config/mako/history.sh"; }
 	Super+e { spawn "thunar"; }
 	Ctrl+Alt+Delete { spawn "/home/sven/.config/niri/power.sh"; }
 	Super+p { spawn "/home/sven/.config/niri/screen.sh"; }
@@ -244,10 +279,17 @@ binds {
 	Super+2 { spawn "flatpak" "run" "com.discordapp.Discord"; }
 	Super+3 { spawn "flatpak" "run" "com.valvesoftware.Steam"; }
 
+	// Ctrl+Print {
+	// 	spawn "sh" "-c" r#"
+	// 	file=~/Videos/recordings/"$(date +%s)".mp4
+	// 	wf-recorder -c h264_nvenc -r 60 --bframes 0 -g "$(slurp -b '#00000090' -w 0)" -f "$file"
+	// 	wl-copy file:/"$file" -t text/uri-list
+	// 	"#;
+	// }
 	Ctrl+Print {
 		spawn "sh" "-c" r#"
 		file=~/Videos/recordings/"$(date +%s)".mp4
-		wf-recorder -c h264_nvenc -r 60 --bframes 0 -g "$(slurp -b '#00000090' -w 0)" -f "$file"
+		wf-recorder -r 60 --bframes 0 -g "$(slurp -b '#00000090' -w 0)" -f "$file"
 		wl-copy file:/"$file" -t text/uri-list
 		"#;
 	}

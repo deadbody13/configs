@@ -766,3 +766,4 @@ alias vim = nvim
 alias update = ^update
 use ~/.cache/starship/init.nu
 
+source $"($nu.home-path)/.cargo/env.nu"

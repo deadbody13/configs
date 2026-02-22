@@ -1,5 +1,5 @@
 @define-color fg		rgba(73, 82, 67, 1.0);
-@define-color bg		rgba(255, 255, 255, 0.7);
+@define-color bg		rgba(255, 255, 255, 0.3);
 @define-color border	rgba(181, 217, 156, 0.60);
 @define-color critical	rgba(189, 74, 74, 1.0);
 
