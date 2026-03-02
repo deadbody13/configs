@@ -25,8 +25,7 @@ compinit
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(starship init zsh)"
-
-export PATH=$PATH:/home/sven/.spicetify
+test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 # alias ll="eza -lhg"
 alias ll="g --table --table-style=unicode --long"
