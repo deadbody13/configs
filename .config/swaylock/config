@@ -1,1 +1,41 @@
-image=~/Pictures/Wallpapers/pokemon/celebi.png
+image=~/Pictures/Wallpapers/pokemon/celebi_nord.png
+
+font=SUSE
+font-size=24
+
+# Background — nord0
+color=2e3440ff
+
+# Indicator
+indicator-radius=110
+indicator-thickness=10
+
+# Inside circle — nord1
+inside-color=3b4252ff
+inside-clear-color=3b4252ff
+inside-ver-color=3b4252ff
+inside-wrong-color=3b4252ff
+
+# Ring colors
+ring-color=81a1c1ff        # nord9 idle
+ring-clear-color=88c0d0ff  # nord8 typing
+ring-ver-color=a3be8cff    # nord14 success
+ring-wrong-color=bf616aff  # nord11 error
+
+# Text colors
+text-color=d8dee9ff        # nord4
+text-clear-color=88c0d0ff
+text-ver-color=a3be8cff
+text-wrong-color=bf616aff
+
+# Indicator lines
+line-color=00000000
+line-clear-color=88c0d0ff
+line-ver-color=a3be8cff
+line-wrong-color=bf616aff
+
+# Separator
+separator-color=4c566aff   # nord3
+
+# Key highlight
+key-hl-color=81a1c1ff
