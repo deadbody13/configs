@@ -180,7 +180,7 @@
 	"network": {
 		// "interface": "wlp2*", // (Optional) To force the use of this interface
 		"align": 1,
-		"format-wifi": " {signalStrength}%",
+		"format-wifi": " {signalStrength:3}%",
 		// "format-ethernet": "",
 		"format-ethernet": "{ifname}",
 		"tooltip-format": "{essid} - {ifname} via {gwaddr} ",
