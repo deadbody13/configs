@@ -99,8 +99,8 @@ layout {
 	center-focused-column "never"
 	shadow {
 		on
-		softness 1
-		spread 3
+		softness 0
+		spread 6
 		// draw-behind-window true
 		offset x=2 y=2
 		color          "#4c566a"
@@ -133,7 +133,7 @@ layout {
 //
 // Startup applications
 //
-spawn-at-startup "swaybg" "-i" "/home/sven/Pictures/Wallpapers/Cherry_Blossoms/cherry-blossoms_1.png"
+spawn-at-startup "swaybg" "-i" "/home/sven/Pictures/Wallpapers/nord/electric-pkm-nord.png"
 spawn-at-startup "/home/sven/.config/waybar/launch.sh"
 // spawn-at-startup "swaync"
 spawn-at-startup "mako"
@@ -150,9 +150,9 @@ screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d_%H-%M-%S.png"
 //
 blur {
 	passes 3
-	offset 1.0
-	saturation 0
-	noise 0.1
+	offset 0.2
+	saturation 1
+	noise 0.2
 }
 window-rule {
 	background-effect {
@@ -187,7 +187,7 @@ layer-rule {
 //
 window-rule {
 	geometry-corner-radius 1
-	clip-to-geometry true 
+	// clip-to-geometry true
 }
 window-rule {
 	match title="Steam"
@@ -205,8 +205,8 @@ window-rule {
 	default-column-width { proportion 0.40; }
 }
 window-rule {
-	match title="foot" is-active=false
-	opacity 0.95
+	match title="foot"
+	// opacity 0.85
 }
 // floating windows (long)
 window-rule {
