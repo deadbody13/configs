@@ -37,7 +37,7 @@ nord_fg = '#d8dee9'
 
 [directory]
 format = "\\[$path\\]"
-style = "bg:nord_bg fg:aqua"
+style = "bg:none fg:aqua"
 truncation_length = 0
 truncate_to_repo = true
 # truncation_symbol = "…/"
@@ -55,30 +55,30 @@ symbol = " "
 [git_branch]
 # format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay) "
 format = "\\[[$branch]($style)"
-style = "bg:nord_bg fg:cyan"
+style = "bg:none fg:cyan"
 symbol = ""
 
 [git_status]
 disabled = false
-style = "bg:nord_bg fg:red"
-# format = '[](fg:nord_bg)([$all_status$ahead_behind]($style))[](fg:nord_bg) '
+style = "bg:none fg:red"
+# format = '[](fg:none)([$all_status$ahead_behind]($style))[](fg:none) '
 format = ' $all_status$ahead_behind\]'
-up_to_date = '[ ✓ ](bg:nord_bg fg:purple)'
-untracked = '[?\($count\)](bg:nord_bg fg:yellow)'
-stashed = '[\$](bg:nord_bg fg:purple)'
-modified = '[!\($count\)](bg:nord_bg fg:yellow)'
-renamed = '[»\($count\)](bg:nord_bg fg:purple)'
+up_to_date = '[ ✓ ](bg:none fg:purple)'
+untracked = '[?\($count\)](bg:none fg:yellow)'
+stashed = '[\$](bg:none fg:purple)'
+modified = '[!\($count\)](bg:none fg:yellow)'
+renamed = '[»\($count\)](bg:none fg:purple)'
 deleted = '[✘\($count\)](style)'
-staged = '[++\($count\)](bg:nord_bg fg:yellow)'
-ahead = '[⇡\(${count}\)](bg:nord_bg fg:cyan)'
-diverged = '⇕[\[](bg:nord_bg fg:purple)[⇡\(${ahead_count}\)](bg:nord_bg fg:cyan)[⇣\(${behind_count}\)](bg:nord_bg fg:pink)[\]](bg:nord_bg fg:purple)'
-behind = '[⇣\(${count}\)](bg:nord_bg fg:pink)'
+staged = '[++\($count\)](bg:none fg:yellow)'
+ahead = '[⇡\(${count}\)](bg:none fg:cyan)'
+diverged = '⇕[\[](bg:none fg:purple)[⇡\(${ahead_count}\)](bg:none fg:cyan)[⇣\(${behind_count}\)](bg:none fg:pink)[\]](bg:none fg:purple)'
+behind = '[⇣\(${count}\)](bg:none fg:pink)'
 
 [time]
 disabled = false
 # format = " [](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
 format = "  [ $time]($style)"
-style = "bg:nord_bg fg:yellow"
+style = "bg:none fg:yellow"
 time_format = "%H:%M"
 use_12hr = false
 
@@ -87,85 +87,85 @@ disabled = false
 # format = "[](fg:overlay)[ 󰧱 $user ]($style)[](fg:overlay) "
 format = "[$user ]($style)"
 show_always = true
-style_root = "bg_nord fg:purple"
-style_user = "bg:nord_bg fg:nord_fg"
+style_root = "none fg:purple"
+style_user = "bg:none fg:nord_fg"
 
 # Languages
 
 [c]
-style = "bg_nord fg:aqua"
+style = "none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [elixir]
-style = "bg_nord fg:aqua"
+style = "none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [elm]
-style = "bg_nord fg:aqua"
+style = "none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [golang]
-style = "bg_nord fg:aqua"
+style = "none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [haskell]
-style = "bg_nord fg:aqua"
+style = "none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [java]
-style = "bg_nord fg:aqua"
+style = "none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [julia]
-style = "bg_nord fg:aqua"
+style = "none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [nodejs]
-style = "bg_nord fg:aqua"
+style = "none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = "󰎙 "
 
 [nim]
-style = "bg_nord fg:aqua"
+style = "none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = "󰆥 "
 
 [rust]
-style = "bg_nord fg:aqua"
+style = "none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [scala]
-style = "bg_nord fg:aqua"
+style = "none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [python]
-style = "bg_nord fg:aqua"
+style = "none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = ' '
 
 [conda]
-style = "bg_nord fg:aqua"
+style = "none fg:aqua"
 format = " [](fg:overlay)[ $symbol$environment ]($style)[](fg:overlay)"
 disabled = false
 symbol = '🅒 '
