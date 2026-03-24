@@ -125,5 +125,22 @@
     "_id": "52d21922-e504-4865-b987-b42a23162c78",
     "_rev": 1772860381812,
     "id": 1
+  },
+  {
+    "enabled": true,
+    "installDate": 1774311323290,
+    "name": "groupme.com",
+    "sections": [
+      {
+        "code": ":root {\n  /* ===================== */\n  /* NORD BASE             */\n  /* ===================== */\n  --nord0: #2E3440;\n  --nord1: #3B4252;\n  --nord2: #434C5E;\n  --nord3: #4C566A;\n\n  --nord4: #D8DEE9;\n  --nord5: #E5E9F0;\n  --nord6: #ECEFF4;\n\n  --nord7: #8FBCBB; /* Frost */\n  --nord8: #88C0D0; /* Frost */\n  --nord9: #81A1C1; /* Frost */\n  --nord10: #5E81AC; /* Frost */\n\n  --nord11: #BF616A; /* Aurora red */\n  --nord12: #D08770; /* Aurora orange */\n  --nord13: #EBCB8B; /* Aurora yellow */\n  --nord14: #A3BE8C; /* Aurora green */\n  --nord15: #B48EAD; /* Aurora purple */\n\n  /* ===================== */\n  /* CORE PALETTE OVERRIDE */\n  /* ===================== */\n\n  /* Grays (keep structure, improve contrast slightly) */\n  --colors-gray-1000: var(--nord0);\n  --colors-gray-950: var(--nord0);\n  --colors-gray-900: var(--nord1);\n  --colors-gray-850: var(--nord1);\n  --colors-gray-800: var(--nord2);\n  --colors-gray-700: var(--nord3);\n  --colors-gray-600: #56627A; /* slightly lifted */\n  --colors-gray-400: var(--nord5);\n  --colors-gray-300: var(--nord6);\n  --colors-gray-150: var(--nord5);\n  --colors-gray-100: var(--nord6);\n  --colors-gray-5: var(--nord6);\n\n  /* Base */\n  --colors-white: var(--nord6);\n  --colors-black: var(--nord0);\n\n  /* Primary (more vibrant Frost) */\n  --colors-blue-500: var(--nord8);\n  --colors-blue-400: var(--nord7);\n\n  /* Accent (shift to more noticeable Frost) */\n  --colors-powder-800: var(--nord9);\n  --colors-powder-200: var(--nord6);\n\n  /* Destructive → stronger Aurora */\n  --colors-red-900: var(--nord11);\n  --colors-red-400: var(--nord12);\n\n  /* ===================== */\n  /* SEMANTIC TWEAKS       */\n  /* ===================== */\n\n  /* Messages (more pop contrast) */\n  --colors-your-message-bg: var(--nord9);\n  --colors-your-message-text: var(--nord6);\n  --colors-your-message-text-time: var(--nord4);\n\n  /* Replies / connectors */\n  --colors-reply-connector: var(--nord8);\n\n  /* Sidebar gets subtle Frost tint */\n  --colors-sidebar: #364055;\n  --colors-sidebar-primary: var(--nord8);\n  --colors-sidebar-accent: var(--nord2);\n\n  /* Inputs */\n  --colors-input: var(--nord1);\n  --colors-form-input-border-color: var(--nord3);\n\n  /* Borders */\n  --colors-border: var(--nord3);\n  --colors-border-secondary: var(--nord2);\n\n  /* Focus / ring (make it visible) */\n  --colors-ring: var(--nord8);\n\n  /* Scrollbars (slightly more visible) */\n  --colors-scrollbar-thumb: var(--nord3);\n  --colors-scrollbar-track: var(--nord1);\n\n  /* Tooltips */\n  --colors-tool-tip-bg: var(--nord3);\n  --colors-tool-tip-text: var(--nord6);\n\n  /* ===================== */\n  /* INTERACTION COLORS    */\n  /* ===================== */\n\n  /* Hover = Frost glow */\n  --colors-button-default-hover:\n    color-mix(in srgb, var(--nord8) 30%, transparent);\n\n  /* Pressed = darker Frost */\n  --colors-button-default-pressed-bg:\n    color-mix(in srgb, var(--nord9) 25%, transparent);\n\n  /* Links pop more */\n  --colors-button-link: var(--nord8);\n  --colors-button-link-hover: var(--nord7);\n\n  /* ===================== */\n  /* AURORA ACCENTS        */\n  /* ===================== */\n\n  /* Success / reactions */\n  --colors-success: var(--nord14);\n\n  /* Warnings */\n  --colors-warning: var(--nord13);\n\n  /* Errors */\n  --colors-destructive: var(--nord11);\n\n  /* Polls (these benefit a LOT from color) */\n  --colors-poll-bar-bg:\n    color-mix(in srgb, var(--nord8) 25%, transparent);\n\n  --colors-poll-btn-bg:\n    color-mix(in srgb, var(--nord7) 20%, transparent);\n\n  --colors-poll-btn-bg-hover:\n    color-mix(in srgb, var(--nord8) 50%, transparent);\n\n  /* ===================== */\n  /* GRADIENT REPLACEMENTS */\n  /* ===================== */\n\n  --gradients-blue-gradient:\n    linear-gradient(315deg, #5E81AC, #81A1C1, #88C0D0);\n\n  --gradients-event-btn-gradient:\n    linear-gradient(170deg, #D08770, #BF616A, #B48EAD);\n\n  --gradients-avatar-gradient:\n    linear-gradient(180deg, #434C5E, #2E3440);\n}\n\n\n* {\n    font-family: \"SUSE\";\n}",
+        "domains": [
+          "groupme.com"
+        ]
+      }
+    ],
+    "updateDate": 1774313412976,
+    "_id": "38e35b84-9b21-4e2e-b9f2-a0bfd6a42e05",
+    "_rev": 1774313412976,
+    "id": 2
   }
 ]
