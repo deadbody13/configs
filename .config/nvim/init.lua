@@ -2,7 +2,7 @@ require("set")
 require("remap")
 require("config.lazy")
 -- colorscheme
-vim.cmd([[colorscheme nord]]) -- modus_operandi, modus_vivendi
+vim.cmd([[colorscheme kanagawa]]) -- modus_operandi, modus_vivendi
 vim.o.encoding = "utf-8"
 vim.o.fileencodings = "utf-8,ucs-bom"
 
@@ -17,12 +17,13 @@ vim.opt.listchars:append {
 }
 vim.o.termguicolors = true
 vim.api.nvim_set_hl(0, "Whitespace", { fg = "#000000" })
-vim.api.nvim_set_hl(0, "NonText",    { fg = "#000000" })
 vim.api.nvim_set_hl(0, "SpecialKey", { fg = "#000000" })
--- vim.cmd([[highlight Whitespace guifg=#ffffff]])
--- vim.cmd([[highlight NonText    guifg=#ffffff]])
--- vim.cmd([[highlight SpecialKey guifg=#ffffff]])
 
+-- transparency
+-- vim.cmd[[highlight Normal guibg=none]]
+-- vim.cmd[[highlight NonText guibg=none]]
+-- vim.cmd[[highlight Normal ctermbg=none]]
+-- vim.cmd[[highlight NonText ctermbg=none]]
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
