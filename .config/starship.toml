@@ -22,9 +22,9 @@ $time\n\
 \\$ 
 """
 
-palette = "modus-operandi"
+palette = "nord"
 
-[palettes.modus-operandi]
+[palettes.nord]
 overlay = '#ffffff'
 red = '#a60000'
 yellow = '#6f5500'
@@ -49,7 +49,7 @@ Music = " "
 Pictures = " "
 
 [fill]
-style = "fg:overlay"
+style = "bg:none fg:overlay"
 symbol = " "
 
 [git_branch]
@@ -93,79 +93,79 @@ style_user = "bg:none fg:nord_fg"
 # Languages
 
 [c]
-style = "none fg:aqua"
+style = "bg:none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [elixir]
-style = "none fg:aqua"
+style = "bg:none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [elm]
-style = "none fg:aqua"
+style = "bg:none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [golang]
-style = "none fg:aqua"
+style = "bg:none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [haskell]
-style = "none fg:aqua"
+style = "bg:none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [java]
-style = "none fg:aqua"
+style = "bg:none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [julia]
-style = "none fg:aqua"
+style = "bg:none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [nodejs]
-style = "none fg:aqua"
+style = "bg:none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = "󰎙 "
 
 [nim]
-style = "none fg:aqua"
+style = "bg:none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = "󰆥 "
 
 [rust]
-style = "none fg:aqua"
+style = "bg:none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [scala]
-style = "none fg:aqua"
+style = "bg:none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = " "
 
 [python]
-style = "none fg:aqua"
+style = "bg:none fg:aqua"
 format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
 disabled = false
 symbol = ' '
 
 [conda]
-style = "none fg:aqua"
+style = "bg:none fg:aqua"
 format = " [](fg:overlay)[ $symbol$environment ]($style)[](fg:overlay)"
 disabled = false
 symbol = '🅒 '

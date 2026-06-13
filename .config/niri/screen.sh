@@ -28,10 +28,9 @@ case "$input" in
 	gaming)
 		flatpak kill com.valvesoftware.Steam
 		niri msg output $output_1  off
-		# niri msg output $output_2  off
 		niri msg output $output_tv on
+		niri msg action focus-monitor $output_tv
 		flatpak run com.valvesoftware.Steam -bigpicture
-		# niri msg output $output_2  on
 		niri msg output $output_1  on
 		niri msg output $output_tv off
 		;;

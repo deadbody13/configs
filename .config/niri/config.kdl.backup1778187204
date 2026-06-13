@@ -7,9 +7,7 @@ hotkey-overlay {
 }
 environment {
 	// DISPLAY ":0"
-	ELECTRON_OZONE_PLATFORM_HINT "wayland"
-	// XCURSOR_THEME "Phinger Cursors (light)"
-	// XCURSOR_SIZE "24"
+	// ELECTRON_OZONE_PLATFORM_HINT "wayland"
 }
 
 animations {
@@ -129,9 +127,14 @@ layout {
 //
 // Startup applications
 //
+// spawn-at-startup "swaybg" "-i" "/home/sven/Pictures/Wallpapers/nord/electric-pkm-nord.png"
+// spawn-at-startup "/home/sven/.config/waybar/launch.sh"
+// spawn-at-startup "swaync"
+// spawn-at-startup "mako"
 spawn-at-startup "udiskie" "-s"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "nm-applet"
+// spawn-at-startup "xwayland-satellite"
 spawn-at-startup "swayidle" "-w" "before-sleep" "'swaylock'"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d_%H-%M-%S.png"
@@ -230,7 +233,7 @@ window-rule {
 // floating windows (short)
 window-rule {
 	match title="File Upload|login|Rockstar Games Launcher"
-	match app-id="yazi-float|xdg-desktop-portal-gtk|org.gnome.Nautilus|dolphin|org.gnome.Loupe|swayimg|[tT]hunar|org.gnome.Totem|org.gnome.tweaks|vlc|nemo"
+	match app-id="xdg-desktop-portal-gtk|org.gnome.Nautilus|dolphin|org.gnome.Loupe|swayimg|[tT]hunar|org.gnome.Totem|org.gnome.tweaks|vlc"
 	default-column-width  { proportion 0.5; }
 	default-window-height { proportion 0.5; }
 	open-floating true
@@ -278,22 +281,19 @@ binds {
 	Alt+Shift+Slash { show-hotkey-overlay; }
 	Alt+Return { spawn "bash" "-c" "foot"; }
 	// Alt+D { spawn "rofi" "-show" "drun"; }
-	// Alt+D { spawn "fuzzel"; }
-	Alt+D { spawn "vicinae" "toggle"; }
+	Alt+D { spawn "fuzzel"; }
 	Alt+F12 { spawn "pavucontrol" "-t" "1"; }
 	Ctrl+Super+L { spawn "swaylock"; }
 	// Alt+Shift+n { spawn "swaync-client" "-t"; }
 	Alt+Shift+n { spawn "/home/sven/.config/mako/history.sh"; }
-	// Super+e { spawn "thunar"; }
-	// Super+e { spawn "foot" "--app-id" "yazi-float" "y"; }
-	Super+e { spawn "nemo"; }
+	Super+e { spawn "thunar"; }
 	Ctrl+Alt+Delete { spawn "/home/sven/.config/niri/power.sh"; }
 	Super+p { spawn "/home/sven/.config/niri/screen.sh"; }
 
 	// taskbar
 	// Super+1 { spawn "gtk-launch" "com.microsoft.Edge"; }
 	Super+1 { spawn "helium"; }
-	Super+2 { spawn "Discord"; }
+	Super+2 { spawn "flatpak" "run" "com.discordapp.Discord"; }
 	Super+3 { spawn "flatpak" "run" "com.valvesoftware.Steam"; }
 
 	// Ctrl+Print {
@@ -448,6 +448,3 @@ binds {
 	Alt+Shift+E { quit; }
 }
 
-
-include "dms/outputs.kdl"
-include "dms/binds.kdl"

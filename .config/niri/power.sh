@@ -1,9 +1,13 @@
 #!/bin/bash
 
-ICON_THEME=Breeze
-pkill fuzzel
-
-input=$(printf "suspend\0icon\x1fsystem-suspend\nshutdown\0icon\x1fsystem-shutdown\nreboot\0icon\x1fsystem-reboot" | fuzzel --dmenu --icon-theme=breeze --minimal-lines --y-margin=70 --hide-prompt --width=15)
+input=$(printf "suspend\0icon\x1fsystem-suspend\nshutdown\0icon\x1fsystem-shutdown\nreboot\0icon\x1fsystem-reboot" | fuzzel \
+--dmenu \
+--icon-theme=Newaita \
+--minimal-lines \
+--y-margin=75 \
+--hide-prompt \
+--width=15 \
+)
 
 case "$input" in
 	suspend)

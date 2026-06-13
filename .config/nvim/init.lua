@@ -16,8 +16,9 @@ vim.opt.listchars:append {
 	nbsp = space
 }
 vim.o.termguicolors = true
-vim.api.nvim_set_hl(0, "Whitespace", { fg = "#000000" })
-vim.api.nvim_set_hl(0, "SpecialKey", { fg = "#000000" })
+vim.opt.guifont = "SUSE Mono:h10"
+-- vim.api.nvim_set_hl(0, "Whitespace", { fg = "#000000" })
+-- vim.api.nvim_set_hl(0, "SpecialKey", { fg = "#000000" })
 
 -- transparency
 -- vim.cmd[[highlight Normal guibg=none]]
@@ -31,8 +32,17 @@ vim.keymap.set("n", "<space>fb", ":Telescope file_browser<CR>")
 
 require("mason").setup()
 
+
 if vim.g.neovide then
 	require("neovide")
+	vim.cmd([[colorscheme kanagawa-wave]]) -- modus_operandi, modus_vivendi
+	require('kanagawa').setup({
+		theme = "wave",
+		background = {
+			dark = "wave",
+			light = "lotus"
+		},
+	})
 end
 
 local fb_actions = require "telescope".extensions.file_browser.actions
@@ -80,7 +90,7 @@ require('barbar').setup({
 	},
 })
 
-require('colorizer').setup()
+-- require('colorizer').setup()
 
 require("modus-themes").setup({
 	-- Theme comes in two styles `modus_operandi` and `modus_vivendi`
