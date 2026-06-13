@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=org.freedesktop.impl.portal.FileChooser
+# Exec=/usr/bin/Thunar --gapplication-service
+Exec=/usr/bin/nemo --gapplication-service
