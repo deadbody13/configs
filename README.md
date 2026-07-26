@@ -3,4 +3,4 @@ My config files for my Fedora Linux system. I do my best to credit everyone that
 
 ## Current
 Currently, my setup uses as much [Nord](https://www.nordtheme.com/) as possible. Only important stuff happens here...
-![Nord Rice](images/showcase_1.0.png)
+![Nord Rice](images/rice_20260726.png)
