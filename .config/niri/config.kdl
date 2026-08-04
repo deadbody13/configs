@@ -207,7 +207,7 @@ window-rule {
 // floating windows (long)
 window-rule {
 	match title="Steam Settings|Friends List|Winetricks|REDlauncher|Library|Bluejay"
-	match app-id="udiskie|blueman-manager|Jitsi|pavucontrol|neovide|org.gnome.Papers"
+	match app-id="udiskie|blueman-manager|Jitsi|pavucontrol|neovide|org.gnome.Papers|org.prismlauncher.PrismLauncher"
 	open-floating true
 	default-column-width { proportion 0.4; }
 	default-window-height { proportion 0.8; }
