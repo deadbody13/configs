@@ -35,6 +35,8 @@ vim.opt.smartcase = true
 vim.opt.swapfile = false
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
+vim.o.encoding = "utf-8"
+vim.o.fileencodings = "utf-8,ucs-bom"
 local space = "·"
 vim.opt.listchars:append {
 	tab = "| ",
