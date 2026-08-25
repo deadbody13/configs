@@ -6,11 +6,12 @@ hotkey-overlay {
 	skip-at-startup
 }
 environment {
-	// DISPLAY ":0"
 	ELECTRON_OZONE_PLATFORM_HINT "wayland"
-	// XCURSOR_THEME "Phinger Cursors (light)"
-	// XCURSOR_SIZE "24"
+	QT_QPA_PLATFORM "wayland"
+	QT_QPA_PLATFORMTHEME "qt6ct"
 }
+
+screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d_%H-%M-%S.png"
 
 animations {
 	horizontal-view-movement {
@@ -52,7 +53,11 @@ input {
 		natural-scroll
 	}
 }
-// top
+
+/////////////
+// SCREENS //
+/////////////
+//// top
 output "DP-4" {
 	// off
 	mode "2560x1440@119.998"
@@ -60,21 +65,21 @@ output "DP-4" {
 	transform "normal"
 	position x=0 y=0
 }
-// bottom
+//// bottom
 output "DP-3" {
 	mode "2560x1440@119.998"
 	scale 1.0
 	transform "normal"
 	position x=0 y=1440
 }
-// laptop
+//// laptop
 output "eDP-1" {
 	mode "1920x1080@59.996"
 	scale 1.0
 	transform "normal"
 	position x=0 y=0
 }
-// tv
+//// tv
 output "HDMI-A-5" {
 	off
 	mode "3840x2160@60.000"
@@ -83,7 +88,9 @@ output "HDMI-A-5" {
 	position x=-3840 y=1440
 }
 
-
+////////////////
+// APPEARANCE //
+////////////////
 layout {
 	background-color "transparent"
 	tab-indicator {
@@ -92,19 +99,16 @@ layout {
 		gaps-between-tabs 15
 		length total-proportion=0.10
 		place-within-column
-
 		active-color   "#eceff4"
 		inactive-color "#4c566a"
 		urgent-color   "#bf616a"
 	}
 	gaps 20
-	// never, always, on-overflow
 	center-focused-column "never"
 	shadow {
 		on
 		softness 0
 		spread 4
-		// draw-behind-window true
 		offset x=6 y=6
 		color          "#444444"
 		inactive-color "#444444"
@@ -117,7 +121,7 @@ layout {
 	focus-ring {
 		width 2
 		inactive-color "#000000"
-		active-color   "#434759"
+		active-color   "#0077cc"
 	}
 	border {
 		off
@@ -131,20 +135,11 @@ layout {
 		left    -10
 	}
 }
-
-//
-// Startup applications
-//
-spawn-at-startup "udiskie" "-s"
-spawn-at-startup "blueman-applet"
-spawn-at-startup "nm-applet"
-spawn-at-startup "swayidle" "-w" "before-sleep" "'swaylock'"
-
-screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d_%H-%M-%S.png"
-
-//
-// blur
-//
+window-rule {
+	geometry-corner-radius 1
+	clip-to-geometry true
+}
+//// Blur
 blur {
 	passes 3
 	offset 0.8
@@ -172,11 +167,16 @@ window-rule {
 		// xray false
 	}
 }
-window-rule {
-	match app-id="com.mitchellh.ghostty"
-	match title="foot"
-	// opacity 0.80
-}
+
+//////////////////////////
+// STARTUP APPLICATIONS //
+//////////////////////////
+spawn-at-startup "udiskie" "-s"
+spawn-at-startup "blueman-applet"
+spawn-at-startup "nm-applet"
+spawn-at-startup "swayidle" "-w" "before-sleep" "'swaylock'"
+
+
 window-rule {
 	match app-id=r#"org.quickshell$"#
 	match app-id=r#"com.danklinux.dms$"#
@@ -192,13 +192,21 @@ layer-rule {
 //
 // Window Rules
 //
-window-rule {
-	geometry-corner-radius 1
-	clip-to-geometry true
-}
+// main steam window
 window-rule {
 	match title="Steam"
-	default-column-width { proportion 1.0; }
+	default-column-width { proportion 0.6; }
+}
+// steam game properties window
+window-rule {
+	match app-id="steam"
+	exclude title="Steam"
+	default-column-width { proportion 0.4; }
+}
+// steam games fullscreen
+window-rule {
+	match title="steam_app_976730"
+	open-fullscreen true
 }
 // browsers
 window-rule {
@@ -208,23 +216,30 @@ window-rule {
 }
 window-rule {
 	match title="foot|Spotify*"
-	match app-id="com.mitchellh.ghostty|udiskie|neovide"
+	match app-id="com.mitchellh.ghostty|udiskie|neovide|foot"
 	default-column-width { proportion 0.40; }
 }
-// floating windows (long)
+
+//////////////////////
+// FLOATING WINDOWS //
+//////////////////////
+//// long
 window-rule {
-	match title="Steam Settings|Friends List|Winetricks|REDlauncher|Library|Bluejay"
-	match app-id="udiskie|blueman-manager|Jitsi|pavucontrol|neovide|org.gnome.Papers|org.prismlauncher.PrismLauncher"
+	match title="Steam Settings|Friends List|Winetricks|REDlauncher|Library"
+	match app-id="udiskie|blueman-manager|Jitsi|pavucontrol|neovide|org.gnome.Papers|org.prismlauncher.PrismLauncher|foot"
 	open-floating true
 	default-column-width { proportion 0.4; }
 	default-window-height { proportion 0.8; }
 }
+//// short
 window-rule {
-	match app-id="scrcpy"
+	match title="File Upload|login|Rockstar Games Launcher|Minecraft: NeoForge Loading..."
+	match app-id="xdg-desktop-portal-gtk|org.gnome.Nautilus|dolphin|org.gnome.Loupe|swayimg|[tT]hunar|org.gnome.Totem|org.gnome.tweaks|vlc|nemo|pcmanfm-qt"
+	default-column-width  { proportion 0.5; }
+	default-window-height { proportion 0.5; }
 	open-floating true
-	default-column-width { proportion 0.2; }
-	default-window-height { proportion 0.4; }
 }
+//// utilities
 window-rule {
 	match app-id=r#"^org\.gnome\.Calculator$"#
 	match app-id=r#"^gnome-calculator$"#
@@ -234,21 +249,32 @@ window-rule {
 	match app-id=r#"^xdg-desktop-portal$"#
 	open-floating true
 }
-// floating windows (short)
+//// Ark
+////// Main window
 window-rule {
-	match title="File Upload|login|Rockstar Games Launcher|Minecraft: NeoForge Loading..."
-	match app-id="yazi-float|xdg-desktop-portal-gtk|org.gnome.Nautilus|dolphin|org.gnome.Loupe|swayimg|[tT]hunar|org.gnome.Totem|org.gnome.tweaks|vlc|nemo"
-	default-column-width  { proportion 0.5; }
-	default-window-height { proportion 0.5; }
+	match app-id="org.kde.ark"
+	exclude title="Extracting Files*Ark"
 	open-floating true
+	default-column-width { proportion 0.3; }
+	default-window-height { proportion 0.6; }
 }
-// Mod Manager
+////// Progress window
+window-rule {
+	match title="Extracting Files" app-id="org.kde.ark"
+	open-focused false
+	open-floating true
+	default-column-width { proportion 0.3; }
+	default-window-height { proportion 0.2; }
+	default-floating-position x=0 y=32 relative-to="top-right"
+}
+//// Mod Manager
 window-rule {
 	match title="Quick Install|Mod Exists|steam_app_489830"
 	default-column-width  { proportion 0.5; }
 	default-window-height { proportion 0.5; }
 	open-floating true
 }
+//// Sign-in windows
 window-rule {
 	match title="cta|CTA|sso|SSO|[gG]oogle|sign_in|continue|Authview|figma|account|user|content|Sign in|Google|Connecting|about:blank|account|blank|Clicked"
 	match app-id="Jitsi"
@@ -256,60 +282,47 @@ window-rule {
 	default-window-height { proportion 0.2; }
 	open-floating true
 }
-// assign to top monitor
+//// Steam pop-up windows
+window-rule {
+	match app-id="steam"
+	default-floating-position x=25 y=25 relative-to="bottom-right"
+}
+
+/////////////////////////
+// MONITOR ASSIGNMENTS //
+/////////////////////////
+//// top monitor
 window-rule {
 	match app-id="discord"
 	open-on-output "DP-4"
 	default-column-width { proportion 1.0; }
 }
-// assign to bottom monitor
+//// bottom monitor
 window-rule {
 	match title="Steam"
 	open-on-output "DP-3"
-	default-column-width { proportion 1.0; }
-	// need this off for tv
-	// open-on-output "DP-3"
 }
-window-rule {
-	match app-id="steam"
-	// open-on-output "DP-3"
-	default-floating-position x=25 y=25 relative-to="bottom-right"
-}
-// block from stream
+//// block from stream
 window-rule {
 	match title="[wW]eather.com|[lL]ogin|Google Messages for web|GroupMe|Google Photos|Gmail"
 	block-out-from "screencast"
 }
 
+/////////////////
+// KEYBINDINGS //
+/////////////////
 binds {
 	Super+Return { spawn "bash" "-c" "ghostty"; }
-	// Alt+D { spawn "rofi" "-show" "drun"; }
-	// Alt+D { spawn "fuzzel"; }
 	Super+D { spawn "vicinae" "toggle"; }
 	Super+F12 { spawn "pavucontrol" "-t" "1"; }
-	// Ctrl+Super+L { spawn "swaylock"; }
-	// Alt+Shift+n { spawn "swaync-client" "-t"; }
-	// Alt+Shift+n { spawn "/home/sven/.config/mako/history.sh"; }
-	// Super+e { spawn "thunar"; }
-	// Super+e { spawn "foot" "--app-id" "yazi-float" "y"; }
-	Super+e { spawn "nemo"; }
-	// Ctrl+Alt+Delete { spawn "/home/sven/.config/niri/power.sh"; }
+	Super+e { spawn "pcmanfm-qt"; }
 	Ctrl+Alt+Delete { spawn "vicinae" "vicinae://launch/power"; }
 	Ctrl+Super+Shift+P { spawn "/home/sven/.config/niri/screen.sh"; }
 
-	// taskbar
-	// Super+1 { spawn "gtk-launch" "com.microsoft.Edge"; }
 	Super+1 { spawn "helium"; }
 	Super+2 { spawn "discord"; }
 	Super+3 { spawn "flatpak" "run" "com.valvesoftware.Steam"; }
 
-	// Ctrl+Print {
-	// 	spawn "sh" "-c" r#"
-	// 	file=~/Videos/recordings/"$(date +%s)".mp4
-	// 	wf-recorder -c h264_nvenc -r 60 --bframes 0 -g "$(slurp -b '#00000090' -w 0)" -f "$file"
-	// 	wl-copy file:/"$file" -t text/uri-list
-	// 	"#;
-	// }
 	Ctrl+Print {
 		spawn "sh" "-c" r#"
 		file=~/Videos/recordings/"$(date +%s)".mp4
@@ -317,24 +330,15 @@ binds {
 		wl-copy file:/"$file" -t text/uri-list
 		"#;
 	}
-
 	Ctrl+Escape { spawn "killall" "-s" "SIGINT" "wf-recorder"; }
 
-	//
-	// Audio
-	//
 	XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01+"; }
 	XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01-"; }
 	XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute"   "@DEFAULT_AUDIO_SINK@" "toggle"; }
 	XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute"   "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
-	//
-	// Window management
-	//
 	Super+Shift+Q { close-window; }
-
 	Super+Tab { toggle-overview; }
-
 	Super+H { focus-column-left; }
 	Super+J { focus-window-or-monitor-down; }
 	Super+K { focus-window-or-monitor-up; }
@@ -343,121 +347,39 @@ binds {
 	Super+WheelScrollDown { focus-window-or-monitor-down; }
 	Super+WheelScrollLeft { focus-column-left; }
 	Super+WheelScrollRight { focus-column-right; }
-
 	Super+Shift+n { move-window-to-monitor-next; }
 	Super+Shift+p { move-window-to-monitor-previous; }
 	Super+Shift+H { move-column-left-or-to-monitor-left; }
 	Super+Shift+J { move-window-down; }
 	Super+Shift+K { move-window-up; }
 	Super+Shift+L { move-column-right-or-to-monitor-right; }
-
-	// Alt+Home { focus-column-first; }
-	// Alt+End  { focus-column-last; }
-	// Alt+Ctrl+Home { move-column-to-first; }
-	// Alt+Ctrl+End  { move-column-to-last; }
-
-	// Super+Shift+H { focus-monitor-left; }
-	// Super+Shift+J { focus-monitor-down; }
-	// Super+Shift+K { focus-monitor-up; }
-	// Super+Shift+L { focus-monitor-right; }
 	Super+n { focus-monitor-next; }
 	Super+p { focus-monitor-previous; }
-
-	// Ctrl+Super+Shift+H { move-column-to-monitor-left; }
-	// Ctrl+Super+Shift+J { move-column-to-monitor-down; }
-	// Ctrl+Super+Shift+K { move-column-to-monitor-up; }
-	// Ctrl+Super+Shift+L { move-column-to-monitor-right; }
-
-	// Alt+Ctrl+j { focus-workspace-down; }
-	// Alt+Ctrl+k { focus-workspace-up; }
-	// Super+WheelScrollDown { focus-workspace-down; }
-	// Super+WheelScrollUp { focus-workspace-up; }
 	Super+Page_Down{ focus-workspace-down; }
 	Super+Page_Up { focus-workspace-up; }
-	// Alt+Shift+Ctrl+j { move-column-to-workspace-down; }
-	// Alt+Shift+Ctrl+k { move-column-to-workspace-up; }
-	// Alt+Shift+WheelScrollDown { move-column-to-workspace-down; }
-	// Alt+Shift+WheelScrollUp   { move-column-to-workspace-up; }
-
 	Super+Shift+Page_Down { move-workspace-down; }
 	Super+Shift+Page_Up   { move-workspace-up; }
-	// Alt+Shift+U         { move-workspace-down; }
-	// Alt+Shift+I         { move-workspace-up; }
-
-	// Alt+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-	// Alt+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-	// Alt+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-	// Alt+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
-
-	// Alt+WheelScrollRight      { focus-column-right; }
-	// Alt+WheelScrollLeft       { focus-column-left; }
-	// Alt+WheelScrollDown			{ focus-column-right; }
-	// Alt+WheelScrollUp			{ focus-column-left; }
-	// Alt+Shift+WheelScrollDown	{ move-column-right; }
-	// Alt+Shift+WheelScrollUp  	{ move-column-left; }
-
-	// Alt+1 { focus-workspace 1; }
-	// Alt+2 { focus-workspace 2; }
-	// Alt+3 { focus-workspace 3; }
-	// Alt+4 { focus-workspace 4; }
-	// Alt+5 { focus-workspace 5; }
-	// Alt+6 { focus-workspace 6; }
-	// Alt+7 { focus-workspace 7; }
-	// Alt+8 { focus-workspace 8; }
-	// Alt+9 { focus-workspace 9; }
-	// Alt+Shift+1 { move-column-to-workspace 1; }
-	// Alt+Shift+2 { move-column-to-workspace 2; }
-	// Alt+Shift+3 { move-column-to-workspace 3; }
-	// Alt+Shift+4 { move-column-to-workspace 4; }
-	// Alt+Shift+5 { move-column-to-workspace 5; }
-	// Alt+Shift+6 { move-column-to-workspace 6; }
-	// Alt+Shift+7 { move-column-to-workspace 7; }
-	// Alt+Shift+8 { move-column-to-workspace 8; }
-	// Alt+Shift+9 { move-column-to-workspace 9; }
-
-	//
-	// Consuming, Expelling
-	//
 	Alt+C { center-column; }
-	// Ctrl+Comma { consume-or-expel-window-left; }
-	// Ctrl+Period { consume-or-expel-window-right; }
-	// Alt+Comma  { consume-window-into-column; }
-	// Alt+Period { expel-window-from-column; }
 	Alt+BracketLeft  { consume-or-expel-window-left; }
 	Alt+BracketRight { consume-or-expel-window-right; }
-
-	//
-	// Tabs
-	//
-	// Alt+W { toggle-column-tabbed-display; }
-
-	//
-	// Resizing
-	//
 	Super+F { maximize-column; }
-	// Alt+Shift+F { reset-window-height; }
 	F11 { fullscreen-window; }
 	Shift+F11 { toggle-windowed-fullscreen; }
 	Super+Minus { set-column-width "-20%"; }
 	Super+Equal { set-column-width "+20%"; }
 	Super+R { switch-preset-column-width; }
-	// Alt+Shift+R { reset-window-height; }
 	Super+Space { switch-focus-between-floating-and-tiling; }
 	Super+Shift+Space { toggle-window-floating; }
+	Super+Shift+E { quit; }
 
-	//
 	// Screenshotting
-	//
 	Print { screenshot; }
 	Shift+Print { screenshot-screen; }
 	Super+Print { screenshot-window; }
-
-	// The quit action will show a confirmation dialog to avoid accidental exits.
-	Super+Shift+E { quit; }
 }
 
 
 include "dms/outputs.kdl"
-include "dms/binds.kdl"
+// include "dms/binds.kdl"
 
-include "dms/cursor.kdl"
+// include "dms/cursor.kdl"
