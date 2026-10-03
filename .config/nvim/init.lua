@@ -119,6 +119,10 @@ vim.lsp.config('lua_ls', {
 	}
 })
 
+-- ====== BARBAR ======
+vim.keymap.set('n', '<A-,>', '<Cmd>BufferPrevious<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<A-.>', '<Cmd>BufferNext<CR>', {noremap = true, silent = true})
+
 -- ====== CMP ======
 local cmp = require'cmp'
 

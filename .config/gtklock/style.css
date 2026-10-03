@@ -1,0 +1,13 @@
+window {
+	background-image: url("/home/sven/Pictures/Wallpapers/pokemon/pikachu_2_edge-Edge_Light.png");
+	color: black;
+}
+
+* {
+	color: black;
+}
+
+button {
+	background-color: rgba(0, 0, 0, 0);
+	border: 1px solid black;
+}

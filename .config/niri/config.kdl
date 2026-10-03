@@ -8,7 +8,7 @@ hotkey-overlay {
 environment {
 	ELECTRON_OZONE_PLATFORM_HINT "wayland"
 	QT_QPA_PLATFORM "wayland"
-	QT_QPA_PLATFORMTHEME "qt6ct"
+	// QT_QPA_PLATFORMTHEME "kde"
 }
 
 screenshot-path "~/Pictures/Screenshots/Screenshot_from_%Y-%m-%d_%H-%M-%S.png"
@@ -119,7 +119,7 @@ layout {
 	}
 	default-column-width { proportion 0.6; }
 	focus-ring {
-		width 2
+		width 4
 		inactive-color "#000000"
 		active-color   "#0077cc"
 	}
@@ -141,10 +141,10 @@ window-rule {
 }
 //// Blur
 blur {
-	passes 3
-	offset 0.8
-	saturation 2.0
-	noise 0.0
+	passes 2
+	offset 1.5
+	saturation 1.0
+	noise 0.05
 }
 window-rule {
 	background-effect {
@@ -174,7 +174,9 @@ window-rule {
 spawn-at-startup "udiskie" "-s"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "nm-applet"
-spawn-at-startup "swayidle" "-w" "before-sleep" "'swaylock'"
+// spawn-at-startup "swayidle" "-w" "before-sleep" "'gtklock'"
+spawn-at-startup "dolphin" "--daemon"
+spawn-at-startup "noctalia"
 
 
 window-rule {
@@ -183,9 +185,10 @@ window-rule {
 	open-floating true
 }
 layer-rule {
-	match namespace="^launcher$"
+	match namespace="^launcher$|^noctalia-panel$"
 	background-effect {
 		blur true
+		xray false
 	}
 }
 
@@ -223,18 +226,48 @@ window-rule {
 //////////////////////
 // FLOATING WINDOWS //
 //////////////////////
-//// long
+//// general (long)
 window-rule {
-	match title="Steam Settings|Friends List|Winetricks|REDlauncher|Library"
-	match app-id="udiskie|blueman-manager|Jitsi|pavucontrol|neovide|org.gnome.Papers|org.prismlauncher.PrismLauncher|foot"
+	match title="Steam Settings"
+	match title="Friends List"
+	match title="Winetricks"
+	match title="REDlauncher"
+	match title="Library"
+	match title="ProtonUp-Qt"
+	match title="Install Compatibility Tool"
+	match app-id="udiskie"
+	match app-id="blueman-manager"
+	match app-id="Jitsi"
+	match app-id="pavucontrol"
+	match app-id="neovide"
+	match app-id="org.gnome.Papers"
+	match app-id="org.prismlauncher.PrismLauncher"
+	match app-id="foot"
+
 	open-floating true
 	default-column-width { proportion 0.4; }
 	default-window-height { proportion 0.8; }
 }
-//// short
+//// general (short)
 window-rule {
-	match title="File Upload|login|Rockstar Games Launcher|Minecraft: NeoForge Loading..."
-	match app-id="xdg-desktop-portal-gtk|org.gnome.Nautilus|dolphin|org.gnome.Loupe|swayimg|[tT]hunar|org.gnome.Totem|org.gnome.tweaks|vlc|nemo|pcmanfm-qt"
+	match title="File Upload"
+	match title="login"
+	match title="Rockstar Games Launcher"
+	match title="Minecraft: NeoForge Loading..."
+	match app-id="xdg-desktop-portal-gtk"
+	match app-id="org.gnome.Nautilus"
+	match app-id="dolphin"
+	match app-id="kdesystemsettings" title="Download New"
+	match app-id="org.kde.ksecretd"
+	match app-id="org.gnome.Loupe"
+	match app-id="swayimg"
+	match app-id="[tT]hunar"
+	match app-id="org.gnome.Totem"
+	match app-id="org.gnome.tweaks"
+	match app-id="vlc"
+	match app-id="nemo"
+	match app-id="pcmanfm-qt"
+
 	default-column-width  { proportion 0.5; }
 	default-window-height { proportion 0.5; }
 	open-floating true
@@ -252,7 +285,7 @@ window-rule {
 //// Ark
 ////// Main window
 window-rule {
-	match app-id="org.kde.ark"
+	match app-id="org.kde.ark|org.gnome.FileRoller"
 	exclude title="Extracting Files*Ark"
 	open-floating true
 	default-column-width { proportion 0.3; }
@@ -313,10 +346,11 @@ window-rule {
 /////////////////
 binds {
 	Super+Return { spawn "bash" "-c" "ghostty"; }
-	Super+D { spawn "vicinae" "toggle"; }
+	// Super+D { spawn "vicinae" "toggle"; }
+	Super+D { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
 	Super+F12 { spawn "pavucontrol" "-t" "1"; }
-	Super+e { spawn "pcmanfm-qt"; }
-	Ctrl+Alt+Delete { spawn "vicinae" "vicinae://launch/power"; }
+	Super+e { spawn "dolphin"; }
+	Ctrl+Alt+Delete { spawn "noctalia" "msg" "panel-toggle" "session"; }
 	Ctrl+Super+Shift+P { spawn "/home/sven/.config/niri/screen.sh"; }
 
 	Super+1 { spawn "helium"; }
@@ -379,7 +413,7 @@ binds {
 }
 
 
-include "dms/outputs.kdl"
+// include "dms/outputs.kdl"
 // include "dms/binds.kdl"
 
 // include "dms/cursor.kdl"

@@ -1,0 +1,8 @@
+[Unit]
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/swaybg -i "/home/sven/Pictures/Wallpapers/polyScape/wallhaven-nm58kk_2560x1440.png"
+Restart=on-failure
