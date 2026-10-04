@@ -107,11 +107,11 @@ layout {
 	center-focused-column "never"
 	shadow {
 		on
-		softness 0
+		softness 4
 		spread 4
 		offset x=6 y=6
-		color          "#444444"
-		inactive-color "#444444"
+		color          "#9d9b99"
+		inactive-color "#d0cecc"
 	}
 	preset-column-widths {
 		proportion 0.4
@@ -119,15 +119,15 @@ layout {
 	}
 	default-column-width { proportion 0.6; }
 	focus-ring {
-		width 4
-		inactive-color "#000000"
-		active-color   "#0077cc"
+		width 3
+		active-color   "#005e8a"
+		// inactive-color "#005e8a"
 	}
 	border {
-		off
+		// off
 		width 1
-		active-color   "#000000"
-		inactive-color "#000000"
+		active-color   "#6f6e6c"
+		inactive-color "#b8b6b3"
 	}
 	struts {
 		top     0
@@ -393,9 +393,9 @@ binds {
 	Super+Page_Up { focus-workspace-up; }
 	Super+Shift+Page_Down { move-workspace-down; }
 	Super+Shift+Page_Up   { move-workspace-up; }
-	Alt+C { center-column; }
-	Alt+BracketLeft  { consume-or-expel-window-left; }
-	Alt+BracketRight { consume-or-expel-window-right; }
+	Super+C { center-column; }
+	Super+BracketLeft  { consume-or-expel-window-left; }
+	Super+BracketRight { consume-or-expel-window-right; }
 	Super+F { maximize-column; }
 	F11 { fullscreen-window; }
 	Shift+F11 { toggle-windowed-fullscreen; }
