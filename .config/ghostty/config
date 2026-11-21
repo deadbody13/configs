@@ -21,6 +21,8 @@ scrollback-limit = 3023
 mouse-hide-while-typing = true
 copy-on-select = false
 confirm-close-surface = false
+working-directory = home
+window-inherit-working-directory = false
 
 # Disable annoying copied to clipboard
 app-notifications = no-clipboard-copy,no-config-reload
@@ -49,5 +51,7 @@ keybind = shift+enter=text:\n
 # Rando stuff
 gtk-single-instance = true
 
-# Dank color generation
+# colors
 theme = modus-operandi
+# custom-shader = ~/.config/ghostty/shaders/cubes.glsl
+custom-shader = ~/.config/ghostty/shaders/bloom.glsl
